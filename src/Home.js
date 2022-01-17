@@ -4,6 +4,7 @@ import * as React from "react";
 // import Paper from "@mui/material/Paper";
 // import Grid from "@mui/material/Grid";
 // import Container from "@mui/material/Container";
+import Footer from './Footer'
 import car from "../src/images/download.png";
 import MenuItem from "@mui/material/MenuItem";
 // import FormHelperText from "@mui/material/FormHelperText";
@@ -17,7 +18,7 @@ import "./style/banner.scss";
 import StarIcon from '@mui/icons-material/Star';
 import Slider from "react-slick";
 import Mobile from "../src/images/mobile.png";
-import Logofooter from '../src/images/logofooter.png'
+
 import engine from "../src/images/Frame 895.png";
 import car1 from "../src/images/Frame 896.png";
 import car2 from "../src/images/Frame 897.png";
@@ -33,16 +34,8 @@ import RightArrow from '../src/images/Arrow - Right.png'
 import DblMobile from '../src/images/dbl-mob.png'
 import appstore from '../src/images/appstore.png'
 import googleplay from '../src/images/googleplay.png'
-import facebook from '../src/images/facebook.png'
-import twiter from '../src/images/twitter.png'
-import instagram from '../src/images/instagram.png'
-import linkedin from '../src/images/linkedin.png'
-import footer1 from '../src/images/footer1.png'
-import footer2 from '../src/images/footer2.png'
-import footer3 from '../src/images/footer3.png'
-import footerbtn from '../src/images/footerbtn.png'
-import footerapps from '../src/images/footerapps.png'
-import footergoogle from '../src/images/footergoogle.png'
+
+
 // const Item = styled(Paper)(({ theme }) => ({
 //   ...theme.typography.body2,
 //   padding: theme.spacing(1),
@@ -623,103 +616,11 @@ const Home = () => {
       </div>
 
 
+<div>
+  <Footer />
+</div>
 
-
-         {/* sayara work */}
-         <div style={{backgroundColor:'#151C28',paddingBottom:'50px' }}>
-        <div className="footer" style={{paddingTop:'114px',paddingBottom:'25px'}}>
-          <div
-            className="offering-info"
-            style={{ width: "22%", height: "100%", margin: "0 auto", }}
-          >
-           <div style={{width:'200px',height:'auto'}}>
-             <img src={Logofooter} style={{width:'100%',height:'auto'}} alt=''/>
-             {/* <p className='offer-p'>We take pride in giving personalized services and ensure that when you leave, you get the best experience possible.</p> */}
-            
-           </div>
-          
-           <div style={{display:'flex',marginTop:'25px'}}>
-           <div style={{width:'10%',height:'auto'}}>
-           <img src={facebook} style={{width:'100%',height:'auto'}} alt=''/></div>
-           <div style={{width:'10%',marginLeft:'10px',height:'auto'}}>
-           <img src={twiter} style={{width:'100%',height:'auto'}} alt=''/></div>
-           <div style={{width:'10%',marginLeft:'10px',height:'auto'}}>
-           <img src={instagram} style={{width:'100%',height:'auto'}} alt=''/></div>
-           <div style={{width:'10%',marginLeft:'10px',height:'auto'}}>
-           <img src={linkedin} style={{width:'100%',height:'auto'}} alt='' /></div>
-           </div>
-           <div>
-           </div>
-          </div>
-          <div
-            className="offering-info"
-            style={{ width: "15%", height: "100%", margin: "0 auto", }}
-          >
-           <div>
-           <div> <Link className='offer-heading' style={{fontSize:'14px',lineHeight:'41px',fontWeight:'normal',color:'#D3D7DF',fontFamily:'poppins'}}>About</Link></div>
-           <div> <Link className='offer-heading' style={{fontSize:'14px',lineHeight:'41px',fontWeight:'normal',color:'#D3D7DF',fontFamily:'poppins'}}>Our offerings</Link></div>
-           <div> <Link className='offer-heading' style={{fontSize:'14px',lineHeight:'41px',fontWeight:'normal',color:'#D3D7DF',fontFamily:'poppins'}}>Contact us</Link></div>
-            
-           </div>
-           <div>
-           </div>
-          </div>
-          <div
-            className="offering-info"
-            style={{ width: "15%", height: "100%", margin: "0 auto", }}
-          >
-          <div>
-           <div> <Link className='offer-heading' style={{fontSize:'14px',lineHeight:'41px',fontWeight:'normal',color:'#D3D7DF',fontFamily:'poppins'}}>Blog</Link></div>
-           <div> <Link className='offer-heading' style={{fontSize:'14px',lineHeight:'41px',fontWeight:'normal',color:'#D3D7DF',fontFamily:'poppins'}}>How it works</Link></div>
-           <div> <Link className='offer-heading' style={{fontSize:'14px',lineHeight:'41px',fontWeight:'normal',color:'#D3D7DF',fontFamily:'poppins'}}>Terms & Conditions</Link></div>
-            
-           </div>
-          </div>
-          <div
-            className="offering-info"
-            style={{ width: "15%", height: "100%", margin: "0 auto", }}
-          >
-          <div>
-           <div> <Link className='offer-heading' style={{fontSize:'14px',lineHeight:'41px',fontWeight:'normal',color:'#D3D7DF',fontFamily:'poppins'}}>Become Partner</Link></div>
-           <div> <Link className='offer-heading' style={{fontSize:'14px',lineHeight:'41px',fontWeight:'normal',color:'#D3D7DF',fontFamily:'poppins'}}>Customer Log in</Link></div> 
-           </div>
-          </div>
-          <div
-            className="offering-info"
-            style={{ width: "10%", height: "100%", margin: "0 auto", }}
-          >
-          <div>
-           <div> <Link className='offer-heading'><img src={footergoogle} style={{width:'100%',height:'auto'}} alt=''/></Link></div>
-           <div> <Link className='offer-heading'><img src={footerapps} style={{width:'100%',height:'auto'}} alt=''/></Link></div>
-            
-           </div>
-          </div>
-          <div
-            className="offering-info"
-            style={{ width: "10%", height: "100%", margin: "0 auto", }}
-          >
-          <div style={{width:'60px',margin:'2rem'}}>
-           <div> <Link className='offer-heading'><img src={footerbtn} style={{width:'100%',height:'auto'}} alt=''/></Link></div>
-            
-           </div>
-          </div>
         
-        </div>
-        
-        <div style={{display:'flex',paddingTop:'23px',justifyContent:'space-between',width:'1200px',margin:'0 auto',borderTop: '1px solid rgba(211, 215, 223, 0.16)'}}>
-        <div style={{display:'flex',width:'35%'}}>
-<div style={{width:'70px',height:'auto'}}><img src={footer1} style={{width:'100%',height:'auto'}} alt=''/></div>
-<div style={{width:'70px',height:'auto',marginLeft:'10px'}}><img src={footer2} style={{width:'100%',height:'auto'}} alt=''/></div>
-<div style={{width:'70px',height:'auto',marginLeft:'10px'}}><img src={footer3} style={{width:'100%',height:'auto'}} alt=''/></div>
-        </div>
-         <div style={{width:'25%'}}>
-       
-<div><p style={{fontSize:'12px',color:' rgba(211, 215, 223, 0.64);'}}>Sayaraa Group FZC © 2020 All Rights Reserved</p></div>
-        
-        </div>
-     
-         </div>
-      </div>
 
     </div>
     
