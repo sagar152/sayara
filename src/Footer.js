@@ -42,9 +42,9 @@ const Footer =()=>{
             className="footer-content"
           >
            <div>
-           <div> <Link className='footer-links' >About</Link></div>
-           <div> <Link className='footer-links' >Our offerings</Link></div>
-           <div> <Link className='footer-links' >Contact us</Link></div>
+           <div> <Link className='footer-links' to='/' >About</Link></div>
+           <div> <Link className='footer-links' to='/' >Our offerings</Link></div>
+           <div> <Link className='footer-links' to='/' >Contact us</Link></div>
             
            </div>
            <div>
@@ -54,9 +54,9 @@ const Footer =()=>{
             className="footer-content-flex1"
           >
           <div>
-           <div> <Link className='footer-links'>Blog</Link></div>
-           <div> <Link className='footer-links' >How it works</Link></div>
-           <div> <Link className='footer-links' >Terms & Conditions</Link></div>
+           <div> <Link className='footer-links' to='/'>Blog</Link></div>
+           <div> <Link className='footer-links' to='/' >How it works</Link></div>
+           <div> <Link className='footer-links' to='/' >Terms & Conditions</Link></div>
             
            </div>
           </div>
@@ -64,16 +64,16 @@ const Footer =()=>{
             className="footer-content-flex1"
           >
           <div>
-           <div> <Link className='footer-links' >Become Partner</Link></div>
-           <div> <Link className='footer-links' >Customer Log in</Link></div> 
+           <div> <Link className='footer-links' to='/'>Become Partner</Link></div>
+           <div> <Link className='footer-links' to='/'>Customer Log in</Link></div> 
            </div>
           </div>
           <div
             className="footer-contents-flex2"
           >
           <div>
-           <div> <Link className='offer-heading'><img src={footergoogle} style={{width:'100%',height:'auto'}} alt=''/></Link></div>
-           <div> <Link className='offer-heading'><img src={footerapps} style={{width:'100%',height:'auto'}} alt=''/></Link></div>
+           <div> <Link className='offer-heading' to='/'><img src={footergoogle} style={{width:'100%',height:'auto'}} alt=''/></Link></div>
+           <div> <Link className='offer-heading' to='/'><img src={footerapps} style={{width:'100%',height:'auto'}} alt=''/></Link></div>
             
            </div>
           </div>
@@ -81,7 +81,7 @@ const Footer =()=>{
             className="footer-contents-flex2"
           >
           <div style={{width:'60px',margin:'2rem'}}>
-           <div> <Link className='offer-heading'><img src={footerbtn} style={{width:'100%',height:'auto'}} alt=''/></Link></div>
+           <div> <Link className='offer-heading' to='/'><img src={footerbtn} style={{width:'100%',height:'auto'}} alt=''/></Link></div>
             
            </div>
           </div>
@@ -96,7 +96,7 @@ const Footer =()=>{
         </div>
          <div className='footer-copy-flex'>
        
-<div><p classdName='footer-copy'>Sayaraa Group FZC © 2020 All Rights Reserved</p></div>
+<div><p className='footer-copy'>Sayaraa Group FZC © 2020 All Rights Reserved</p></div>
         
         </div>
      

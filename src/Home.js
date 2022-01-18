@@ -165,8 +165,8 @@ const Home = () => {
   };
   const backcard = () =>
   backbone.map((num) => (
-    <div class="cards-list">
-      <div class="card2">
+    <div className="cards-list">
+      <div className="card2">
         <div style={{width:'100%',height:'100%'}}>
           <img src={num.image} style={{width:'100%',height:'100%'}} alt=''/>
         </div>
@@ -175,12 +175,12 @@ const Home = () => {
   ));
   const renderSlides = () =>
     cardArray.map((num) => (
-      <div class="cards-list">
-        <div class="card 1">
+      <div className="cards-list">
+        <div className="card 1">
           <div className="card_heading heading-white">
             <p>{num.title}</p>
           </div>
-          <div class="card_title title-white">
+          <div className="card_title title-white">
             <p>
               Get an{" "}
               <span style={{ fontWeight: "bold" }}>instant discount</span>{" "}
@@ -302,7 +302,7 @@ const Home = () => {
                 </p>
               </div>
               <div className="content-head-right">
-                <NavLink className='about-link'>Read More <img src={RightArrow} className='about-link-icon' alt=''/></NavLink>
+                <NavLink className='about-link' to='/'>Read More <img src={RightArrow} className='about-link-icon' alt=''/></NavLink>
               </div>
               <div className="about-images">
                 <img src={engine} alt=''/>
@@ -365,64 +365,64 @@ const Home = () => {
        <div className='sayara-work-background'>
         <div className="sayara-works-div">
           <div className="sayara-works-flex-content">
-            <div class="rt-containe">
-    	<div class="col-rt-12">
-        	<div class="rt-heading">
+            <div className="rt-containe">
+    	<div className="col-rt-12">
+        	<div className="rt-heading">
             	<h1 className='sayara-work-headings'>How sayaraa works</h1>
             </div>
         </div>
     </div>
          <section>
-    <div class="rt-containe">
-          <div class="col-rt-12">
-              <div class="Scriptcontent">
+    <div className="rt-containe">
+          <div className="col-rt-12">
+              <div className="Scriptcontent">
               
        {/* <!-- Stepper HTML --> */}
-<div class="step">
+<div className="step">
   <div>
-    <div class="circle">1</div>
+    <div className="circle">1</div>
   </div>
   <div>
-    <div class="title">Choose the Service You Want</div>
-    <div class="caption">Choose from a variety of customised services with best offerse to meet your specific needs</div>
-  </div>
-</div>
-<div class="step step-active">
-  <div>
-    <div class="circle">2</div>
-  </div>
-  <div>
-    <div class="title">Schedule an Appointment</div>
-      <div class="caption">Continue with your details and book your service after you've selected the service.</div>
+    <div className="title">Choose the Service You Want</div>
+    <div className="caption">Choose from a variety of customised services with best offerse to meet your specific needs</div>
   </div>
 </div>
-<div class="step">
+<div className="step step-active">
   <div>
-    <div class="circle">3</div>
+    <div className="circle">2</div>
   </div>
   <div>
-    <div class="title">Select a Method of Payment</div>
-      <div class="caption">Continue with payment after you've chosen a service. Payment options include both online and offline options</div>
+    <div className="title">Schedule an Appointment</div>
+      <div className="caption">Continue with your details and book your service after you've selected the service.</div>
+  </div>
+</div>
+<div className="step">
+  <div>
+    <div className="circle">3</div>
+  </div>
+  <div>
+    <div className="title">Select a Method of Payment</div>
+      <div className="caption">Continue with payment after you've chosen a service. Payment options include both online and offline options</div>
   </div>
 </div>
                   
-<div class="step">
+<div className="step">
   <div>
-    <div class="circle">4</div>
+    <div className="circle">4</div>
   </div>
   <div>
-    <div class="title">Booking Confirmation</div>
-    <div class="caption">Once the vendor has approved your service request, your booking will be confirmed.</div>
+    <div className="title">Booking Confirmation</div>
+    <div className="caption">Once the vendor has approved your service request, your booking will be confirmed.</div>
   </div>
 </div>
 
-<div class="step">
+<div className="step">
   <div>
-    <div class="circle">5</div>
+    <div className="circle">5</div>
   </div>
   <div>
-    <div class="title">Sit Back & Relax</div>
-    <div class="caption">Now all you need to do is relax while we take care of all your needs.</div>
+    <div className="title">Sit Back & Relax</div>
+    <div className="caption">Now all you need to do is relax while we take care of all your needs.</div>
   </div>
 </div>
 {/* <!-- End Stepper HTML --> */}
@@ -621,12 +621,4 @@ const Home = () => {
   );
 };
 export default Home;
-// export default function () {
-//   return (
-//     <div className="Home">
-//     <div className="masthead">
-//       <h1>React Responsive Nav - V2</h1>
-//     </div>
-//   </div>
-//   );
-// }
+
