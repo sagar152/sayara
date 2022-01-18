@@ -1,12 +1,4 @@
 import * as React from "react";
-<<<<<<< HEAD
-=======
-// import { styled } from "@mui/material/styles";
-// import Box from "@mui/material/Box";
-// import Paper from "@mui/material/Paper";
-// import Grid from "@mui/material/Grid";
-// import Container from "@mui/material/Container";
->>>>>>> d20de60c663a727a89916227acd1eab6d4913879
 import Footer from './Footer'
 import car from "../src/images/download.png";
 import MenuItem from "@mui/material/MenuItem";
