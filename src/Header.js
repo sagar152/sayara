@@ -23,22 +23,22 @@ console.log('dsfjlsf',HeaderRoutes.anonymous[0].name)
       <nav>
         <i className="fa fa-bars" aria-hidden="true" onClick={toggle} />
         <ul className={`collapsed ${toggleState ? "is-expanded" : ""}`} >
-          {HeaderRoutes.anonymous.map((route) => {
+          {HeaderRoutes.anonymous.map((route,i) => {
             // debugger
             return (
              
 
-                <li key=''>
-              <NavLink active className="active" onClick={toggle} to={route.link}>
+                <li key={i}>
+              <a  className="active" onClick={toggle} href={route.link}>
                {route.name}
-                </NavLink></li>
+                </a></li>
               
             );
           })}
           
           <li >  <NavLink className="Login-btn"  activeClassName="active" onClick={toggle} to='/' >
          
-          Log in &nbsp; <Avatar style={{ width:'30px',height:'30px'}}><img src={Fram7} /></Avatar>
+          Log in &nbsp; <Avatar style={{ width:'30px',height:'30px'}}><img src={Fram7} alt=''/></Avatar>
                  
                 </NavLink> </li>
           {/* <NavLink activeClassName="active" to="/about" onClick={toggle}>

@@ -9,9 +9,9 @@ import "./style/index.scss";
 import Header from './Header'
 
 // Pages
-import Home from "./Home";
-import About from "./About";
-import Contact from "./Contact";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
 
 // import './App.css';
 
@@ -20,7 +20,7 @@ function App() {
     <div className="App">
       <Header />
       <div className="">
-        <Route exact={true} path="/" component={Home} />
+        <Route exact path="/" component={Home} />
         <Route exaxt path="/about" component={About} />
         <Route exact path="/contact" component={Contact} />
       </div>

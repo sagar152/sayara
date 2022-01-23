@@ -1,6 +1,6 @@
 import * as React from "react";
-import Footer from './Footer'
-import car from "../src/images/download.png";
+import Footer from '../Footer'
+import car from "../../src/images/download.png";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import { NavLink } from "react-router-dom";
@@ -8,26 +8,25 @@ import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./style/banner.scss";
+import "../style/banner.scss";
 import StarIcon from '@mui/icons-material/Star';
 import Slider from "react-slick";
-import Mobile from "../src/images/mobile.png";
-
-import engine from "../src/images/Frame 895.png";
-import car1 from "../src/images/Frame 896.png";
-import car2 from "../src/images/Frame 897.png";
-import car3 from "../src/images/Frame 898.png";
-import workmobile from '../src/images/Group 1007.png'
-import image1 from '../src/images/image 1.png'
-import image2 from '../src/images/image2.png'
-import image3 from '../src/images/image3.png'
-import image4 from '../src/images/imag34.png'
-import btnIcon from '../src/images/btn-icon.png'
+import Mobile from "../../src/images/mobile.png";
+import engine from "../../src/images/Frame 895.png";
+import car1 from "../../src/images/Frame 896.png";
+import car2 from "../../src/images/Frame 897.png";
+import car3 from "../../src/images/Frame 898.png";
+import workmobile from '../../src/images/Group 1007.png'
+import image1 from '../../src/images/image 1.png'
+import image2 from '../../src/images/image2.png'
+import image3 from '../../src/images/image3.png'
+import image4 from '../../src/images/imag34.png'
+import btnIcon from '../../src/images/btn-icon.png'
 // import { margin, width } from "@mui/system";
-import RightArrow from '../src/images/Arrow - Right.png'
-import DblMobile from '../src/images/dbl-mob.png'
-import appstore from '../src/images/appstore.png'
-import googleplay from '../src/images/googleplay.png'
+import RightArrow from '../../src/images/Arrow - Right.png'
+import DblMobile from '../../src/images/dbl-mob.png'
+import appstore from '../../src/images/appstore.png'
+import googleplay from '../../src/images/googleplay.png'
 
 
 // const Item = styled(Paper)(({ theme }) => ({
@@ -39,7 +38,7 @@ import googleplay from '../src/images/googleplay.png'
 function Arrow(props) {
   let className = props.type === "next" ? "nextArrow" : "prevArrow";
   className += " arrow";
-  const char = props.type === "next" ? <img src={btnIcon} style={{width:'50px' , height:'50px'}} alt=''/> : "👈";
+  const char = props.type === "next" ? <img src={btnIcon} style={{width:'50px' , height:'50px'}} alt=''/> : <img src={btnIcon} style={{width:'50px' , height:'50px'}} alt=''/>;
   return (
     <>
     <div>
@@ -164,8 +163,8 @@ const Home = () => {
     slidesToScroll: 1,
   };
   const backcard = () =>
-  backbone.map((num) => (
-    <div className="cards-list">
+  backbone.map((num,i) => (
+    <div className="cards-list" key={i}>
       <div className="card2">
         <div style={{width:'100%',height:'100%'}}>
           <img src={num.image} style={{width:'100%',height:'100%'}} alt=''/>
@@ -174,8 +173,8 @@ const Home = () => {
     </div>
   ));
   const renderSlides = () =>
-    cardArray.map((num) => (
-      <div className="cards-list">
+    cardArray.map((num,i) => (
+      <div className="cards-list" key={i}>
         <div className="card 1">
           <div className="card_heading heading-white">
             <p>{num.title}</p>
@@ -282,7 +281,7 @@ const Home = () => {
           {renderSlides()}
         </Slider>
       </div>
-      <div className='about-background'>
+      <div className='about-background' id='/about'>
         <div className="about">
           <div className="about-img-flex">
             <div className="about-img-div">
@@ -324,11 +323,11 @@ const Home = () => {
        
 
       {/* sayara work */}
-      <div className='sayara-work-background' >
+      <div className='sayara-work-background' id='/ouroffering'>
         <div className="offering">
           <div className="offering-info-flex">
            <div>
-             <h1 className='sayara-offer-heading'>How sayaraa works</h1>
+             <h1 className='sayara-offer-heading'>Our Offerings</h1>
              <p className='sayara-offer-p'>We take pride in giving personalized services and ensure that when you leave, you get the best experience possible.</p>
            </div>
            <div className='sayara-btngroup'>
@@ -362,7 +361,7 @@ const Home = () => {
       </div>
 
        {/* sayara works */}
-       <div className='sayara-work-background'>
+       <div className='sayara-work-background' id='/work'>
         <div className="sayara-works-div">
           <div className="sayara-works-flex-content">
             <div className="rt-containe">

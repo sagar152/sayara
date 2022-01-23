@@ -1,13 +1,13 @@
 const HeaderRoutes = {
     anonymous: [
-      { name: "Home", link: "/" },
+      { name: "about", link: "#/about" },
       {
         name: "Our offerings",
-        link: "/about",
+        link: "#/ouroffering",
       },
       {
         name: "How it Works",
-        link: "/contact",
+        link: "#/work",
   
       },
       {
