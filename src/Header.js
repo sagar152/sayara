@@ -29,16 +29,16 @@ console.log('dsfjlsf',HeaderRoutes.anonymous[0].name)
              
 
                 <li key={i}>
-              <a  className="active" onClick={toggle} href={route.link}>
+              <NavLink active="true" className="active" onClick={toggle} to={route.link}>
                {route.name}
-                </a></li>
+                </NavLink></li>
               
             );
           })}
           
           <li >  <NavLink className="Login-btn"  activeClassName="active" onClick={toggle} to='/' >
          
-          Log in &nbsp; <Avatar style={{ width:'30px',height:'30px'}}><img src={Fram7} alt=''/></Avatar>
+          Log in &nbsp; <Avatar style={{ width:'30px',height:'30px'}}><img src={Fram7} /></Avatar>
                  
                 </NavLink> </li>
           {/* <NavLink activeClassName="active" to="/about" onClick={toggle}>

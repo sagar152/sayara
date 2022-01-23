@@ -10,8 +10,8 @@ import Header from './Header'
 
 // Pages
 import Home from "./Pages/Home";
+import Ourofferings from "./Pages/Ourofferings";
 import About from "./Pages/About";
-import Contact from "./Pages/Contact";
 
 // import './App.css';
 
@@ -21,8 +21,8 @@ function App() {
       <Header />
       <div className="">
         <Route exact path="/" component={Home} />
-        <Route exaxt path="/about" component={About} />
-        <Route exact path="/contact" component={Contact} />
+        <Route exaxt path="/offering" component={Ourofferings} />
+        <Route exact path="/about" component={About} />
       </div>
     </div>
   );
