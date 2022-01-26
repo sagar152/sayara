@@ -1,23 +1,25 @@
 import React from 'react';
-import { styled } from '@mui/material/styles';
+// import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
+// import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Star from '../images/star.png'
 import '../style/secondhead.scss'
 import HeadApps from '../images/head-app.png'
 import HeadGoogle from '../images/head-google.png'
-import InputLabel from '@mui/material/InputLabel';
+// import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
+// import FormHelperText from '@mui/material/FormHelperText';
+import Searchbar from './Searchbar'
 import FormControl from '@mui/material/FormControl';
+import Offeringtabs from '../Components/Tabs'
 import Select from '@mui/material/Select';
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+// const Item = styled(Paper)(({ theme }) => ({
+//   ...theme.typography.body2,
+//   padding: theme.spacing(1),
+//   textAlign: 'center',
+//   color: theme.palette.text.secondary,
+// }));
 const SecondHead = ()=>{
   const [age, setAge] = React.useState('');
 
@@ -36,8 +38,8 @@ const SecondHead = ()=>{
                 <img src={Star}  alt='star' className='head-img'/>
                 
               </div>
-              <div className='secondhead-content'>
-              <h5 className='secondhead-content-h1'>Download The Sayaraa app & book your service now!</h5>
+              <div className='offeringhead-content'>
+              <h5 className='offeringsecondhead-content-h1'>Download The Sayaraa app & book your service now!</h5>
               </div>
           </div>
           </Grid>
@@ -60,7 +62,7 @@ const SecondHead = ()=>{
       </Grid>
     </Box>
    <div className='main-container'>
-   <Grid container>
+   <Grid container justifyContent='space-between'>
        
        <Grid item  xs={12} md={3} xl={3} >
          <div>
@@ -70,7 +72,7 @@ const SecondHead = ()=>{
        
        <Grid item xs={12} >
          <div>
-      <FormControl sx={{ m: 4, minWidth: 230 }} className='select1' >
+      <FormControl sx={{ m: 4, minWidth: 230 }} className='selects1' >
         <Select
           value={age}
           onChange={handleChange}
@@ -89,7 +91,7 @@ const SecondHead = ()=>{
       </Grid>
       <Grid item xs={12} >
          <div>
-      <FormControl sx={{ minWidth: 230 }} className='select2' >
+      <FormControl sx={{ minWidth: 230 }} className='selects2' >
         <Select
           value={age}
           onChange={handleChange}
@@ -109,9 +111,26 @@ const SecondHead = ()=>{
    
     </Grid>
        </Grid>
-       {/* <Grid item xs={9}>
-         <Item>xs=8</Item>
-       </Grid> */}
+       <Grid item mt={5} xs={12} md={9} xl={9}>
+       <Grid container spacing={2}>
+        <Grid item xs={12} md={8} xl={8}>
+          <div>
+          <h1 className="explore-heading">Explore Our Offerings</h1>
+          </div>
+        </Grid>
+        <Grid item xs={12} md={4} xl={4}>
+          <div className='search-container'>
+          <Searchbar />
+          </div>
+        </Grid>
+        <Grid item xs={12}>
+         <Offeringtabs />
+        </Grid>
+        {/* <Grid item xs={8}>
+          <Item>xs=8</Item>
+        </Grid> */}
+      </Grid>
+       </Grid>
       
      </Grid>
    </div>

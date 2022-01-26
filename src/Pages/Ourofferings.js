@@ -3,7 +3,8 @@ import React from "react";
 import Box from '@mui/material/Box';
 // import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import SecondHead from "../Components/SecondHead"
+import SecondHead from "../Components/SecondHead";
+import Footer from "../Footer";
 // const Item = styled(Paper)(({ theme }) => ({
 //   ...theme.typography.body2,
 //   padding: theme.spacing(1),
@@ -17,6 +18,9 @@ export default function Ourofferings() {
       <Grid container spacing={2}>
         <Grid item xs={12}>
       <SecondHead />
+        </Grid>
+        <Grid item xs={12}>
+          <Footer />
         </Grid>
         {/* <Grid item xs={4}>
           <Item>xs=4</Item>

@@ -23,11 +23,11 @@
     width:100%;
     height:auto
 }
-.secondhead-content{
+.offeringhead-content{
     padding:6px;
      margin-left: 12px;
 }
-.secondhead-content-h1{
+.offeringsecondhead-content-h1{
     font-size:16px;
 }
 .head-social{
@@ -67,11 +67,42 @@
     font-style:'poppins';
 }
 
-.select1{
-    margin:0 ;
-    margin-top:20px;
+.selects1{
+    margin:0 !important;
+    margin-top:20px !important;
 }
-.select2{
-    margin:0;
-    margin-top:20px;
+.selects2{
+    margin:0 !important;
+    margin-top:20px !important;
+}
+.explore-heading{
+    font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 120%;
+/* identical to box height, or 29px */
+
+letter-spacing: 0.01em;
+
+color: #151C28;
+}
+
+@media screen and (max-width:600px){
+    .left-heading{
+    text-align: center;
+    }
+    .selects1{
+        margin-left: 13% !important;
+    }
+    .selects2{
+        margin-left: 13% !important;
+    }
+    .explore-heading{
+        text-align: center;
+    }
+    .search-container{
+        width: 93%;
+        margin: 0 auto;
+    }
 }
