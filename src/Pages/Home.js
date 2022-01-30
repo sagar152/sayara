@@ -210,7 +210,7 @@ const Home = () => {
     <div style={{ maxWidth: "100%" }}>
       <div className="main">
         <div className="flexdiv">
-          <div className="container banner-container">
+          <div className="container-home banner-container">
             <div className="banner-left-container">
               <h1>Explore The Best Car Services in Abu Dhabi</h1>
               <p>
