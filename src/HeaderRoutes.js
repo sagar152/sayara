@@ -12,7 +12,7 @@ const HeaderRoutes = {
       },
       {
         name: "Blog",
-        link: "/student/ask-a-question",
+        link: "/blog",
       },
       {
         name: "Contact us",
