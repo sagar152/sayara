@@ -1,23 +1,19 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
+import { makeStyles } from "@material-ui/core/styles";
 import Autocomplete from '@mui/material/Autocomplete';
-import SearchIcon from '@mui/icons-material/Search';
-import { styled, alpha } from '@mui/material/styles';
 import '../style/Search.scss'
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }));
-  
+  const useStyle = makeStyles({
+    search:{
+    "& .css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root":{
+      borderRadius:' 34px;'
+    }
+   } })
 const  Searchbar = ()=> {
+  const classes = useStyle();
   return (
-    <Stack spacing={2} sx={{ width: 300 }}>
+    <Stack spacing={2} sx={{ width: 300 }} className={classes.search}>
       {/* <Autocomplete
         id="free-solo-demo"
         freeSolo

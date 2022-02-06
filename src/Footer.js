@@ -11,7 +11,7 @@ import twiter from '../src/images/twitter.png'
 import instagram from '../src/images/instagram.png'
 import linkedin from '../src/images/linkedin.png'
 import Logofooter from '../src/images/logofooter.png'
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Footer =()=>{
     return (
         <>
@@ -42,9 +42,9 @@ const Footer =()=>{
             className="footer-content"
           >
            <div>
-           <div> <Link className='footer-links' to='/' >About</Link></div>
-           <div> <Link className='footer-links' to='/' >Our offerings</Link></div>
-           <div> <Link className='footer-links' to='/' >Contact us</Link></div>
+           <div> <Link className='footer-links' to='/about' >About</Link></div>
+           <div> <Link className='footer-links' to='/offering' >Our offerings</Link></div>
+           <div> <Link className='footer-links' to='/contactus' >Contact us</Link></div>
             
            </div>
            <div>
@@ -54,9 +54,9 @@ const Footer =()=>{
             className="footer-content-flex1"
           >
           <div>
-           <div> <Link className='footer-links' to='/'>Blog</Link></div>
+           <div> <Link className='footer-links' to='/blog'>Blog</Link></div>
            <div> <Link className='footer-links' to='/' >How it works</Link></div>
-           <div> <Link className='footer-links' to='/' >Terms & Conditions</Link></div>
+           <div> <Link className='footer-links' to='/privacyandterms' >Terms & Conditions</Link></div>
             
            </div>
           </div>
@@ -64,8 +64,8 @@ const Footer =()=>{
             className="footer-content-flex1"
           >
           <div>
-           <div> <Link className='footer-links' to='/'>Become Partner</Link></div>
-           <div> <Link className='footer-links' to='/'>Customer Log in</Link></div> 
+           <div> <Link className='footer-links' to='/partnerhome'>Become Partner</Link></div>
+           <div> <Link className='footer-links' to='/login'>Customer Log in</Link></div> 
            </div>
           </div>
           <div

@@ -50,6 +50,7 @@ justify-content: center;
 
   &.${tabUnstyledClasses.selected} {
     background-color: #FB7E15;
+    color:'white
     
   }
 

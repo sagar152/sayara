@@ -56,6 +56,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import '../style/tabs.scss'
+import { makeStyles } from "@material-ui/core/styles";
 // import { styled } from '@mui/material/styles';
 // import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
@@ -70,9 +71,19 @@ import products from '../images/products.png';
 //   textAlign: 'center',
 //   color: theme.palette.text.secondary,
 // }));
+
+const useStyle = makeStyles({
+  tabs:{
+  "& .css-h0q0iv-MuiButtonBase-root-MuiTab-root.Mui-selected":{
+    color: '#151C28'
+  },
+  "& .css-1aquho2-MuiTabs-indicator":{
+    backgroundColor:'#151C28'
+  }
+ } })
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
+const classes = useStyle();
   return (
     <div
       role="tabpanel"
@@ -80,6 +91,7 @@ function TabPanel(props) {
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}
+      className={classes.tabs}
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
@@ -118,18 +130,18 @@ export default function BasicTabs() {
                   variant="scrollable"
                   scrollButtons
         >
-          <Tab label="Car wash" icon={ <img src={cartabs} className='tabimg tabs' alt=''/>} className='tabs-border' {...a11yProps(0)} />
-          <Tab label="Car services/products" icon={ <img src={products} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(1)} />
-          <Tab label="Car wash" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(2)} />
-          <Tab label="Car wash" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(3)} />
-          <Tab label="Car wash" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(4)} />
-          <Tab label="Car wash" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(5)} />
-          <Tab label="Car wash" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(6)} />
-          <Tab label="Car wash" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(7)} />
-          <Tab label="Car wash" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(8)} />
-          <Tab label="Car wash" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(9)} />
-          <Tab label="Car wash" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(10)} />
-          <Tab label="Car wash" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(11)} />
+          <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg tabs' alt=''/>} className='tabs-border' {...a11yProps(0)} />
+          <Tab label="Car services/products" iconPosition="start" icon={ <img src={products} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(1)} />
+          <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(2)} />
+          <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(3)} />
+          <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(4)} />
+          <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(5)} />
+          <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(6)} />
+          <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(7)} />
+          <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(8)} />
+          <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(9)} />
+          <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(10)} />
+          <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(11)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>

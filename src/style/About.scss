@@ -197,15 +197,15 @@ background: #F9F9FB;
     margin: 4rem auto;
 }
 .ourmission{
-    font-family: Poppins;
+    font-family: '"Poppins"';
 font-style: normal;
 font-weight: bold;
-font-size: 40px;
-line-height: 120%;
+font-size: 35px;
+line-height: 120px;
 color: #151C28;
 }
 .ourmission-par{
-    font-family: Poppins;
+    font-family: "Poppins";
 font-style: normal;
 font-weight: normal;
 font-size: 18px;
@@ -218,7 +218,7 @@ color: #585562;
     padding: 12px 50px;
 }
 .mission-img{
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
 }
 .main-para{
@@ -240,13 +240,35 @@ color: #585562;
     margin-top:20px;
 }
 .downloadapp{
-    background-color:#151C28 !important;
-     width: 177px !important;
-     font-size:14px !important;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+  
+    text-align: center;
+    
+    color: #FFFFFF;
 }
 .stack{
-   width: 177px !important;
+    width: 235px;
+    height: 61px;
+    padding: 20px 40px;
+    
+    background: #151C28;
+    border-radius: 8px;
 }
+.our-backbone-para-about {
+    color: #585562;
+    font-size: 18px;
+    font-family: "Poppins";
+    font-weight: 500;
+    line-height: 27px;
+    margin-top: 15px;
+    padding-right: 21%;
+}
+
+
 @media screen and(max-width:600px){
     .mainheading-div{
         margin: 0 auto;

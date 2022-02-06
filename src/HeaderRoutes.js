@@ -16,11 +16,29 @@ const HeaderRoutes = {
       },
       {
         name: "Contact us",
-        link: "/auth/login",
+        link: "/contactus",
       },
     ],
     
   };
   
-  export default HeaderRoutes;
+
+  const PartnerHome = {
+    homepartner: [
+      { name: "How it works", link: "/about" },
+      {
+        name: "Requirments",
+        link: "/offering",
+      },
+      {
+        name: "Contactus",
+        link: "/contact",
   
+      },
+    ],
+    
+  };
+
+
+  export default HeaderRoutes;
+  export {PartnerHome}

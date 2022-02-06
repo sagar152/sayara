@@ -1,73 +1,86 @@
-import React, { createRef,useState } from "react";
+// import React, { createRef,useState } from "react";
+import React, {useState,useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import HeaderRoutes from './HeaderRoutes';
 import "./style/landing/header.scss";
 import Avatar from '@mui/material/Avatar';
 import Fram7 from '../src/images/Frame 7.png'
 import Logo from './Logo'
-import OtpInput from "react-otp-input";
+import { UserContext } from "./App";
+// import OtpInput from "react-otp-input";
 // import ReactDOM from 'react-dom';
 // import Modal from 'react-modal';
 // import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-// import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import '../src/style/Login.scss'
-import leftimag from '../src/images/SIde image.png';
-import loginlogo from '../src/images/loginlogo.png'
-import PhoneInput from "react-phone-number-input";
-// import MuiField from "./MuiField";
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import { useFormik } from 'formik';
-import "react-phone-number-input/style.css";
+// import Box from '@mui/material/Box';
+// // import Paper from '@mui/material/Paper';
+// import Grid from '@mui/material/Grid';
+// import '../src/style/Login.scss'
+// import leftimag from '../src/images/SIde image.png';
+// import loginlogo from '../src/images/loginlogo.png'
+// import PhoneInput from "react-phone-number-input";
+// // import MuiField from "./MuiField";
+// import Stack from '@mui/material/Stack';
+// import Button from '@mui/material/Button';
+// import { useFormik } from 'formik';
+// import "react-phone-number-input/style.css";
 // import {Link} from 'react-router-dom'
-import { GoogleLogin , GoogleLogout} from 'react-google-login';
+// import { GoogleLogin , GoogleLogout} from 'react-google-login';
 
 
 
 // // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 // Modal.setAppElement('#yourAppElement');
-const ref = createRef();
+// const ref = createRef();
+// const UserContexts = createContext()
 export default function Nav() {
+  // const [a,setB] =useState(false);
+  const { setB } = useContext(UserContext);
   const [toggleState, setToggleState] = useState(false);
-console.log('dsfjlsf',HeaderRoutes.anonymous[0].name)
+// const user = useContext(UserContext)
+const handleLogin = () => setB(true);
+console.log('dsfjlsf',setB)
+
   const toggle = () => {
     setToggleState(toggleState === false ? true : false);
   };
-  const ClientId = "358857275498-plkjtsfsdmn3vs15coufspn49lugtkgs.apps.googleusercontent.com"
-const [showLoginButton , setShowLoginButton] = useState(true)
-const [signoutButton , setSignoutButton] = useState(false)
-const [code, setCode] = useState("");
-
-const handleChange = (code) => setCode(code);
-const onLoginSuccess = (res)=>{
-         console.log(res.profileObj,'login sucesses');
-         setShowLoginButton(false);
-         setSignoutButton(true);
-}
-const onFailure = (res)=>{
-    console.log('failure res',res)
+  // const ClientId = "358857275498-plkjtsfsdmn3vs15coufspn49lugtkgs.apps.googleusercontent.com"
+// const [showLoginButton , setShowLoginButton] = useState(true)
+// const [signoutButton , setSignoutButton] = useState(false)
+// const [code, setCode] = useState("");
+// const [open,setOpen] = useState(setUser)
+// const openmodel1 = ()=>{
+//   setOpen(true)
+// }
+// const handleChange = (code) => setCode(code);
+// const onLoginSuccess = (res)=>{
+//          console.log(res.profileObj,'login sucesses');
+//          setShowLoginButton(false);
+//          setSignoutButton(true);
+// }
+// const onFailure = (res)=>{
+//     console.log('failure res',res)
   
-}
-const onSignOut =()=>{
-alert("you have Been sign out sucesessfuly")
-setShowLoginButton(true);
-setSignoutButton(false);
-}
+// }
+// const onSignOut =()=>{
+// alert("you have Been sign out sucesessfuly")
+// setShowLoginButton(true);
+// setSignoutButton(false);
+// }
   // let subtitle;
 
 
-  const formik = useFormik({
-    initialValues: {
-      phone: ""
-    }
-  });
-  const { setFieldValue } = formik;
+  // const formik = useFormik({
+  //   initialValues: {
+  //     phone: ""
+  //   }
+  // });
+  // const { setFieldValue } = formik;
   
 
   return (
+ 
    <div style={{width:'100%',background:'#fff',boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'}}>
+    
       <header style={{maxWidth: '1200px', margin:'0 auto'}}>
       
       <div className="logo" onClick={toggle}>
@@ -90,12 +103,12 @@ setSignoutButton(false);
             );
           })}
           
-          <li className='web-login'>  <a className="Login-btn"  activeClassName="active" onClick={toggle} href='#demo-modal' >
+          <li className='web-login'>  <Link className="Login-btn"  activeClassName="active" onClick={handleLogin} to='/login' >
          
           Log in &nbsp; <Avatar style={{ width:'30px',height:'30px'}}><img src={Fram7} alt=''/></Avatar>
                  
-                </a> </li>
-                <li className='mobile-login'>  <a className="Login-btn"  activeClassName="active" onClick={toggle} href='#demo-modal1' >
+                </Link> </li>
+                <li className='mobile-login'>  <a className="Login-btn"  activeClassName="active" onClick={handleLogin} href='#demo-modal1' >
          
           Log in &nbsp; <Avatar style={{ width:'30px',height:'30px'}}><img src={Fram7} alt=''/></Avatar>
                  
@@ -109,9 +122,9 @@ setSignoutButton(false);
         </ul>
       </nav>
     </header>
-    <div id="demo-modal" class="modal">
+    {/* <div id="demo-modal" class="modal">
     <div class="modal__content">
-       {/* <div className='login-container'> */}
+       
          <div className='login-left'>
            <img src={leftimag} className='login-img' alt=''/>
            </div>
@@ -127,7 +140,7 @@ setSignoutButton(false);
       <Grid container spacing={2} justifyContent='center'>
         <Grid item xs={12}>
         <PhoneInput
-          // inputComponent={MuiField}
+    
           international
   defaultCountry="IN"
   addInternationalOption='false'
@@ -171,17 +184,16 @@ setSignoutButton(false);
     </form>
            </div>
          </div>
-       {/* </div> */}
+   
 
         <a href="#" class="modal__close">&times;</a>
     </div>
 </div>
- 
+  */}
 
  {/* otp- web*/}
- <div id="otp-modal" class="modal">
+ {/* <div id="otp-modal" class="modal">
     <div class="modal__content">
-       {/* <div className='login-container'> */}
          <div className='login-left'>
            <img src={leftimag} className='login-img' alt=''/>
            </div>
@@ -228,45 +240,24 @@ setSignoutButton(false);
        <div className='otp-btn'> <Stack spacing={2} >
       <Button variant="contained" className="btn" style={{backgroundColor:'#FB7E15'}}>Verify</Button>
    
-    </Stack></div>
+    </Stack></div> */}
 
-    {/* <div>
-      <p className='signup'>Want to become a partner ? <Link to='signup'>Sign up here</Link></p>
-    </div> */}
-
-    {/* <div className='google-group'>
-    {showLoginButton ?  <GoogleLogin
-    clientId={ClientId}
-    buttonText="Login With Google"
-    onSuccess={onLoginSuccess}
-    onFailure={onFailure}
-    cookiePolicy={'single_host_origin'}
-    className='login'
-  /> : null}
-
-  {signoutButton ? <GoogleLogout
-      clientId={ClientId}
-      buttonText="Logout"
-      onLogoutSuccess={onSignOut}
-    >
-    </GoogleLogout> : null}
-    </div> */}
-        </Grid>
+  
+        {/* </Grid>
       </Grid>
        
       </Box>
     </form>
            </div>
          </div>
-       {/* </div> */}
 
         <a href="#" class="modal__close">&times;</a>
     </div>
-</div>
+</div> */}
 
 
  {/* otp- mobile*/}
- <div id="otp-modal1" class="otp-modal">
+ {/* <div id="otp-modal1" class="otp-modal">
     <div class="otp-modal__content">
     <div className='login-logodiv'>
              <img  src={loginlogo} className='loginlogo-img' alt=''/>
@@ -310,64 +301,7 @@ setSignoutButton(false);
 </div>
 <div id="demo-modal1" class="modal1">
     <div class="modal__content1">
-    {/* <div className='login-left1'>
-           <img src={leftimag} className='login-img'/>
-           </div> */}
-           {/* <div className='login-logodiv'>
-             <img  src={loginlogo} className='loginlogo-img'/>
-           </div>
-           <div className='login-head-div'>
-             <h1 className='login-heading'>Welcome to Sayaraa!</h1>
-
-             <form> */}
-      {/* <Box py={3} px={5}>
-      <Grid container spacing={2} justifyContent='center'>
-        <Grid item xs={12}>
-        <PhoneInput
-          // inputComponent={MuiField}
-          international
-  defaultCountry="IN"
-  addInternationalOption='false'
-          className='phone'
-          name="phone"
-          onChange={(value) => setFieldValue("phone", value)}
-          ref={ref}
-        />
-        </Grid>
-        <Grid xs={12}>
-       <div className='login-btn'> <Stack spacing={2} >
-      <Button variant="contained" className="btn" style={{backgroundColor:'#FB7E15'}}>Get OTP</Button>
    
-    </Stack></div>
-
-    <div>
-      <p className='signup'>Want to become a partner ? <Link to='signup'>Sign up here</Link></p>
-    </div>
-
-    <div className='google-group'>
-    {showLoginButton ?  <GoogleLogin
-    clientId={ClientId}
-    buttonText="Login With Google"
-    onSuccess={onLoginSuccess}
-    onFailure={onFailure}
-    cookiePolicy={'single_host_origin'}
-    className='login'
-  /> : null}
-
-  {signoutButton ? <GoogleLogout
-      clientId={ClientId}
-      buttonText="Logout"
-      onLogoutSuccess={onSignOut}
-    >
-    </GoogleLogout> : null}
-    </div>
-        </Grid>
-      </Grid>
-       
-      </Box> */}
-    {/* </form> */}
-
-           {/* </div> */}
        
            <div className='login-right1'>
            <div className='login-logodiv'>
@@ -380,7 +314,7 @@ setSignoutButton(false);
              <Grid container spacing={2} mt={2} justifyContent='center'>
         <Grid item xs={12}>
         <PhoneInput
-          // inputComponent={MuiField}
+         
           international
   defaultCountry="IN"
   addInternationalOption='false'
@@ -401,57 +335,14 @@ setSignoutButton(false);
     </div>
 </Grid>
           </Grid>
-      {/* <Box py={3} px={5}>
-      <Grid container spacing={2} justifyContent='center'>
-        <Grid item xs={12}>
-        <PhoneInput
-          // inputComponent={MuiField}
-          international
-  defaultCountry="IN"
-  addInternationalOption='false'
-          className='phone'
-          name="phone"
-          onChange={(value) => setFieldValue("phone", value)}
-          ref={ref}
-        />
-        </Grid>
-        <Grid xs={12}>
-       <div className='login-btn'> <Stack spacing={2} >
-      <Button variant="contained" className="btn" style={{backgroundColor:'#FB7E15'}}>Get OTP</Button>
-   
-    </Stack></div>
-
-    <div>
-      <p className='signup'>Want to become a partner ? <Link to='signup'>Sign up here</Link></p>
-    </div>
-
-    <div className='google-group'>
-    {showLoginButton ?  <GoogleLogin
-    clientId={ClientId}
-    buttonText="Login With Google"
-    onSuccess={onLoginSuccess}
-    onFailure={onFailure}
-    cookiePolicy={'single_host_origin'}
-    className='login'
-  /> : null}
-
-  {signoutButton ? <GoogleLogout
-      clientId={ClientId}
-      buttonText="Logout"
-      onLogoutSuccess={onSignOut}
-    >
-    </GoogleLogout> : null}
-    </div>
-        </Grid>
-      </Grid>
-       
-      </Box> */}
+     
     </form>
            </div>
          </div>
         <a href="#" class="modal__close1">&times;</a>
     </div>
-</div>
+</div> */}
    </div>
+  
   );
 }

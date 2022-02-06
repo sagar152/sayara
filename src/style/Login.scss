@@ -2,6 +2,22 @@
     width: 10%;
     height: auto;
 }
+
+.ReactModal__Content--after-open{
+margin: 0 auto;
+width: 75%;
+height: 530px;
+overflow: hidden !important;
+padding: 0 !important;
+}
+.ReactModal__Content{
+  overflow: hidden;
+padding: 0px !important;
+}
+.ReactModal__Content--after-open{
+  overflow: hidden;
+  padding: 0px;
+}
 .loginleft-img{
     width: 100%;
     height: img;
@@ -95,7 +111,8 @@ color: #FFFFFF;
     background: linear-gradient(to right, #834d9b, #d04ed6);
   }
   .login-logodiv{
-      width: 30%;
+    width: 126px;
+    height: 126px;
       margin: 0 auto;
   }
 
@@ -124,8 +141,8 @@ color: #FFFFFF;
   }
   
   .modal {
-    visibility: hidden;
-    opacity: 0;
+    // visibility: hidden;
+    // opacity: 0;
     position: absolute;
     top: 0;
     right: 0;
@@ -146,9 +163,9 @@ color: #FFFFFF;
   .modal__content {
     border-radius: 4px;
     position: relative;
-    width: 1000px;
+    width: 100%;
     display: flex;
-    max-width: 90%;
+    max-width: 100%;
     z-index: 1;
     background: #fff;
     padding: 0em 0em;

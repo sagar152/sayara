@@ -3,6 +3,7 @@ import '../style/Blog.scss'
 import CardRoutes from './Cardcontent';
 import {Link} from 'react-router-dom'
 import cardero from '../images/cardero.png'
+import Header from '../Header'
 // import blog1 from '../images/blog1.png'
 // import blog3 from '../images/blog3.png'
  const Blog = ()=> {
@@ -12,6 +13,7 @@ import cardero from '../images/cardero.png'
      
   <>
     <div>
+      <Header />
        <div className='blog-main'>
        {/* <div className="left-blog">
         fgfdgdg
@@ -41,7 +43,7 @@ Beyond Car Wash And More: An App For All That Your Car Needs
     <div className="user">
      <div className='date'><p className='dates'>05/11/2021</p></div>
       <div className="user-info">
-       <Link className='link'>Read More <img src={cardero} style={{width:'20px' , height:'auto'}} alt=''/></Link>
+       <Link className='link' to='/carwash'>Read More <img src={cardero} style={{width:'20px' , height:'auto'}} alt=''/></Link>
        
       </div>
     </div>
