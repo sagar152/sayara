@@ -7,7 +7,7 @@ const HeaderRoutes = {
       },
       {
         name: "How it Works",
-        link: "/contact",
+        link: "/contactus",
   
       },
       {

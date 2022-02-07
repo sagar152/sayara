@@ -5,6 +5,7 @@ import Tab from '@mui/material/Tab';
 import Privacy from '../Components/Privacy';
 import Condition from '../Components/Condition';
 import Footer from '../Footer'
+import '../style/Terms.scss'
 import Header from '../Header'
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,7 +50,7 @@ const  Privacyandterms = ()=> {
   return (
     <>
     <Header />
-      <div style={{width:'800px',margin:'1.5rem auto'}}>
+      <div className='privacyandtermsmain'>
       <div>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Privacy Policy" {...a11yProps(0)} style={{color:'#FB7E15'}}/>

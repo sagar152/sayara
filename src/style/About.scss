@@ -298,6 +298,18 @@ color: #585562;
              font-size:14px !important;
         }
         .stack{
-            width: 70px !important;
+            width: 168px !important;
+            padding: 20px 0px
          }
+         .our-backbone-para-about {
+            padding-right: 0px;
+            padding:12px 16px
+        }
+}
+
+@media (min-width:768px) and (max-width:768px){
+    .solve-cotent1{
+        width: 100%;
+        margin: 4rem auto;
+    }
 }

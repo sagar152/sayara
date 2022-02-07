@@ -231,7 +231,7 @@ const About = () => {
                     <p className="custmer-paras">Service partners</p>
                   </div>
                 </Grid>
-                <Grid item mt={5} xs={2}>
+                <Grid item mt={5} xs={6} xs={4} md={4} lg={4} xl={4}>
                   <div style={{ textAlign: "center" }} className="stack">
                     <Link className="downloadapp">Download the App</Link>
                   </div>
