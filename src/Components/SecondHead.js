@@ -50,10 +50,10 @@ const SecondHead = () => {
               <Grid item xs={12} md={4} xl={4}>
                 <div className="head-social">
                   <div className="social-imgdiv1">
-                    <img src={HeadGoogle} alt="star" className="social-img1" />
+                  <a  href='https://play.google.com/store/apps/details?id=com.sjainpune.sayaraa&hl=en' target="_blank"><img src={HeadGoogle} alt="star" className="social-img1" /></a>
                   </div>
                   <div className="social-imgdiv2">
-                    <img className="social-img2" src={HeadApps} alt="star" />
+                  <a  href='https://apps.apple.com/in/app/sayaraa/id1491527366' target="_blank"><img className="social-img2" src={HeadApps} alt="star" /></a>
                   </div>
                 </div>
               </Grid>

@@ -27,13 +27,13 @@ const Footer =()=>{
           
            <div className='footer-icon-main'>
            <div className='footer-logo-social'>
-           <img className='social-logo-infooter' src={facebook}  alt=''/></div>
+           <a href='https://www.facebook.com/sayaraagroup/?modal=admin_todo_tour' target="_blank"><img className='social-logo-infooter' src={facebook}  alt=''/></a></div>
            <div className='footer-logo-social1'>
-           <img className='social-logo-infooter' src={twiter}  alt=''/></div>
+           <a href='https://www.facebook.com/sayaraagroup/?modal=admin_todo_tour' target="_blank"><img className='social-logo-infooter' src={twiter}  alt=''/></a></div>
            <div className='footer-logo-social1'>
-           <img className='social-logo-infooter' src={instagram}  alt=''/></div>
+           <a href="https://www.instagram.com/sayaraagroup/" target="_blank"><img className='social-logo-infooter' src={instagram}  alt=''/></a></div>
            <div className='footer-logo-social1'>
-           <img className='social-logo-infooter' src={linkedin}  alt='' /></div>
+           <a href="https://www.linkedin.com/in/sayaraa-group-30b5b5195/" target="_blank"><img className='social-logo-infooter' src={linkedin}  alt='' /></a></div>
            </div>
            <div>
            </div>
@@ -72,8 +72,8 @@ const Footer =()=>{
             className="footer-contents-flex2"
           >
           <div>
-           <div> <Link className='offer-heading' to='/'><img src={footergoogle} style={{width:'100%',height:'auto'}} alt=''/></Link></div>
-           <div> <Link className='offer-heading' to='/'><img src={footerapps} style={{width:'100%',height:'auto'}} alt=''/></Link></div>
+           <div> <a className='offer-heading' href='https://play.google.com/store/apps/details?id=com.sjainpune.sayaraa&hl=en' target="_blank"><img src={footergoogle} style={{width:'100%',height:'auto'}} alt=''/></a></div>
+           <div> <a className='offer-heading' href='https://apps.apple.com/in/app/sayaraa/id1491527366' target="_blank"><img src={footerapps} style={{width:'100%',height:'auto'}} alt=''/></a></div>
             
            </div>
           </div>

@@ -632,12 +632,12 @@ const Home = () => {
             <div className="social-app-login">
               <div className="social-flex1">
                 <div>
-                  <img src={googleplay} alt="" />
+                <a  href='https://play.google.com/store/apps/details?id=com.sjainpune.sayaraa&hl=en' target="_blank"> <img src={googleplay} alt="" /></a>
                 </div>
               </div>
               <div className="social-flex2">
                 <div>
-                  <img src={appstore} alt="" />
+                <a  href='https://apps.apple.com/in/app/sayaraa/id1491527366' target="_blank"><img src={appstore} alt="" /></a>
                 </div>
               </div>
             </div>
