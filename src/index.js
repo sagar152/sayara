@@ -5,12 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { hydrate } from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
+import {createStore,applyMiddleware} from 'redux';
+import thunkMiddileware from 'redux-thunk';
+import {Provider} from 'react-redux';
+import HomeImgSlider from '../src/Service/Reducers/index'
+const store = createStore(HomeImgSlider,applyMiddleware(thunkMiddileware))
+console.log("store Data",store)
 ReactDOM.render(
+  <Provider store={store} >
   <React.StrictMode>
     <Router>
     <App />
   </Router>
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 

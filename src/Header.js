@@ -103,12 +103,12 @@ console.log('dsfjlsf',setB)
             );
           })}
           
-          <li className='web-login'>  <Link className="Login-btn"  activeClassName="active" onClick={handleLogin} to='/login' >
+          <li className='web-login'>  <Link className="Login-btn"  activeclassname="active" onClick={handleLogin} to='/login' >
          
           Log in &nbsp; <Avatar style={{ width:'30px',height:'30px'}}><img src={Fram7} alt=''/></Avatar>
                  
                 </Link> </li>
-                <li className='mobile-login'>  <a className="Login-btn"  activeClassName="active" onClick={handleLogin} href='#demo-modal1' >
+                <li className='mobile-login'>  <a className="Login-btn"  activeclassname="active" onClick={handleLogin} href='#demo-modal1' >
          
           Log in &nbsp; <Avatar style={{ width:'30px',height:'30px'}}><img src={Fram7} alt=''/></Avatar>
                  

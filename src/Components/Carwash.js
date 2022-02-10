@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { connect } from "react-redux";
 // import { styled } from '@mui/material/styles';
 // import Box from '@mui/material/Box';
 // import Paper from '@mui/material/Paper';
@@ -6,6 +7,7 @@ import Grid from '@mui/material/Grid';
 import washcard from '../images/washcard.png';
 import Right from '../images/right.png'
 import '../style/Carwash.scss';
+import {FetchdataCarlist} from '../Service'
 import Star from '../images/Star 1.png'
 // const Item = styled(Paper)(({ theme }) => ({
 //   ...theme.typography.body2,
@@ -14,7 +16,22 @@ import Star from '../images/Star 1.png'
 //   color: theme.palette.text.secondary,
 // }));
 
-const CarWash = ()=>{
+const CarWash = ({FetchdataCarlists,...Carwashlist})=>{
+    console.log(Carwashlist,'carwashiliset')
+
+    const [imageslides, setSlides] = React.useState([]);
+  console.log(imageslides, "carwashilisetssssssssssssssssssssssssssssss");
+    // React.useEffect(()=>{
+    //     FetchdataCarlists();
+    // },[])
+
+    React.useEffect(() => {
+        if (Carwashlist && Carwashlist) {
+          setSlides(Carwashlist);
+        }
+      }, [Carwashlist]);
+    
+      console.log(imageslides, "car");
     return(
         <>
          <Grid container spacing={2} className='main'>
@@ -244,4 +261,20 @@ const CarWash = ()=>{
     )
 }
 
-export default CarWash;
+
+const mapstate = state=>{
+    return{
+        Carwashlist:state,
+    }
+    
+  }
+  console.log('flsjflsdjlfjls',mapstate)
+  const mapDispatchprops = (dispatch)=>{
+    return{
+        FetchdataCarlists:()=>{
+            dispatch(FetchdataCarlist());
+        }
+    }
+  }
+  
+  export default connect(mapstate,mapDispatchprops)(CarWash);

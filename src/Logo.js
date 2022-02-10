@@ -29,7 +29,7 @@ const Logo = () => {
       </Link> */}
       {/* {HeaderRoutes[role][0].link === role ?  console.log('roles4646464ss',HeaderRoutes[role][0]):'fjdsfjsdjf'} */}
          
-          <NavLink activeClassName="active" style={{width:'13.32px',height:'14.45px',color:'#0A202F', display: 'flex',
+          <NavLink activeclassname="active" style={{width:'13.32px',height:'14.45px',color:'#0A202F', display: 'flex',
 flexDirection: 'row',
 
 
@@ -64,7 +64,7 @@ export const Whitelogo = () => {
       </Link> */}
       {/* {HeaderRoutes[role][0].link === role ?  console.log('roles4646464ss',HeaderRoutes[role][0]):'fjdsfjsdjf'} */}
          
-          <NavLink activeClassName="active" style={{width:'13.32px',height:'14.45px',color:'white', display: 'flex',
+          <NavLink activeclassname="active" style={{width:'13.32px',height:'14.45px',color:'white', display: 'flex',
 flexDirection: 'row',
 
 

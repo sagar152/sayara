@@ -1,5 +1,8 @@
 import * as React from "react";
 import Footer from "../Footer";
+import {connect} from 'react-redux'
+import {Fetchdata,FetchdataReviewlist} from '../Service'
+import Custmerlist from '../Components/Custmerlist'
 import car from "../../src/images/download.png";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -55,7 +58,25 @@ function Arrow(props) {
     </>
   );
 }
-const Home = () => {
+const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
+  console.log(CustomerRevielist,'hoddddddddddddddddddddddddme')
+ const [imageslide,setSlide] = React.useState([]);
+ console.log(imageslide,'homessssssssssssssssssssss')
+
+  React.useEffect(()=>{
+  Fetchdata();
+
+  },[])
+  React.useEffect(()=>{
+    if(ImageSlider && ImageSlider.ImageSlider.ImageSlider.data ){
+      setSlide(ImageSlider.ImageSlider.ImageSlider.data)
+    }
+    
+  },[ImageSlider])
+
+
+ console.log(imageslide,'home')
+ console.log('djfslfjldsjfljsdlfjlsdjfljsdlfj',imageslide)
   const [age, setAge] = React.useState("");
   var cardArray = [
     {
@@ -175,9 +196,10 @@ const Home = () => {
       </div>
     ));
   const renderSlides = () =>
-    cardArray.map((num, i) => (
+  imageslide.map((num, i) => (
       <div className="cards-list" key={i}>
         <div className="card 1">
+          <img src={`https://sayaraagroup.com/${num.image}`} />
           <div className="card_heading heading-white">
             <p>{num.title}</p>
           </div>
@@ -256,9 +278,10 @@ const Home = () => {
               </FormControl>
             </div>
             <div style={{ textAlign: "center", marginTop: "20px" }}>
-              <Button variant="contained" className="button-getfree">
+              <Button variant="contained" className="button-getfree" >
                 Get Free Quotation
               </Button>
+          
             </div>
           </div>
         </div>
@@ -473,89 +496,8 @@ const Home = () => {
           </div>
         </div>
         <div className="custmer-main-div">
-          <div className="custmer-card-main">
-            <div className="card">
-              <div className="card-header"></div>
-              <div className="card-body">
-                {/* <span className="tag tag-teal" style={{color:'black'}}>Technology</span> */}
-                <h4 className="custmer-card-heading">
-                  Best car service in Abu Dhabi
-                </h4>
-                <p className="custmer-card-para">
-                  Lorem ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s,
-                </p>
-                <div className="user">
-                  <img
-                    src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo"
-                    alt="user"
-                  />
-                  <div className="user-info">
-                    <h5 className="user-name">Veer Shrivastava</h5>
-                    <div className="ratings-group">
-                      <StarIcon style={{ color: "#FDB62F" }} />{" "}
-                      <p className="user-rating">5/5</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card">
-              <div className="card-header"></div>
-              <div className="card-body">
-                {/* <span className="tag tag-teal" style={{color:'black'}}>Technology</span> */}
-                <h4 className="custmer-card-heading">
-                  Best car service in Abu Dhabi
-                </h4>
-                <p className="custmer-card-para">
-                  Lorem ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s,
-                </p>
-                <div className="user">
-                  <img
-                    src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo"
-                    alt="user"
-                  />
-                  <div className="user-info">
-                    <h5 className="user-name">Veer Shrivastava</h5>
-                    <div className="ratings-group">
-                      <StarIcon style={{ color: "#FDB62F" }} />{" "}
-                      <p className="user-rating">5/5</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card">
-              <div className="card-header"></div>
-              <div className="card-body">
-                {/* <span className="tag tag-teal" style={{color:'black'}}>Technology</span> */}
-                <h4 className="custmer-card-heading">
-                  Best car service in Abu Dhabi
-                </h4>
-                <p className="custmer-card-para">
-                  Lorem ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s,
-                </p>
-                <div className="user">
-                  <img
-                    src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo"
-                    alt="user"
-                  />
-                  <div className="user-info">
-                    <h5 className="user-name">Veer Shrivastava</h5>
-                    <div className="ratings-group">
-                      <StarIcon style={{ color: "#FDB62F" }} />{" "}
-                      <p className="user-rating">5/5</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <Custmerlist />
+       
         </div>
       </div>
 
@@ -651,4 +593,21 @@ const Home = () => {
     </div>
   );
 };
-export default Home;
+
+const mapstate = state=>{
+  return{
+    ImageSlider:state.HomeImgSlider,
+  }
+  
+}
+console.log('flsjflsdjlfjls',mapstate)
+const mapDispatchprops = (dispatch)=>{
+  return{
+    Fetchdata:()=>{
+          dispatch(Fetchdata());
+      }
+  }
+}
+
+export default connect(mapstate,mapDispatchprops)(Home);
+
