@@ -1,18 +1,26 @@
 import * as React from "react";
 import Footer from "../Footer";
 import {connect} from 'react-redux'
-import {Fetchdata,FetchdataReviewlist} from '../Service'
+import {Fetchdata} from '../Service'
 import Custmerlist from '../Components/Custmerlist'
 import car from "../../src/images/download.png";
+import Partnerslider  from '../Components/Partnerslider'
+import MobilePartnerslider from '../Components/Partnermobslider'
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import { NavLink } from "react-router-dom";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
+import Branddropdown from '../Components/Branddropdown'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../style/banner.scss";
-import StarIcon from "@mui/icons-material/Star";
+import carwashicon from '../images/icons/Car wash.png';
+import producticon from '../images/icons/product-icon.png';
+import caricons from '../images/icons/car-icon.png';
+import drivingicon from '../images/icons/driving-icon.png'
+import keyicon from '../images/icons/key-icon.png';
+import frame from '../images/icons/fram-icon.png'
 import Slider from "react-slick";
 import Mobile from "../../src/images/mobile.png";
 import engine from "../../src/images/Frame 895.png";
@@ -20,10 +28,6 @@ import car1 from "../../src/images/Frame 896.png";
 import car2 from "../../src/images/Frame 897.png";
 import car3 from "../../src/images/Frame 898.png";
 import workmobile from "../../src/images/Group 1007.png";
-import image1 from "../../src/images/image 1.png";
-import image2 from "../../src/images/image2.png";
-import image3 from "../../src/images/image3.png";
-import image4 from "../../src/images/imag34.png";
 import btnIcon from "../../src/images/btn-icon.png";
 // import { margin, width } from "@mui/system";
 import RightArrow from "../../src/images/Arrow - Right.png";
@@ -59,10 +63,9 @@ function Arrow(props) {
   );
 }
 const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
-  console.log(CustomerRevielist,'hoddddddddddddddddddddddddme')
  const [imageslide,setSlide] = React.useState([]);
- console.log(imageslide,'homessssssssssssssssssssss')
-
+ const [age, setAge] = React.useState("");
+ const [Brand, setBrand] = React.useState("");
   React.useEffect(()=>{
   Fetchdata();
 
@@ -73,74 +76,13 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
     }
     
   },[ImageSlider])
-
-
- console.log(imageslide,'home')
- console.log('djfslfjldsjfljsdlfjlsdjfljsdlfj',imageslide)
-  const [age, setAge] = React.useState("");
-  var cardArray = [
-    {
-      image: car,
-      title: "Express car wash",
-    },
-    {
-      image: car,
-      title: "Express car wash",
-    },
-    {
-      image: car,
-      title: "Express car wash",
-    },
-    {
-      image: car,
-      title: "Express car wash",
-    },
-    {
-      image: car,
-      title: "Express car wash",
-    },
-    {
-      image: car,
-      title: "Express car wash",
-    },
-    {
-      image: car,
-      title: "Express car wash",
-    },
-    {
-      image: car,
-      title: "Express car wash",
-    },
-  ];
-  var backbone = [
-    {
-      image: image1,
-    },
-    {
-      image: image2,
-    },
-    {
-      image: image3,
-    },
-    {
-      image: image4,
-    },
-    {
-      image: image1,
-    },
-    {
-      image: image1,
-    },
-    {
-      image: image1,
-    },
-    {
-      image: image1,
-    },
-  ];
+  const handleChange1 = (event) => {
+    setBrand(event.target.value);
+  };
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+  
   var settingsweb = {
     dots: true,
     arrows: true,
@@ -161,40 +103,7 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-  var settings1 = {
-    dots: false,
-    arrows: true,
-    prevArrow: <Arrow type="prev" />,
-    nextArrow: <Arrow type="next" />,
-    infinite: false,
-    speed: 700,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-  };
-  var settings2 = {
-    dots: false,
-    arrows: true,
-    prevArrow: <Arrow type="prev" />,
-    nextArrow: <Arrow type="next" />,
-    infinite: false,
-    speed: 700,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-  const backcard = () =>
-    backbone.map((num, i) => (
-      <div className="cards-list" key={i}>
-        <div className="card2">
-          <div style={{ width: "100%", height: "100%" }}>
-            <img
-              src={num.image}
-              style={{ width: "100%", height: "100%" }}
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
-    ));
+
   const renderSlides = () =>
   imageslide.map((num, i) => (
       <div className="cards-list" key={i}>
@@ -230,6 +139,44 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
         </div>
       </div>
     ));
+
+    const imagesicon = [
+      // {
+      //   image:carwashicon,
+      //   text:'Car Wash'
+      // },
+      {
+        image:producticon,
+        text:'Car Services or Products'
+      },
+      {
+        image:caricons,
+        text:'Buy or Sell Car'
+      },
+      {
+        image:keyicon,
+        text:'Rent a Car'
+      },
+      {
+        image:frame,
+        text:'Emergency Services'
+      },
+      {
+        image:drivingicon,
+        text:'Driving Instructor'
+      },
+  
+    ]
+    const homeiconcard = ()=>
+    imagesicon.map((data,index)=>(
+      <div className="car-setting" key={index}>
+      <div className='icon-maindiv-home'>
+      <div className='icon-div-homeicon'><img src={data.image} className='icon-images-home' /></div>
+
+      <div className='icon-maindiv-heading'><h1 className='car-headings-icon'>{data.text}</h1></div>
+    </div>
+    </div>
+    ))
   return (
     <div style={{ maxWidth: "100%" }}>
       <Header />
@@ -244,27 +191,12 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
               </p>
             </div>
             <div className="dropdown-group">
+             <Branddropdown />
               <FormControl sx={{ m: 1, ml: 0, mt: 2, minWidth: 220 }}>
                 <Select
                   style={{ height: "44px" }}
-                  value={age}
-                  onChange={handleChange}
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
-              <FormControl sx={{ m: 1, ml: 0, mt: 2, minWidth: 220 }}>
-                <Select
-                  style={{ height: "44px" }}
-                  value={age}
-                  onChange={handleChange}
+                  value={Brand}
+                  onChange={handleChange1}
                   displayEmpty
                   inputProps={{ "aria-label": "Without label" }}
                 >
@@ -381,12 +313,23 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
           </div>
           <div className="sayara-offering-card-flex">
             <div className="sayara-offering-pkg">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
+              <div className="car-setting">
+                <div className='icon-home-div'>
+                  <h1 className='icon-heading-home'>Packages available</h1>
+                  </div>
+                  <div className='icon-maindiv-home'>
+                    <div className='icon-div-homeicon'><img src={carwashicon} className='icon-images-home' /></div>
+
+                    <div className='icon-maindiv-heading'><h1 >Car Wash</h1></div>
+                  </div>
+                  </div>
+             
+             {homeiconcard()}
+              
+              {/* <div className="car-setting"></div>
+              <div className="car-setting"></div>
+              <div className="car-setting"></div>
+              <div className="car-setting"> </div> */}
             </div>
           </div>
         </div>
@@ -536,24 +479,10 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
           </div>
         </div>
         <div className="ourbackbone-sliderweb">
-          <Slider
-            {...settings1}
-            slidesToShow={4}
-            slidesToScroll={2}
-            autoplaySpeed={3000}
-          >
-            {backcard()}
-          </Slider>
+         <Partnerslider />
         </div>
         <div className="ourbackbone-sliderphone">
-          <Slider
-            {...settings2}
-            slidesToShow={1}
-            slidesToScroll={1}
-            autoplaySpeed={3000}
-          >
-            {backcard()}
-          </Slider>
+        <MobilePartnerslider />
         </div>
       </div>
       {/* sayara work */}
@@ -600,7 +529,6 @@ const mapstate = state=>{
   }
   
 }
-console.log('flsjflsdjlfjls',mapstate)
 const mapDispatchprops = (dispatch)=>{
   return{
     Fetchdata:()=>{

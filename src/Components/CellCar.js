@@ -1,32 +1,32 @@
 import * as React from 'react';
 import {connect} from 'react-redux'
-import {FetchdataCarServicelist} from '../Service'
+import {FetchdataSellcarlist} from '../Service'
 import Grid from '@mui/material/Grid';
 import washcard from '../images/washcard.png';
 import Right from '../images/right.png'
 import '../style/Carservice.scss';
 import Star from '../images/Star 1.png'
-const Servicetabs = ({FetchdataCarServicelist,CarserviceList})=>{
-const [servicelist,setServicelist] = React.useState([]);
+const Cellcartabs = ({FetchdataSellcarlist,SellcarList})=>{
+const [modallist,setModallist] = React.useState([]);
  React.useEffect(()=>{
-    FetchdataCarServicelist();
+    FetchdataSellcarlist();
   },[]);
   React.useEffect(()=>{
-    if(CarserviceList && CarserviceList.CarserviceList.data){
-        setServicelist(CarserviceList.CarserviceList.data)
+    if(SellcarList && SellcarList.SellcarList.data){
+        setModallist(SellcarList.SellcarList.data)
     }
     
-  },[CarserviceList])
+  },[SellcarList])
 
 
  
-const CarserviceLists = ()=>
-servicelist.map((list,index)=>(
+const CellcarLists = ()=>
+modallist.map((list,index)=>(
     <Grid container spacing={2} mb={5} className='main1' key={index}>
     <Grid item  xs={12} md={4} xl={4}>
         <div>
           <div className='car-img-div1'>
-              <img src={`https://sayaraagroup.com/${list.image}`} alt=''/>
+              <img src={`https://sayaraagroup.com/${list.st_image}`} alt=''/>
           </div>
       </div>
     </Grid>
@@ -36,7 +36,7 @@ servicelist.map((list,index)=>(
           <div className='card-main-heading1'>
                   <div>
                   {/* <h1>Exterior Wash</h1> */}
-                  <h1>{list.car_service_name}</h1>
+                  <h1>{list.brand}</h1>
                   </div>
                   <div className='add-div1'>
                       {/* <p className='add-para1'>AED 100</p> */}
@@ -48,7 +48,7 @@ servicelist.map((list,index)=>(
               <div className='card-ratings-withcontent1'>
                   <div>
                   {/* <p>By Almjra car wash, Opposite EMC, Musaffah-5 | 2 kms</p> */}
-                  <p>{list.details}</p>
+                  <p>{list.description}</p>
                   </div>
                   <div className='ratings-div1'>
                      <div className='ratingswithcontent-div1'>
@@ -100,7 +100,7 @@ servicelist.map((list,index)=>(
     return(
         <>
         <div>
-{CarserviceLists()}
+{CellcarLists()}
         </div>
      
         </>
@@ -111,16 +111,16 @@ servicelist.map((list,index)=>(
 
 const mapstate = state=>{
     return{
-        CarserviceList:state.CarServiceList,
+        SellcarList:state.SellcarList,
     }
     
   }
   const mapDispatchprops = (dispatch)=>{
     return{
-        FetchdataCarServicelist:()=>{
-            dispatch(FetchdataCarServicelist());
+        FetchdataSellcarlist:()=>{
+            dispatch(FetchdataSellcarlist());
         }
     }
   }
   
-  export default connect(mapstate,mapDispatchprops)(Servicetabs);
+  export default connect(mapstate,mapDispatchprops)(Cellcartabs);

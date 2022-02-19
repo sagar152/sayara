@@ -38,8 +38,6 @@ export default function Nav() {
   const [toggleState, setToggleState] = useState(false);
 // const user = useContext(UserContext)
 const handleLogin = () => setB(true);
-console.log('dsfjlsf',setB)
-
   const toggle = () => {
     setToggleState(toggleState === false ? true : false);
   };
@@ -103,7 +101,7 @@ console.log('dsfjlsf',setB)
             );
           })}
           
-          <li className='web-login'>  <Link className="Login-btn"  activeclassname="active" onClick={handleLogin} to='/login' >
+          <li className='web-login'>  <Link className="Login-btn"  activeclassname="active" onClick={handleLogin} to='#' >
          
           Log in &nbsp; <Avatar style={{ width:'30px',height:'30px'}}><img src={Fram7} alt=''/></Avatar>
                  

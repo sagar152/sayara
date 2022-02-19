@@ -3,11 +3,12 @@ import React, {
   useState,
   useContext,
 } from "react";
+import { getAuth, RecaptchaVerifier,signInWithPhoneNumber } from "firebase/auth";
 import { UserContext } from "../App";
 // import { UserContexts } from "../Header";
 // import ReactDOM from 'react-dom';
 import Modal from "react-modal";
-// import { styled } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 // import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
@@ -20,8 +21,10 @@ import Button from "@mui/material/Button";
 import { useFormik } from "formik";
 import "react-phone-number-input/style.css";
 import { Link } from "react-router-dom";
+import ReactPhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 import { GoogleLogin, GoogleLogout } from "react-google-login";
-
+import analytics from '../firebase'
 // import Googlesign from './Googlelogin'
 
 
@@ -31,14 +34,17 @@ import { GoogleLogin, GoogleLogout } from "react-google-login";
 const ref = createRef();
 // const UserContext = createContext()
 
-const Login = () => {
+const Login = (props) => {
   const user = useContext(UserContext);
-  console.log(user, "sjfkdjfjdslfjlsd");
+  const [phone,setNumber] = useState('')
   const ClientId =
     "358857275498-plkjtsfsdmn3vs15coufspn49lugtkgs.apps.googleusercontent.com";
   const [showLoginButton, setShowLoginButton] = useState(true);
   const [signoutButton, setSignoutButton] = useState(false);
-
+const handleChange = (e)=>{
+  setNumber(e.target.value)
+  console.log('nuber',phone)
+}
   const onLoginSuccess = (res) => {
     console.log(res.profileObj, "login sucesses");
     setShowLoginButton(false);
@@ -64,15 +70,51 @@ const Login = () => {
     },
   });
   const { setFieldValue } = formik;
-  function afterOpenModal() {
+  const afterOpenModal = ()=> {
     // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
+    // subtitle.style.color = "#f00";
   }
-
+const configurecaptcha = ()=>{
+  const auth = getAuth();
+  window.recaptchaVerifier = new RecaptchaVerifier('sign-in-button', {
+    'size': 'invisible',
+    'callback': (response) => {
+      // reCAPTCHA solved, allow signInWithPhoneNumber.
+      onSignInSubmit();
+      console.log("recaptha");
+    },
+defaultCountry:'IN'
+  }, auth);
+}
+const onSignInSubmit = (e)=>{
+e.preventDefault();
+configurecaptcha();
+  // const phoneNumber = getPhoneNumberFromUserInput();
+  const phoneNumber = phone;
+  console.log('phonenumber',phoneNumber)
+  const appVerifier = window.recaptchaVerifier;
+  
+  const auth = getAuth();
+  signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+      .then((confirmationResult) => {
+        // SMS sent. Prompt user to type the code from the message, then sign the
+        // user in with confirmationResult.confirm(code).
+        window.confirmationResult = confirmationResult;
+        console.log('otp send')
+        // ...
+      }).catch((error) => {
+        // Error; SMS not sent
+        console.log('errorr')
+        // ...
+      });
+}
   function closeModal() {
     setIsOpen(false);
   }
-
+  const handleOnChange = (...args) => {
+    console.log(args);
+  };
+  {console.log('dljfdlf',phone)}
   return (
     <div>
       {/* <UserContext.Provider value={openModal} /> */}
@@ -82,9 +124,15 @@ const Login = () => {
         onAfterOpen={afterOpenModal}
         // style={customStyles}
         contentLabel="Example Modal"
+
+        // isOpen={!!props.modalIsOpen}
+        // onRequestClose={props.clearSelectedOption}
+        ariaHideApp={false}
+
       >
+
         {/* <div id="demo-modal" class="modal"> */}
-        <div class="modal__content">
+        <div className="modal__content">
           {/* <div className='login-container'> */}
           <div className="login-left">
             <img src={leftimag} className="login-img" alt=''/>
@@ -94,24 +142,70 @@ const Login = () => {
               <img src={loginlogo} className="loginlogo-img" alt=''/>
             </div>
             <div className="login-head-div">
-              <h1 className="login-heading">Welcome to Sayaraa!</h1>
+              
 
-              <form>
-                <Box py={3} px={5}>
-                  <Grid container spacing={2} justifyContent="center">
-                    <Grid item xs={12}>
-                      <PhoneInput
+              <form onSubmit={onSignInSubmit}>
+                <Box py={2} px={2}>
+                  <Grid  container spacing={2} justifyContent="center">
+                    <Grid item={true}  xs={12}>
+                  
+                     
+                      {/* <PhoneInput
+                      
+  country={'us'}
+  // value={phone}
+  onChange={phone => this.setState({ phone })}
+/> */}
+<div style={{width:'50%',margin:'0 auto'}}>
+<h1 className="login-heading">Welcome to Sayaraa!</h1>
+{/* <ReactPhoneInput
+          defaultCountry="pl"
+          containerStyle={{ marginTop: "15px" }}
+          searchClass="search-class"
+          searchStyle={{ margin: "0", width: "97%", height:"62px" ,padding:'px 20px' }}
+          enableSearchField
+          disableSearchIcon
+         onChange={handleChange}
+          country={'us'}
+          value={this.state.phone}
+          onChange={phone => this.setState({ phone })}
+          // value={phone}
+          inputProps={{
+            name: 'phone',
+            required: true,
+            autoFocus: true
+          }}
+        /> */}
+         <PhoneInput
                         international
                         defaultCountry="IN"
                         addInternationalOption="false"
-                        className="phone"
+                        // className="phone"
                         name="phone"
-                        onChange={(value) => setFieldValue("phone", value)}
+                        value={props.phone}
+                        onChange={(value) => setNumber(value)}
                         ref={ref}
                       />
+</div>
                     </Grid>
-                    <Grid xs={12}>
+
+                    <Grid item={true} xs={6}>
                       <div className="login-btn">
+                       
+                        <Stack spacing={2}>
+                          <Button
+                          type='submit'
+                            variant="contained"
+                            className="btn"
+                            style={{ backgroundColor: "#FB7E15" }}
+                          >
+                            Get OTP
+                          </Button>
+                        </Stack>
+                      </div>
+                    </Grid>
+                    <Grid item={true} xs={12}>
+                      {/* <div className="login-btn">
                        
                         <Stack spacing={2}>
                           <Button
@@ -122,12 +216,12 @@ const Login = () => {
                             Get OTP
                           </Button>
                         </Stack>
-                      </div>
+                      </div> */}
 
                       <div>
                         <p className="signup">
                           Want to become a partner ?{" "}
-                          <Link to="signup">Sign up here</Link>
+                          <Link to="/signup">Sign up here</Link>
                         </p>
                       </div>
 
@@ -155,10 +249,11 @@ const Login = () => {
                   </Grid>
                 </Box>
               </form>
+              <div id="sign-in-button"></div>
             </div>
           </div>
 
-          <a href="/" class="modal__close" onClick={closeModal}>
+          <a href="/" className="modal__close" onClick={closeModal}>
             &times;
           </a>
         </div>

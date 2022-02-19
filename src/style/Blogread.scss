@@ -6,7 +6,7 @@ margin: 1.5rem auto;
     display: flex;
 }
 .first-head{
-    font-family: Poppins;
+    font-family: 'Poppins';
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
@@ -28,7 +28,7 @@ line-height: 48px;
 color: #151C28;
 }
 .read-date{
-    font-family: Poppins;
+    font-family: 'Poppins';
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
@@ -50,10 +50,36 @@ color: rgba(88, 85, 98, 0.6);
     border-radius: 16px;
 }
 .read-para{
-    font-family: Poppins;
+    font-family: 'Poppins';
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
 line-height: 160%;
 color: #585562;
+}
+
+@media screen and (max-width:600px) {
+    .heading-blog-flex{
+        display: block;
+    }
+    .heading-left-blog{
+        width:100%;
+        .heading-right-blog{
+    width: 100%;
+padding-right: 63px;
+}
+       }
+}
+
+@media  (min-width:768px) and (max-width:968px){
+    .heading-blog-flex{
+        display: block;
+    }
+    .heading-left-blog{
+        width:100%;
+        .heading-right-blog{
+    width: 100%;
+padding-right: 63px;
+}
+       }
 }

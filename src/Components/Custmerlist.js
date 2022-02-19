@@ -6,12 +6,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "../style/banner.scss";
 import StarIcon from "@mui/icons-material/Star";
 const Custmerlist = ({ FetchdataReviewlist, CustomerRevielist }) => {
-  console.log(
-    CustomerRevielist.CustomerRevielist.data,
-    "hoddddddddddddddddddddddddme"
-  );
+
   const [imageslides, setSlides] = React.useState([]);
-  console.log(imageslides, "rrrrrrrrrrrrrrrrrrrrrrrrrr");
 
   React.useEffect(() => {
     FetchdataReviewlist();
@@ -22,8 +18,7 @@ const Custmerlist = ({ FetchdataReviewlist, CustomerRevielist }) => {
     }
   }, [CustomerRevielist]);
 
-  console.log(imageslides, "homesssssssssssssddddddddddd");
-  console.log("reeeeeeeeeeeeee", imageslides);
+
   const Reviewlists = () =>
     imageslides.map((list, i) => (
       //   console.log('reeeeeeeeeeeeee',list)

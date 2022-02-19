@@ -4,11 +4,71 @@ import CardRoutes from './Cardcontent';
 import {Link} from 'react-router-dom'
 import cardero from '../images/cardero.png'
 import Header from '../Header'
+import {connect} from 'react-redux'
+import { FetchdataBlog } from "../Service";
 // import blog1 from '../images/blog1.png'
 // import blog3 from '../images/blog3.png'
- const Blog = ()=> {
+ const Blog = ({FetchdataBlog,Blogtext})=> {
     //  const [cards,setCards] = useState()
-     
+    console.log(Blogtext.Blog.Blogtext.data,'FetchdataBlog')
+    const [blogtexts, setBlogtext] = React.useState([]);
+    React.useEffect(() => {
+      FetchdataBlog();
+    }, []);
+    React.useEffect(() => {
+      if (Blogtext && Blogtext.Blog.Blogtext.data) {
+        setBlogtext(Blogtext.Blog.Blogtext.data);
+      }
+    }, [Blogtext]);
+   const BlogtextCard = ()=>
+    blogtexts.map((data,i)=>(
+<div className="card" key={i}>
+       <div className="card-header" >
+         <img src={`https://sayaraagroup.com/${data.blog_image}`} alt="rover" />
+       </div>
+       <div className="card-body">
+         <span className="tag ">car wash</span>
+         <h4 className='card-heading'>
+     {/* Beyond Car Wash And More: An App For All That Your Car Needs */}
+     {data.title}
+         </h4>
+         <p className='card-para'>
+         {/* A do-it-all app for your car. Sounds too good to believe? When everything from food to clothes is available at your fingertips, why not car services? For the first time in Abu Dhabi, we are bringing together all car-related... */}
+        {data.description.substring(0, 230)}
+         </p>
+         <div className="user">
+          <div className='date'><p className='dates'>{data.added_date}</p></div>
+           <div className="user-info">
+            <Link className='link block-card-link' to={`/blog/${data.blog_alias}`}>Read More <img src={cardero} style={{width:'20px' , height:'auto'}} alt=''/></Link>
+            
+           </div>
+         </div>
+       </div>
+     </div>
+    ))
+    // {CardRoutes.cardcontent.map((data)=>{
+    //   return <div className="card">
+    //    <div className="card-header">
+    //      <img src={data.image} alt="rover" />
+    //    </div>
+    //    <div className="card-body">
+    //      <span className="tag ">{data.name}</span>
+    //      <h4 className='card-heading'>
+    //  Beyond Car Wash And More: An App For All That Your Car Needs
+    //      </h4>
+    //      <p className='card-para'>
+    //      A do-it-all app for your car. Sounds too good to believe? When everything from food to clothes is available at your fingertips, why not car services? For the first time in Abu Dhabi, we are bringing together all car-related...
+    //      </p>
+    //      <div className="user">
+    //       <div className='date'><p className='dates'>05/11/2021</p></div>
+    //        <div className="user-info">
+    //         <Link className='link' to='/carwash'>Read More <img src={cardero} style={{width:'20px' , height:'auto'}} alt=''/></Link>
+            
+    //        </div>
+    //      </div>
+    //    </div>
+    //  </div>
+    //  })}
   return(
      
   <>
@@ -27,29 +87,7 @@ import Header from '../Header'
         </div>
        </div>
        <div className="container">
-{CardRoutes.cardcontent.map((data)=>{
- return <div className="card">
-  <div className="card-header">
-    <img src={data.image} alt="rover" />
-  </div>
-  <div className="card-body">
-    <span className="tag ">{data.name}</span>
-    <h4 className='card-heading'>
-Beyond Car Wash And More: An App For All That Your Car Needs
-    </h4>
-    <p className='card-para'>
-    A do-it-all app for your car. Sounds too good to believe? When everything from food to clothes is available at your fingertips, why not car services? For the first time in Abu Dhabi, we are bringing together all car-related...
-    </p>
-    <div className="user">
-     <div className='date'><p className='dates'>05/11/2021</p></div>
-      <div className="user-info">
-       <Link className='link' to='/carwash'>Read More <img src={cardero} style={{width:'20px' , height:'auto'}} alt=''/></Link>
-       
-      </div>
-    </div>
-  </div>
-</div>
-})}
+{BlogtextCard()}
   {/* <div className="card">
     <div className="card-header">
       <img src={blog2} alt="ballons" />
@@ -97,4 +135,19 @@ Beyond Car Wash And More: An App For All That Your Car Needs
       </>
   )
 }
-export default Blog
+// export default Blog
+
+const mapstate = (state) => {
+  return {
+    Blogtext: state,
+  };
+};
+const mapDispatchprops = (dispatch) => {
+  return {
+    FetchdataBlog: () => {
+      dispatch(FetchdataBlog());
+    },
+  };
+};
+
+export default connect(mapstate, mapDispatchprops)(Blog);

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from '../src/Components/Login'
 import "./style/index.scss";
 import Blog from '../src/Components/Blog';
-
+import Otp from '../src/Components/Otp'
 // Components
 // import Header from './Header'
 import BlogRead from '../src/Components/BlogRead'
@@ -29,12 +29,12 @@ function App() {
         <Route exaxt path="/offering" component={Ourofferings} />
         <Route exact path="/about" component={About} />
         <Route exact path="/blog" component={Blog} />
-        <Route exact path="/carwash" component={BlogRead} />
+        <Route exact path="/blog/:blog_alias" component={BlogRead} />
         <Route exact path='/privacyandterms' component={Privacyandcondition} /> 
         <Route exact path='/contactus' component={Contactus} />
         <Route exact path='/partnerhome' component={Partnerhome} />
         <Route exact path="/signup" component={Multiform} />
-     
+     <Route exact path="/otp" component={Otp} />
         <Route exact path='/login'  value={a} component={Login} />
         
       </div>

@@ -9,7 +9,39 @@ import {
 
   CAR_WASH_REQUEST,
   CAR_WASH_SUCCESS,
-  CAR_WASH_ERROR
+  CAR_WASH_ERROR,
+
+  PARTNER_LIST_REQUEST,
+  PARTNER_LIST_SUCCESS,
+  PARTNER_LIST_EORROR,
+
+  CAR_SERVICE_LIST_REQUEST,
+  CAR_SERVICE_LIST_SUCCESS,
+  CAR_SERVICE_LIST_ERROR,
+
+  CAR_PRODUCT_LIST_REQUEST,
+  CAR_PRODUCT_LIST_SUCCESS,
+  CAR_PRODUCT_LIST_ERROR,
+
+  SELL_CAR_LIST_REQUEST,
+  SELL_CAR_LIST_SUCCESS,
+  SELL_CAR_LIST_ERROR,
+
+  MODAL_LIST_REQUEST,
+  MODAL_LIST_SUCCESS,
+  MODAL_LIST_ERROR,
+
+  Contactus_REQUEST,
+  Contactus_SUCCESS,
+  Contactus_ERROR,
+
+  BLOG_REQUEST,
+  BLOG_SUCCESS,
+  BLOG_ERROR,
+
+  BLOG_READ_REQUEST,
+  BLOG_READ_SUCCESS,
+  BLOG_READ_ERROR,
 } from "../Constant";
 
 const initialState = {
@@ -28,8 +60,56 @@ const carwashState ={
   CarwashList: [],
   error: "",
 }
+
+const carservicelistState = {
+  loading: false,
+  CarserviceList: [],
+  error: "",
+} 
+
+
+const PartnerlistState = {
+  loading: false,
+  PartnerList: [],
+  error: "",
+} 
+
+const ProductlistState = {
+  loading: false,
+  CarproductList: [],
+  error: "",
+} 
+
+const SellcarlistState = {
+  loading: false,
+  SellcarList: [],
+  error: "",
+} 
+
+const ModallistState = {
+  loading: false,
+  ModalList: [],
+  error: "",
+} 
+
+const ContactusState = {
+  loading: false,
+  Contactus: [],
+  error: "",
+} 
+
+const BlogState = {
+  loading: false,
+  Blogtext: [],
+  error: "",
+} 
+
+const BlogReadState = {
+  loading: false,
+  Blogread: [],
+  error: "",
+} 
 const HomeImgSlider = (state = initialState, action) => {
-  console.log(action, "gjghgjgjhgjh");
   switch (action.type) {
     case HOME_IMAGE_SLIDER_REQUEST:
       return {
@@ -81,7 +161,6 @@ export const CustmerReviewlist = (state = customerState, action) => {
 
 
 export const CarwashList = (state = carwashState, action) => {
-  console.log(action, "rrrrrrrrrrrrrrrrrrrgjghgjgjhgjh");
   switch (action.type) {
     case CAR_WASH_REQUEST:
       return {
@@ -98,6 +177,199 @@ export const CarwashList = (state = carwashState, action) => {
       return {
         loader: false,
         CarwashList: [],
+        error: action.error,
+      };
+    default:
+      return state;
+  }
+};
+
+export const Partnerlists = (state = PartnerlistState, action) => {
+  switch (action.type) {
+    case PARTNER_LIST_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case PARTNER_LIST_SUCCESS:
+      return {
+        loading: false,
+        PartnerList: action.payload,
+        error: "",
+      };
+    case PARTNER_LIST_EORROR:
+      return {
+        loader: false,
+        PartnerList: [],
+        error: action.error,
+      };
+    default:
+      return state;
+  }
+};
+
+export const CarServiceList = (state = carservicelistState, action) => {
+  switch (action.type) {
+    case CAR_SERVICE_LIST_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CAR_SERVICE_LIST_SUCCESS:
+      return {
+        loading: false,
+        CarserviceList: action.payload,
+        error: "",
+      };
+    case CAR_SERVICE_LIST_ERROR:
+      return {
+        loader: false,
+        CarserviceList: [],
+        error: action.error,
+      };
+    default:
+      return state;
+  }
+};
+
+
+export const CarProductList = (state = ProductlistState, action) => {
+  switch (action.type) {
+    case CAR_PRODUCT_LIST_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CAR_PRODUCT_LIST_SUCCESS:
+      return {
+        loading: false,
+        CarproductList: action.payload,
+        error: "",
+      };
+    case CAR_PRODUCT_LIST_ERROR:
+      return {
+        loader: false,
+        CarproductList: [],
+        error: action.error,
+      };
+    default:
+      return state;
+  }
+};
+
+export const SellcarList = (state = SellcarlistState, action) => {
+  switch (action.type) {
+    case SELL_CAR_LIST_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case SELL_CAR_LIST_SUCCESS:
+      return {
+        loading: false,
+        SellcarList: action.payload,
+        error: "",
+      };
+    case SELL_CAR_LIST_ERROR:
+      return {
+        loader: false,
+        SellcarList: [],
+        error: action.error,
+      };
+    default:
+      return state;
+  }
+};
+
+export const ModalList = (state = ModallistState, action) => {
+  switch (action.type) {
+    case MODAL_LIST_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case MODAL_LIST_SUCCESS:
+      return {
+        loading: false,
+        ModalList: action.payload,
+        error: "",
+      };
+    case MODAL_LIST_ERROR:
+      return {
+        loader: false,
+        ModalList: [],
+        error: action.error,
+      };
+    default:
+      return state;
+  }
+};
+
+export const ContactUs = (state = ContactusState, action) => {
+  switch (action.type) {
+    case Contactus_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case Contactus_SUCCESS:
+      return {
+        loading: false,
+        Contactus: action.payload,
+        error: "",
+      };
+    case Contactus_ERROR:
+      return {
+        loader: false,
+        Contactus: [],
+        error: action.error,
+      };
+    default:
+      return state;
+  }
+};
+
+export const Blog = (state = BlogState, action) => {
+  switch (action.type) {
+    case BLOG_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case BLOG_SUCCESS:
+      return {
+        loading: false,
+        Blogtext: action.payload,
+        error: "",
+      };
+    case BLOG_ERROR:
+      return {
+        loader: false,
+        Blogtext: [],
+        error: action.error,
+      };
+    default:
+      return state;
+  }
+};
+
+export const BlogReads = (state = BlogReadState, action) => {
+  switch (action.type) {
+    case BLOG_READ_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case BLOG_READ_SUCCESS:
+      return {
+        loading: false,
+        Blogread: action.payload,
+        error: "",
+      };
+    case BLOG_READ_ERROR:
+      return {
+        loader: false,
+        Blogread: [],
         error: action.error,
       };
     default:

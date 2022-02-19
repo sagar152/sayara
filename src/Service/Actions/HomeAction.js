@@ -32,7 +32,7 @@ export const Fetchdata = ()=>{
      
      axios.get('https://sayaraagroup.com/beta/WebsiteApi/offer_list').then((response)=>{
        const ImageSlider = response.data
-       console.log(ImageSlider,'imageslider get')
+ 
        dispatch(HomesliderimgSuccess(ImageSlider))
      }).catch((err)=>{
        dispatch(HomesliderimgError(err.message))

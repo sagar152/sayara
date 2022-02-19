@@ -15,7 +15,6 @@ import "react-phone-number-input/style.css";
 
 export default function HomeHeader() {
   const [toggleState, setToggleState] = useState(false);
-console.log('dsfjlsf',PartnerHome.homepartner[0].name)
   const toggle = () => {
     setToggleState(toggleState === false ? true : false);
   };
@@ -36,7 +35,7 @@ console.log('dsfjlsf',PartnerHome.homepartner[0].name)
             return (
              
 
-                <li key={i} >
+                <li key={i} style={{color:'white'}}>
               <NavLink active="true" className="active" onClick={toggle} style={{color:'white'}} to={route.link}>
                {route.name}
                 </NavLink></li>

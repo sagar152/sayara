@@ -111,8 +111,8 @@ const StepOne = () => {
           Contact
         </Typography>
         <div className={classes.formContainer}>
-          <Grid container spacing={8} mt={5} justifyContent="space-around">
-            <Grid item xs={10} md={5} xl={5}>
+          <Grid container spacing={2} mt={5} className='form-multi-container'>
+            <Grid item xs={10} md={6} xl={6}>
               <div className="input-div">
                 <input
                   style={{ width: "100%" }}
@@ -122,7 +122,7 @@ const StepOne = () => {
                 {/* <TextField style={{width:'100%'}} className={classes.Textfields} id="filled-basic" label="Company Name" variant="filled" /> */}
               </div>
             </Grid>
-            <Grid item xs={10} md={5} xl={5}>
+            <Grid item xs={10} md={6} xl={6}>
               <div className="input-div">
                 <input
                   style={{ width: "100%" }}
@@ -132,7 +132,7 @@ const StepOne = () => {
                 {/* <TextField style={{width:'100%'}} className={classes.Textfields} id="filled-basic" label="Email" variant="filled" /> */}
               </div>
             </Grid>
-            <Grid item xs={10} md={5} xl={5}>
+            <Grid item xs={10} md={6} xl={6}>
               <div className="input-div">
                 <input
                   style={{ width: "100%" }}
@@ -142,8 +142,17 @@ const StepOne = () => {
                 {/* <TextField style={{width:'100%'}} className={classes.Textfields} id="filled-basic" label="Owner’s Phone Number" variant="filled" /> */}
               </div>
             </Grid>
-
-            <Grid xs={10} md={5} xl={5}>
+            <Grid item xs={10} md={6} xl={6}>
+              <div className="input-div">
+                <input
+                  style={{ width: "100%" }}
+                  placeholder="Company Name"
+                  className="multi-input"
+                />
+                {/* <TextField style={{width:'100%'}} className={classes.Textfields} id="filled-basic" label="Owner’s Phone Number" variant="filled" /> */}
+              </div>
+            </Grid>
+            {/* <Grid xs={10} md={5} xl={5}>
               <div className="input-div tel">
                 <input
                   style={{ width: "100%" }}
@@ -151,10 +160,10 @@ const StepOne = () => {
                   className="multi-input"
                   required
                 />
-                {/* <TextField style={{width:'100%'}} className={classes.Textfields} id="filled-basic" label="Telephone Number" variant="filled" /> */}
+               
               </div>
-            </Grid>
-            <Grid item xs={12} md={5} xl={5}>
+            </Grid> */}
+            <Grid item xs={10} md={6} xl={6}>
               <div className="input-div">
                 <FormControl style={{ width: "100%" }}>
                   <Select
@@ -173,16 +182,16 @@ const StepOne = () => {
                 </FormControl>
               </div>
             </Grid>
-            <Grid item xs={10} md={5} xl={5}>
+            {/* <Grid item xs={10} md={6} xl={6}>
               <div className="input-div">
                 <input
                   style={{ width: "100%" }}
                   placeholder="Company Name"
                   className="multi-input"
                 />
-                {/* <TextField style={{width:'100%'}} className={classes.Textfields} id="filled-basic" label="Owner’s Phone Number" variant="filled" /> */}
+                
               </div>
-            </Grid>
+            </Grid> */}
             {/* <Grid item xs={5}>
           <div style={{width:'410px',margin:'0 auto'}}>
       
@@ -194,7 +203,7 @@ const StepOne = () => {
                 Address
               </Typography>
             </Grid>
-            <Grid item xs={10} md={5} xl={5}>
+            {/* <Grid item xs={10} md={5} xl={5}>
               <div className="input-div">
                 <TextField
                   style={{ width: "100%" }}
@@ -204,8 +213,18 @@ const StepOne = () => {
                   variant="filled"
                 />
               </div>
+            </Grid> */}
+            <Grid item xs={10} md={6} xl={6}>
+              <div className="input-div">
+                <input
+                  style={{ width: "100%" }}
+                  placeholder="Company Name"
+                  className="multi-input"
+                />
+                {/* <TextField style={{width:'100%'}} className={classes.Textfields} id="filled-basic" label="Owner’s Phone Number" variant="filled" /> */}
+              </div>
             </Grid>
-            <Grid item xs={10} md={5} xl={5}>
+            {/* <Grid item xs={10} md={5} xl={5}>
               <div className="input-div">
                 <TextField
                   style={{ width: "100%" }}
@@ -215,8 +234,18 @@ const StepOne = () => {
                   variant="filled"
                 />
               </div>
+            </Grid> */}
+            <Grid item xs={10} md={6} xl={6}>
+              <div className="input-div">
+                <input
+                  style={{ width: "100%" }}
+                  placeholder="Company Name"
+                  className="multi-input"
+                />
+                {/* <TextField style={{width:'100%'}} className={classes.Textfields} id="filled-basic" label="Owner’s Phone Number" variant="filled" /> */}
+              </div>
             </Grid>
-            <Grid item xs={10} md={12} xl={12}>
+            {/* <Grid item xs={10} md={12} xl={12}>
               <div className="maplink">
                 <TextField
                   style={{ width: "100%" }}
@@ -225,6 +254,16 @@ const StepOne = () => {
                   label="Map Link"
                   variant="filled"
                 />
+              </div>
+            </Grid> */}
+            <Grid item xs={10} md={6} xl={6}>
+              <div className="input-div">
+                <input
+                  style={{ width: "100%" }}
+                  placeholder="Company Name"
+                  className="multi-input"
+                />
+                {/* <TextField style={{width:'100%'}} className={classes.Textfields} id="filled-basic" label="Owner’s Phone Number" variant="filled" /> */}
               </div>
             </Grid>
           </Grid>

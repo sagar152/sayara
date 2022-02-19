@@ -10,6 +10,9 @@
 .mobslider{
   display: none;
 }
+.car-headings-icon{
+  padding-right: 20px;
+}
 .about-links{
   width:20px;
   height: 20px;
@@ -229,7 +232,8 @@
 .offering-info-flex{
   width:35%;
   height:100%;
-   margin:0 auto; 
+  //  margin:0 auto; 
+  margin-left: 53px;
 }
 .sayara-offer-heading{
   color:#151C28;
@@ -281,24 +285,73 @@ box-shadow: none !important;
 color: #FFFFFF !important;
 }
 .sayara-offering-card-flex{
-  width:50%;
-   margin:20px auto;
+  // width:50%;
+  //  margin:20px auto;
+  width:58%;
+  margin-top: 8rem;
 }
 .sayara-offering-pkg{
   display:flex;
   justify-content:space-between;
   flex-wrap:wrap;
 }
-.sayara-offering-pkg div{
+.sayara-offering-pkg .car-setting{
   height: 180px;
-  width: 180px;
+  width: 213px;
   background-color: #FFFFFF;
   margin: 10px auto;
   border: 1px solid rgba(88, 85, 98, 0.16);
   border-radius: 12px;
+  position: relative;
   // margin: 10px 0px;
 }
+.car-setting .icon-home-div{
+  width: 138px;
+height: 30px;
+padding: 7px;
+position: absolute;
+right: 0;
+background: linear-gradient(105.84deg, #1A4898 0.81%, #003096 100%);
+border-radius: 0px 0px 4px 4px;
+border-top-right-radius: 10px;
 
+}
+
+.icon-heading-home{
+  font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+text-align: center;
+font-size: 12px;
+line-height: 18px;
+
+align-items: center;
+
+color: #FFDF34;
+}
+.icon-div-homeicon{
+width: 48px;
+height: 48px;
+}
+.icon-images-home{
+  height: 100%;
+  width: 100%;
+}
+.icon-maindiv-home{
+  margin-top: 40px;
+    margin-left: 12px;
+}
+.icon-maindiv-heading{
+  margin-top: 20px;
+}
+.icon-maindiv-heading h1{
+  font-family:'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #151C28;
+}
 .sayara-works-div{
   display:flex;
   justify-content:space-between;
@@ -1213,6 +1266,12 @@ border-radius: 16px;
 
 
 @media screen and(max-width:600px){
+  .custmer-card-main{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
   .title{
     // line-height: 6px;
     font-weight: 600;
@@ -1424,15 +1483,15 @@ border-radius: 16px;
       justify-content:space-between;
       flex-wrap:wrap;
     }
-    .sayara-offering-pkg div{
-      height: 180px;
-      width: 180px;
-      background-color: #FFFFFF;
-      margin: 10px auto;
-      border: 1px solid rgba(88, 85, 98, 0.16);
-      border-radius: 12px;
-      // margin: 10px 0px;
-    }
+    // .sayara-offering-pkg div{
+    //   height: 180px;
+    //   width: 180px;
+    //   background-color: #FFFFFF;
+    //   margin: 10px auto;
+    //   border: 1px solid rgba(88, 85, 98, 0.16);
+    //   border-radius: 12px;
+    //   // margin: 10px 0px;
+    // }
 
     .sayara-works-div{
       display:block;
@@ -2254,15 +2313,15 @@ border-radius: 16px;
       justify-content:space-between;
       flex-wrap:wrap;
     }
-    .sayara-offering-pkg div{
-      height: 180px;
-      width: 180px;
-      background-color: #FFFFFF;
-      margin: 10px auto;
-      border: 1px solid rgba(88, 85, 98, 0.16);
-      border-radius: 12px;
-      // margin: 10px 0px;
-    }
+    // .sayara-offering-pkg div{
+    //   height: 180px;
+    //   width: 180px;
+    //   background-color: #FFFFFF;
+    //   margin: 10px auto;
+    //   border: 1px solid rgba(88, 85, 98, 0.16);
+    //   border-radius: 12px;
+    //   // margin: 10px 0px;
+    // }
 
     .sayara-works-div{
       display:block;
@@ -2578,5 +2637,26 @@ border-radius: 16px;
   .card-list {
     /* On small screens, we are no longer using row direction but column */
     flex-direction: column;
+  }
+}
+@media screen and (max-width:600px) {
+  .icon-div-homeicon{
+    height: 50px;
+    width: 50px;
+    background-color: #FFFFFF;
+    margin: 0;
+     border:none;
+    border-radius: none;
+  }
+}
+
+@media (min-width:768px) and (max-width:968px){
+  .icon-div-homeicon{
+    height: 50px;
+    width: 50px;
+    background-color: #FFFFFF;
+    margin: 0;
+     border:none;
+    border-radius: none;
   }
 }

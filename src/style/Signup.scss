@@ -213,12 +213,16 @@ color: #585562;
 .drop-file-preview__item:hover .drop-file-preview__item__del {
     opacity: 1;
 }
-
+.form-multi-container{
+    justify-content: space-between;
+}
 @media screen and (max-width:600px) {
     .root{
         width: 100%;
     }
-
+    .form-multi-container{
+        justify-content: space-around;
+    }
     .input-div{
         width:100%;
         margin: 0 auto;
@@ -242,7 +246,7 @@ color: #585562;
         
         position: absolute;
         width: 100%;
-        height: 1033px;
+        height: auto;
         left: 0px;
         top: 312px;
         
@@ -280,6 +284,7 @@ text-align: center;
     }
     .form-btn{
         right: 35px;
+        
     }
 }
 .multi-input{
@@ -314,7 +319,7 @@ padding: 16px 12px;
         
         position: absolute;
         width: 100%;
-        height: 1033px;
+        height: auto;
         left: 0px;
         top: 312px;
         

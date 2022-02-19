@@ -32,7 +32,7 @@ export const FetchdataReviewlist = ()=>{
      
      axios.get('https://sayaraagroup.com/beta/WebsiteApi/review_list').then((response)=>{
        const CustomerRevielist = response.data
-       console.log(CustomerRevielist,'CustomerRevielist')
+       
        dispatch(ReviewlistSuccess(CustomerRevielist))
      }).catch((err)=>{
        dispatch(ReviewlistError(err.message))

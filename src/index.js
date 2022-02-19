@@ -10,7 +10,6 @@ import thunkMiddileware from 'redux-thunk';
 import {Provider} from 'react-redux';
 import HomeImgSlider from '../src/Service/Reducers/index'
 const store = createStore(HomeImgSlider,applyMiddleware(thunkMiddileware))
-console.log("store Data",store)
 ReactDOM.render(
   <Provider store={store} >
   <React.StrictMode>

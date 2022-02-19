@@ -26,13 +26,13 @@ const CarwashError = (error) => {
 };
 
 export const FetchdataCarlist = () => {
-  return async (dispatch) => {
+  return (dispatch) => {
     dispatch(CarwashRequest());
 
-    await axios.get("https://sayaraagroup.com/beta/WebsiteApi/carwash_list")
+ axios.get("https://sayaraagroup.com/beta/WebsiteApi/carwash_list")
       .then((response) => {
         const Carwashlist = response.data;
-        console.log(Carwashlist, "Carwashlist");
+      
         dispatch(CarwashSuccess(Carwashlist));
       })
       .catch((err) => {

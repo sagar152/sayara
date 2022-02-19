@@ -1,15 +1,57 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
+import {connect} from 'react-redux'
 import Footer from '../Footer'
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import '../style/Contactus.scss';
+import { useDispatch, useSelector } from "react-redux";
 import Location from '../images/Location.png';
 import Call from '../images/Call.png';
 import Message from '../images/Message.png'
 import Header from '../HomeHeader'
-
+import {FetchdataContactus} from '../Service';
 
 const Contactus = ()=>{
+  const dispatch = useDispatch();
+  const newData = useSelector((state) => state.ContactUs.Contactus);
+  console.log(newData,"newData  ")
+  const [inputValues, setInputValue] = useState({
+    contact_name: "",
+    contact_email: "",
+    contact_subject: "",
+    contact_phone: "",
+    contact_message: "",
+ 
+  });
+
+  useEffect(() => {
+    if (Contactus && Contactus.status == true) {
+      setInputValue(Contactus);
+    }
+  }, []);
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setInputValue({ ...inputValues, [name]: value });
+  }
+  // const [name,setName] = useState('');
+  // const [contactEmail,setContactEmail] = useState('');
+  // const [contactSubject,setContactSubject] = useState("");
+  // const [contactPhone,setContactPhone] = useState("");
+  // const [contactMessage,setContactMessage] = useState("");
+  const onSubmited = e => {
+		e.preventDefault();
+
+		// const newUser = {
+		// 	name: name,
+		// 	contactEmail: contactEmail,
+		// 	contactSubject: contactSubject,
+		// 	contactPhone: contactPhone,
+    //   contactMessage:contactMessage
+		// };
+    dispatch(FetchdataContactus(inputValues));
+		console.log(inputValues,'inputValues');
+	};
     return(
         <>
         
@@ -71,18 +113,19 @@ const Contactus = ()=>{
          <div>
              <div className='conractform-div'>
                <div><h1 className='form-head'>Write us!</h1></div>
+<form onSubmit={onSubmited}>
+               <div className='contact-input-div forminput'><input type='text'  name='contact_name' value={inputValues.contact_name}  className='input1'  placeholder='Full Name' onChange={(e) => handleChange(e)}/></div>
 
-               <div className='contact-input-div forminput'><input type='text' placehoder='Please enter your name' className='input1'  placeholder='Full Name'/></div>
+               <div className='contact-input-div forminput'><input type='text' name="contact_email" value={inputValues.contact_email}  className='input1' placeholder='Email ID'  onChange={(e) => handleChange(e)}/></div>
 
-               <div className='contact-input-div forminput'><input type='text' placehoder='Please enter your name' className='input1' placeholder='Email ID' /></div>
+               <div className='contact-input-div forminput'><input type='text' name="contact_subject" value={inputValues.contact_subject}  className='input1' placeholder='contact' onChange={(e) => handleChange(e)}/></div>
+ 
+               <div className='contact-input-div forminput'><input type='text' name="contact_phone" value={inputValues.contact_phone}  className='input1'  placeholder='Mobile Number ' onChange={(e) => handleChange(e)}/></div>
 
-               <div className='contact-input-div forminput'><input type='text' placehoder='Please enter your name' className='input1' placeholder='Mobile Number'/></div>
-
-               <div className='contact-input-div forminput'><input type='text' placehoder='Please enter your name' className='input1'  placeholder='Subject'/></div>
-
-               <div className='textarea-div forminput'><textarea type='text' placehoder='Please enter your name' className='input1'  placeholder='Message'/></div>
+               <div className='textarea-div forminput'><textarea type='text' name="contact_message" value={inputValues.contact_message}  className='input1'  placeholder='Message' onChange={(e) => handleChange(e)}/></div>
 
                <div className='contactbtn-div'><button type='submit' className='contactform-btn'>Submit</button></div>
+            </form>
              </div>
          </div>
         </Grid>
@@ -93,5 +136,20 @@ const Contactus = ()=>{
         </>
     )
 }
+// const mapstate = state=>{
+//   return{
+//       Contactus:state,
+//   }
+  
+// }
+// console.log('flsjflsdjlfjls',mapstate)
+// const mapDispatchprops = (dispatch)=>{
+//   return{
+//     FetchdataContactus:()=>{
+//           dispatch(FetchdataContactus());
+//       }
+//   }
+// }
 
+// export default connect(mapstate,mapDispatchprops)(Contactus);
 export default Contactus;

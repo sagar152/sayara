@@ -1,53 +1,3 @@
-// import * as React from 'react';
-// import Tabs from '@mui/material/Tabs';
-// import Tab from '@mui/material/Tab';
-// import Box from '@mui/material/Box';
-// import car from "../../src/images/download.png";
-// import '../style/tabs.scss'
-// import tabs from '../images/tabs.png'
-// import cartabs from '../images/Cartab.png'
-// const Offeringtabs =() => {
-//   const [value, setValue] = React.useState(0);
-//   const handleChange = (event, newValue) => {
-//     setValue(newValue);
-//   };
-
-//   return (
-//     <Box sx={{ width: '100%' }}>
-//       <Tabs
-//         onChange={handleChange}
-//         value={value}
-//         aria-label="Tabs where selection follows focus"
-//         selectionFollowsFocus
-//         variant="scrollable"
-//         scrollButtons
-//         aria-label="visible arrows tabs example"
-
-        
-//       >
-//         <Tab label="Car wash" icon={ <img src={cartabs} className='tabimg'/>} className='tabs-border'/>
-//         <Tab label="Car services/products" icon={ <img src={cartabs} className='tabimg'/>}  className='tabs-border'/>
-//         <Tab label="Buy/sell car" icon={ <img src={cartabs} className='tabimg'/>} className='tabs-border'/>
-//         <Tab label="Rent a car" icon={ <img src={cartabs} className='tabimg'/>} className='tabs-border'/>
-//         <Tab label="Emergency services" icon={ <img src={cartabs} className='tabimg'/>}className='tabs-border'/>
-//         <Tab label="Item Three" icon={ <img src={cartabs} className='tabimg'/>} className='tabs-border'/>
-//         <Tab label="Item One" icon={ <img src={cartabs} className='tabimg'/>} className='tabs-border'/>
-//         <Tab label="Item Two" icon={ <img src={cartabs} className='tabimg'/>} className='tabs-border'/>
-//         <Tab label="Item Three" icon={ <img src={cartabs} className='tabimg'/>} className='tabs-border'/>
-//         <Tab label="Item One" icon={ <img src={cartabs} className='tabimg'/>} className='tabs-border'/>
-//         <Tab label="Item Two" icon={ <img src={cartabs} className='tabimg'/>} className='tabs-border'/>
-//         <Tab label="Item Three" icon={ <img src={cartabs} className='tabimg'/>} className='tabs-border'/>
-//         <Tab label="Item One" icon={ <img src={cartabs} className='tabimg'/>} className='tabs-border'/>
-//         <Tab label="Item Two" icon={ <img src={cartabs} className='tabimg'/>} className='tabs-border'/>
-//         <Tab label="Item Three" icon={ <img src={cartabs} className='tabimg'/>} className='tabs-border'/>
-//         <Tab label="Item One" icon={ <img src={cartabs} className='tabimg'/>} className='tabs-border'/>
-//         <Tab label="Item Two" icon={ <img src={cartabs} className='tabimg'/>} className='tabs-border'/>
-//         <Tab label="Item Three" icon={ <img src={cartabs} className='tabimg'/>} className='tabs-border'/>
-//       </Tabs>
-//     </Box>
-//   );
-// }
-// export default Offeringtabs
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -64,7 +14,7 @@ import cartabs from '../images/Cartab.png'
 import CarWash from './Carwash'
 import Carservice from './Carservice';
 import products from '../images/products.png';
-
+import CellcarLists from './CellCar'
 // const Item = styled(Paper)(({ theme }) => ({
 //   ...theme.typography.body2,
 //   padding: theme.spacing(1),
@@ -95,7 +45,7 @@ const classes = useStyle();
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <div>{children}</div>
         </Box>
       )}
     </div>
@@ -132,7 +82,7 @@ export default function BasicTabs() {
         >
           <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg tabs' alt=''/>} className='tabs-border' {...a11yProps(0)} />
           <Tab label="Car services/products" iconPosition="start" icon={ <img src={products} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(1)} />
-          <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(2)} />
+          <Tab label="Buy/CellCar" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(2)} />
           <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(3)} />
           <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(4)} />
           <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(5)} />
@@ -169,7 +119,12 @@ export default function BasicTabs() {
       </Grid>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+       <CellcarLists />
+        </Grid>
+     
+      </Grid>
       </TabPanel>
       <TabPanel value={value} index={3}>
         Item One
