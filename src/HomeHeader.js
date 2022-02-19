@@ -36,7 +36,7 @@ export default function HomeHeader() {
              
 
                 <li key={i} style={{color:'white'}}>
-              <NavLink active="true" className="active" onClick={toggle} style={{color:'white'}} to={route.link}>
+              <NavLink active="true" className="active navlinks" onClick={toggle} style={{color:'white'}} to={route.link}>
                {route.name}
                 </NavLink></li>
               
