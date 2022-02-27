@@ -33,9 +33,9 @@ function App() {
         <Route exact path='/privacyandterms' component={Privacyandcondition} /> 
         <Route exact path='/contactus' component={Contactus} />
         <Route exact path='/partnerhome' component={Partnerhome} />
-        <Route exact path="/signup" component={Multiform} />
-     <Route exact path="/otp" component={Otp} />
-        <Route exact path='/login'  value={a} component={Login} />
+        {/* <Route exact path="/signup" component={Multiform} /> */}
+     {/* <Route exact path="/otp" component={Otp} />
+        <Route exact path='/login'  value={a} component={Login} /> */}
         
       </div>
     </div>
