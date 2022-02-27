@@ -127,11 +127,7 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
               <br />{" "}
              
             </p>
-            <div style={{  backgroundColor: "yellow",
-                  padding: "8px 8px",
-                  borderTopLeftRadius: "10px",
-                  borderBottomRightRadius: "10px",
-                  width: '257px'}}>
+            <div className="homeslider-main-div">
             <p
                 style={{
                 
