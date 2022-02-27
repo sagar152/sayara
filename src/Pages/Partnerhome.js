@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeHeader from '../HomeHeader';
+import HomeHeader from '../Header';
 import '../style/Homepartner.scss'
 import {Link} from 'react-router-dom'
 import Box from '@mui/material/Box';

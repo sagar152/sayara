@@ -1,39 +1,38 @@
 import axios from "axios";
 import {
-    CAR_PRODUCT_LIST_REQUEST,
-    CAR_PRODUCT_LIST_SUCCESS,
-    CAR_PRODUCT_LIST_ERROR,
+  BRAND_LIST_REQUEST,
+  BRAND_LIST_SUCCESS,
+  BRAND_LIST_ERROR,
   } from "../Constant";
-const CarproductlistRequest = () => {
+const BrandListRequest = () => {
   return {
-    type: CAR_PRODUCT_LIST_REQUEST,
+    type: BRAND_LIST_REQUEST,
   };
 };
-
-const CarproductlistSuccess = (CarproductList) => {
+const BrandListSuccess = (BrandList) => {
   return {
-    type: CAR_PRODUCT_LIST_SUCCESS,
-    payload: CarproductList,
+    type: BRAND_LIST_SUCCESS,
+    payload: BrandList,
   };
 };
-const CarproductlistError = (error) => {
+const BrandListlistError = (error) => {
   return {
-    type: CAR_PRODUCT_LIST_ERROR,
+    type: BRAND_LIST_ERROR,
     payload: error,
   };
 };
 
-export const FetchdataCarproductlist = () => {
+export const FetchdataBrandList = () => {
   return (dispatch) => {
-    dispatch(CarproductlistRequest());
+    dispatch(BrandListRequest());
 
- axios.get("https://sayaraagroup.com/beta/WebsiteApi/product_list")
+ axios.get("https://sayaraagroup.com/beta/WebsiteApi/brand_list")
       .then((response) => {
-        const CarproductList = response.data;
-        dispatch(CarproductlistSuccess(CarproductList));
+        const BrandList = response.data;
+        dispatch(BrandListSuccess(BrandList));
       })
       .catch((err) => {
-        dispatch(CarproductlistError(err.message));
+        dispatch(BrandListlistError(err.message));
         console.log(err.message);
       });
   };

@@ -9,6 +9,8 @@ import Right from "../images/right.png";
 import "../style/Carwash.scss";
 import { FetchdataCarlist } from "../Service";
 import Star from "../images/Star 1.png";
+import Iframe from 'react-iframe'
+
 // const Item = styled(Paper)(({ theme }) => ({
 //   ...theme.typography.body2,
 //   padding: theme.spacing(1),
@@ -48,16 +50,31 @@ const CarWash = ({ FetchdataCarlists, Carwashlist }) => {
               {/* <h1>Exterior Wash</h1> */}
               <h1>{carwashlist.service_name}</h1>
               <div className="card-ratings-withcontent">
-                <div>
+                <div className='para-style-carwash'>
                   {/* <p>By Almjra car wash, Opposite EMC, Musaffah-5 | 2 kms</p> */}
-                  <p>{carwashlist.description}</p>
+                  {/* <p>{carwashlist.description}</p> */}
+                  <p dangerouslySetInnerHTML={{ __html: carwashlist.description}}></p>
+                  {/* <Iframe iframe={iframe} />, */}
+                  {/* <section
+                className="not-found-controller"
+                dangerouslySetInnerHTML={{ __html: this.state.pageData }}
+            /> */}
                 </div>
-                <div className="ratings-div">
-                  <img src={Star} alt="" />
-                </div>
+                {/* <div className="ratings-div">
+                 <span>{carwashlist.vendor_rate}</span> <img src={Star} alt="" />
+                </div> */}
+                   <div className='card-ratings-withcontent1'>
+              
+                  <div className='ratings-div1'>
+                     <div className='ratingswithcontent-div1'>
+                         <div className='rate-flex1'> <img  src={Star} alt=''/></div>
+                         <div><p className='rates1'>{parseInt(carwashlist.vendor_rate)}/5</p></div>
+                     </div>
+                  </div>
+              </div>
               </div>
 
-              <div className="cardwash-list">
+              {/* <div className="cardwash-list">
                 <div className="cardwash-listimgdiv">
                   <img src={Right} alt="" />
                 </div>
@@ -80,7 +97,7 @@ const CarWash = ({ FetchdataCarlists, Carwashlist }) => {
                 <div className="carwash-contentlist">
                   <p>Complementary services</p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </Grid>

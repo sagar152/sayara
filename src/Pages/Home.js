@@ -12,6 +12,8 @@ import { NavLink } from "react-router-dom";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
 import Branddropdown from '../Components/Branddropdown'
+import CustmerMobilelist from '../Components/Custmermobile'
+import SelectSearch from 'react-select-search';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../style/banner.scss";
@@ -35,7 +37,7 @@ import DblMobile from "../../src/images/dbl-mob.png";
 import appstore from "../../src/images/appstore.png";
 import googleplay from "../../src/images/googleplay.png";
 import Header from "../Header";
-
+import Searchinput from '../Components/Searchinput'
 // const Item = styled(Paper)(({ theme }) => ({
 //   ...theme.typography.body2,
 //   padding: theme.spacing(1),
@@ -70,6 +72,7 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
   Fetchdata();
 
   },[])
+  
   React.useEffect(()=>{
     if(ImageSlider && ImageSlider.ImageSlider.ImageSlider.data ){
       setSlide(ImageSlider.ImageSlider.ImageSlider.data)
@@ -108,7 +111,7 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
   imageslide.map((num, i) => (
       <div className="cards-list" key={i}>
         <div className="card 1">
-          <img src={`https://sayaraagroup.com/${num.image}`} />
+          <img src={`https://sayaraagroup.com/${num.image}`} className='slider-images'/>
           <div className="card_heading heading-white">
             <p>{num.title}</p>
           </div>
@@ -122,19 +125,25 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
               </span>{" "}
               for the <br />
               <br />{" "}
-              <span
-                style={{
-                  backgroundColor: "yellow",
+             
+            </p>
+            <div style={{  backgroundColor: "yellow",
                   padding: "8px 8px",
                   borderTopLeftRadius: "10px",
                   borderBottomRightRadius: "10px",
+                  width: '257px'}}>
+            <p
+                style={{
+                
                   fontSize: "18px",
                   color: "black",
+                  lineHeight:'27px'
                 }}
               >
-                Express gold wash
-              </span>{" "}
-            </p>
+                {/* Express gold wash */}
+                {num.company_name}
+              </p>{" "}
+            </div>
           </div>
         </div>
       </div>
@@ -177,6 +186,48 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
     </div>
     </div>
     ))
+
+    const [visibility, setVisibility] = React.useState(false);
+    const [selectedOption, setSelectedOption] = React.useState("");
+    const [search, setSearch] = React.useState("");
+    const options = [
+      "Andaman and Nicobar Islands",
+      "Andhra Pradesh",
+      "Arunachal Pradesh",
+      "Assam",
+      "Bihar",
+      "Chandigarh",
+      "Chhattisgarh",
+      "Dadra and Nagar Haveli",
+      "Daman and Diu",
+      "Delhi",
+      "Goa",
+      "Gujarat",
+      "Haryana",
+      "Himachal Pradesh",
+      "Jammu and Kashmir",
+      "Jharkhand",
+      "Karnataka",
+      "Kerala",
+      "Lakshadweep",
+      "Madhya Pradesh",
+      "Maharashtra",
+      "Manipur",
+      "Meghalaya",
+      "Mizoram",
+      "Nagaland",
+      "Orissa",
+      "Pondicherry",
+      "Punjab",
+      "Rajasthan",
+      "Sikkim",
+      "Tamil Nadu",
+      "Tripura",
+      "Uttaranchal",
+      "Uttar Pradesh",
+      "West Bengal"
+    ];
+  
   return (
     <div style={{ maxWidth: "100%" }}>
       <Header />
@@ -192,22 +243,8 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
             </div>
             <div className="dropdown-group">
              <Branddropdown />
-              <FormControl sx={{ m: 1, ml: 0, mt: 2, minWidth: 220 }}>
-                <Select
-                  style={{ height: "44px" }}
-                  value={Brand}
-                  onChange={handleChange1}
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
+     
+  <Searchinput />
             </div>
             <div style={{ textAlign: "center", marginTop: "20px" }}>
               <Button variant="contained" className="button-getfree" >
@@ -292,18 +329,18 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
               </p>
             </div>
             <div className="sayara-btngroup" style={{marginTop:'23px'}}>
-              <NavLink
-                to='/'
+              <a
+                href="http://toappsto.re/sayaraa" target="_blank"
                 className="sayara-download-btn"
               >
                 Download the App
-              </NavLink>
+              </a>
               <Button
                 variant="contained"
                 sx={{ mt: 2, ml: 3 }}
                 className="sayara-download-btn1"
               >
-               <NavLink className="about-link" to="/">
+               <NavLink className="about-link" to="/offering">
                   Read More
                   <img src={RightArrow} className="about-links" alt="" />
                 </NavLink>
@@ -438,8 +475,14 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
             </p>
           </div>
         </div>
-        <div className="custmer-main-div">
+        <div >
+        <div className="ourbackbone-sliderweb">
         <Custmerlist />
+        </div>
+        <div className="ourbackbone-sliderphone">
+        <CustmerMobilelist />
+        </div>
+       
        
         </div>
       </div>

@@ -33,7 +33,7 @@ const Producttab = ({FetchdataCarproductlist,CarproductList})=>{
         <Grid item  xs={12} md={4} xl={4}>
             <div>
               <div className='car-img-div1'>
-                  <img src={`https://sayaraagroup.com/${list.image}`}  alt=''/>
+                  <img src={`https://sayaraagroup.com/${list.image}`} style={{borderRadius:"15px"}} alt=''/>
               </div>
           </div>
         </Grid>
@@ -47,7 +47,7 @@ const Producttab = ({FetchdataCarproductlist,CarproductList})=>{
                       </div>
                       <div className='add-div1'>
                           {/* <p className='add-para1'>AED 100</p> */}
-                          <p className='add-para1'>{list.price}</p>
+                          <p className='add-para1' >{list.price}</p>
                           <p className='line1'>AED 100</p>
                       </div>
                   </div>
@@ -59,12 +59,12 @@ const Producttab = ({FetchdataCarproductlist,CarproductList})=>{
                       <div className='ratings-div1'>
                          <div className='ratingswithcontent-div1'>
                              <div className='rate-flex1'> <img  src={Star} alt=''/></div>
-                             <div><p className='rates1'>4</p></div>
+                             <div><p className='rates1'>4/5</p></div>
                          </div>
                       </div>
                   </div>
                  
-                  <div className='cardwash-list1'>
+                  {/* <div className='cardwash-list1'>
                       <div className='cardwash-listimgdiv1'>
                           <img src={Right}  alt=''/>
                       </div>
@@ -87,7 +87,7 @@ const Producttab = ({FetchdataCarproductlist,CarproductList})=>{
                       <div className='carwash-contentlist1'>
                         <p>Complementary services</p>
                       </div>
-                  </div>
+                  </div> */}
               </div>
           </div>
          

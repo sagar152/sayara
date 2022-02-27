@@ -50,7 +50,7 @@ function Arrow(props) {
     </>
   );
 }
-const Custmerlist = ({ FetchdataReviewlist, CustomerRevielist }) => {
+const CustmerMobilelist = ({ FetchdataReviewlist, CustomerRevielist }) => {
 
   const [imageslides, setSlides] = React.useState([]);
 
@@ -161,7 +161,7 @@ const Custmerlist = ({ FetchdataReviewlist, CustomerRevielist }) => {
     imageslides.map((list, i) => (
       //   console.log('reeeeeeeeeeeeee',list)
 
-      <div className="cards-partner" key={i}>
+      <div className="mobilecards-partner" key={i}>
         {/* <div className="card-header"></div> */}
         <div className="card-body" style={{height:'100%',width:'100%'}}>
           
@@ -188,8 +188,8 @@ const Custmerlist = ({ FetchdataReviewlist, CustomerRevielist }) => {
     <div className='cardmain-container-custmerlist'>
       <Slider
             {...settings1}
-            slidesToShow={3}
-            slidesToScroll={2}
+            slidesToShow={1}
+            slidesToScroll={1}
             autoplaySpeed={3000}
             
           >
@@ -216,4 +216,4 @@ const mapDispatchprops = (dispatch) => {
   };
 };
 
-export default connect(mapstate, mapDispatchprops)(Custmerlist);
+export default connect(mapstate, mapDispatchprops)(CustmerMobilelist);

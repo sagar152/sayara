@@ -101,7 +101,7 @@ const handleLogin = () => setB(true);
             );
           })}
           
-          <li className='web-login'>  <Link className="Login-btn"  activeclassname="active" onClick={handleLogin} to='#' >
+          {/* <li className='web-login'>  <Link className="Login-btn"  activeclassname="active" onClick={handleLogin} to='#' >
          
           Log in &nbsp; <Avatar style={{ width:'30px',height:'30px'}}><img src={Fram7} alt=''/></Avatar>
                  
@@ -110,7 +110,7 @@ const handleLogin = () => setB(true);
          
           Log in &nbsp; <Avatar style={{ width:'30px',height:'30px'}}><img src={Fram7} alt=''/></Avatar>
                  
-                </a> </li>
+                </a> </li> */}
           {/* <NavLink activeClassName="active" to="/about" onClick={toggle}>
             <li>about</li>
           </NavLink>

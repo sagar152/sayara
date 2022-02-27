@@ -1,24 +1,25 @@
 import * as React from 'react';
 import {connect} from 'react-redux'
-import {FetchdataCarServicelist} from '../Service'
+import {FetchdataCarRentlist} from '../Service'
 import Grid from '@mui/material/Grid';
 import washcard from '../images/washcard.png';
 import Right from '../images/right.png'
 import '../style/Carservice.scss';
 import Star from '../images/Star 1.png'
-const Servicetabs = ({FetchdataCarServicelist,CarserviceList})=>{
+const Carrentabs = ({FetchdataCarRentlist,Carrentlist})=>{
+    console.log(Carrentlist,'Carrentlist')
 const [servicelist,setServicelist] = React.useState([]);
  React.useEffect(()=>{
-    FetchdataCarServicelist();
+    FetchdataCarRentlist();
   },[]);
   React.useEffect(()=>{
-    if(CarserviceList && CarserviceList.CarserviceList.data){
-        setServicelist(CarserviceList.CarserviceList.data)
+    if(Carrentlist && Carrentlist.Carrentlist.data){
+        setServicelist(Carrentlist.Carrentlist.data)
     }
     
-  },[CarserviceList])
+  },[Carrentlist])
 
-
+console.log(servicelist,'servicelistservicelistservicelist')
  
 const CarserviceLists = ()=>
 servicelist.map((list,index)=>(
@@ -36,7 +37,7 @@ servicelist.map((list,index)=>(
           <div className='card-main-heading1'>
                   <div>
                   {/* <h1>Exterior Wash</h1> */}
-                  <h1>{list.car_service_name}</h1>
+                  <h1>{list.brand_name}</h1>
                   </div>
                   <div className='add-div1'>
                       {/* <p className='add-para1'>AED 100</p> */}
@@ -48,7 +49,7 @@ servicelist.map((list,index)=>(
               <div className='card-ratings-withcontent1'>
                   <div>
                   {/* <p>By Almjra car wash, Opposite EMC, Musaffah-5 | 2 kms</p> */}
-                  <p dangerouslySetInnerHTML={{ __html: list.details}}></p>
+                  <p dangerouslySetInnerHTML={{ __html: list.description}}></p>
                   </div>
                   <div className='ratings-div1'>
                      <div className='ratingswithcontent-div1'>
@@ -111,16 +112,16 @@ servicelist.map((list,index)=>(
 
 const mapstate = state=>{
     return{
-        CarserviceList:state.CarServiceList,
+        Carrentlist:state.Rentlist,
     }
     
   }
   const mapDispatchprops = (dispatch)=>{
     return{
-        FetchdataCarServicelist:()=>{
-            dispatch(FetchdataCarServicelist());
+        FetchdataCarRentlist:()=>{
+            dispatch(FetchdataCarRentlist());
         }
     }
   }
   
-  export default connect(mapstate,mapDispatchprops)(Servicetabs);
+  export default connect(mapstate,mapDispatchprops)(Carrentabs);

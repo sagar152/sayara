@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Location from '../images/Location.png';
 import Call from '../images/Call.png';
 import Message from '../images/Message.png'
-import Header from '../HomeHeader'
+import Header from '../Header'
 import {FetchdataContactus} from '../Service';
 
 const Contactus = ()=>{

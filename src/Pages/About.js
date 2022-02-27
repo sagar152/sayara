@@ -4,6 +4,8 @@ import Grid from "@mui/material/Grid";
 import Footer from "../Footer";
 import "../style/About.scss";
 import { Link } from "react-router-dom";
+import Partnerslider  from '../Components/Partnerslider'
+import MobilePartnerslider from '../Components/Partnermobslider'
 import AboutCar from "../images/aboutcar.png";
 import About1 from "../images/about1.png";
 import About2 from "../images/about2.png";
@@ -233,7 +235,7 @@ const About = () => {
                 </Grid>
                 <Grid item mt={5} xs={6} xs={4} md={4} lg={4} xl={4}>
                   <div style={{ textAlign: "center" }} className="stack">
-                    <Link className="downloadapp">Download the App</Link>
+                    <a className="downloadapp" href="http://toappsto.re/sayaraa" target="_blank">Download the App</a>
                   </div>
                 </Grid>
               </Grid>
@@ -377,8 +379,9 @@ const About = () => {
                   </div>
                   <div></div>
                 </div>
-                <div className="our-backbone-btn">
-                  {/* <Button variant="contained" sx={{ mt: 2}} className='download-btn' >Download the App</Button> */}
+                {/* <Button variant="contained" sx={{ mt: 2}} className='download-btn' >Download the App</Button> */}
+                {/* <div className="our-backbone-btn">
+                  
                   <Button
                     variant="contained"
                     sx={{ mt: 2, ml: 2 }}
@@ -394,22 +397,15 @@ const About = () => {
                       />
                     </a>
                   </Button>
-                </div>
+                </div> */}
               </div>
             </div>
           </Grid>
           <Grid item xs={12}>
-            <div className="ourbackbone-sliderweb">
-              <Slider
-                {...settings1}
-                slidesToShow={4}
-                slidesToScroll={2}
-                autoplaySpeed={3000}
-              >
-                {backcard()}
-              </Slider>
-            </div>
-            <div className="ourbackbone-sliderphone">
+          <div className="ourbackbone-sliderweb">
+         <Partnerslider />
+        </div>
+            {/* <div className="ourbackbone-sliderphone">
               <Slider
                 {...settings2}
                 slidesToShow={1}
@@ -418,7 +414,10 @@ const About = () => {
               >
                 {backcard()}
               </Slider>
-            </div>
+            </div> */}
+             <div className="ourbackbone-sliderphone">
+        <MobilePartnerslider />
+        </div>
           </Grid>
         </Grid>
       </div>

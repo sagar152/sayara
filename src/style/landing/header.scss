@@ -75,13 +75,17 @@ header{
     }
     .logo{
       padding-top:-10px;
-      width: 30%;
+      width: 28%;
       a{
         font-size: 1.5rem;
         
       }
       @media only screen and (max-width: 800px){
         padding-top:30px;
+        padding-left:20px;
+      }
+      @media only screen and (max-width: 600px){
+        padding-top:0px;
         padding-left:20px;
       }
     }

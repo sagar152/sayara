@@ -143,7 +143,8 @@ const Partnerslider = ({FetchdataPartnerLists,PartnerList}) => {
             <div className="card2">
               <div style={{ width: "100%", height: "100%" }}>
                 <img
-                  src={`https://sayaraagroup.com/${num.logo}`}
+                  src={`https://sayaraagroup.com/${num.logo}` }
+                  className='partnerslider'
                   style={{ width: "100%", height: "100%" }}
                   alt=""
                 />

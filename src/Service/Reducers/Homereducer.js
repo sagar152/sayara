@@ -42,11 +42,24 @@ import {
   BLOG_READ_REQUEST,
   BLOG_READ_SUCCESS,
   BLOG_READ_ERROR,
+
+  RENT_CAR_REQUEST,
+  RENT_CAR_SUCCESS,
+  RENT_CAR_ERROR,
+
+  BRAND_LIST_REQUEST,
+  BRAND_LIST_SUCCESS,
+  BRAND_LIST_ERROR,
 } from "../Constant";
 
 const initialState = {
   loading: false,
   ImageSlider: [],
+  error: "",
+};
+const BrandListState = {
+  loading: false,
+  BrandList: [],
   error: "",
 };
 const customerState = {
@@ -107,6 +120,12 @@ const BlogState = {
 const BlogReadState = {
   loading: false,
   Blogread: [],
+  error: "",
+} 
+
+const CarRentState = {
+  loading: false,
+  Carrentlist: [],
   error: "",
 } 
 const HomeImgSlider = (state = initialState, action) => {
@@ -370,6 +389,55 @@ export const BlogReads = (state = BlogReadState, action) => {
       return {
         loader: false,
         Blogread: [],
+        error: action.error,
+      };
+    default:
+      return state;
+  }
+};
+
+export const Rentlist = (state = CarRentState, action) => {
+  switch (action.type) {
+    case RENT_CAR_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case RENT_CAR_SUCCESS:
+      return {
+        loading: false,
+        Carrentlist: action.payload,
+        error: "",
+      };
+    case RENT_CAR_ERROR:
+      return {
+        loader: false,
+        Carrentlist: [],
+        error: action.error,
+      };
+    default:
+      return state;
+  }
+};
+
+
+export const BrandList = (state = BrandListState, action) => {
+  switch (action.type) {
+    case BRAND_LIST_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case BRAND_LIST_SUCCESS:
+      return {
+        loading: false,
+        BrandList: action.payload,
+        error: "",
+      };
+    case BRAND_LIST_ERROR:
+      return {
+        loader: false,
+        BrandList: [],
         error: action.error,
       };
     default:

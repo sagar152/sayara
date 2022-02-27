@@ -1,362 +1,95 @@
-// .modal-container.tutor-modal {
-//     max-width: 690px;
-//     // padding-bottom: 70px;
-//     .timing-wrapper {
-//       margin-top: 60px;
-//       .time-row {
-//         max-width: 546px;
-//         margin: 0 auto;
-//         position: relative;
-//         .custom-input-field-wrapper {
-//           span {
-//             font-size: 14px;
-//             line-height: 21px;
-//           }
-//           input {
-//             width: 45%;
-//           }
-//         }
-//         .custom-input-field-wrapper {
-//           @include flex-align-center;
-//           flex-direction: row;
-//           justify-content: space-between;
-//           padding-right: 55px;
-//         }
-//         .custom-input-field-wrapper.add-slot-wrap {
-//           width: 100%;
-//           padding-right: 0;
-//         }
-//         .time-row-icn {
-//           width: 35px;
-//           height: 35px;
-//           padding: 5px;
-//           border-radius: 100%;
-//           position: absolute;
-//           right: 0;
-//           top: 50%;
-//           transform: translateY(-50%);
-//           img {
-//             width: 100%;
-//             height: 100%;
-//             object-fit: contain;
-//           }
-//         }
-//         .cross-icon {
-//           background: $color-red;
-//         }
-//         .add-icon {
-//           background: $color-blue;
-//         }
-//       }
+// @import url('https://fonts.googleapis.com/css?family=Overpass:400,600,700');
+
+// * {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0; 
+//   font-family: 'Overpass', sans-serif;
+// }
+
+// // body {
+// //   height: calc(100vh - 240px);
+// //   display: flex;
+// //   align-items: center;
+// //   justify-content: center;
+// // }
+
+// .select {
+//   width: 240px;
+//   height: 40px;
+//   padding: 0 16px;
+//   border-radius: 6px;
+//   border:1px solid rgb(243, 220, 220);
+//   position: relative;
+//   cursor: pointer;
+// }
+
+// .selected-option {
+//   height: inherit;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   span {
+//     font-size: 14px;
+//   }
+//   i {
+//     transform: translateX(43%);
+//   }
+// }
+
+// .options {
+//   position: absolute;
+//   top:50px;
+//   left:0;
+//   width: 240px;
+//   max-height: 249px;
+//   overflow-y: scroll;
+//   padding: 0 8px 8px 8px;
+//   border-radius: 6px;
+//   border:1px solid rgb(243, 220, 220);
+//   ul {
+//     margin-top: 48px;
+//   }
+//   li {
+//     height: 32px;
+//     font-size: 14px;
+//     list-style: none;
+//     line-height: 36px;
+//     padding: 0 10px;
+//     cursor: pointer;
+//     border-radius: 6px;
+//     color:rgb(175, 161, 161);
+//     transition: 0.3s linear;
+//     &:hover {
+//       color: #000;
+//       background: rgba(10, 39, 206, 0.082);
 //     }
-//     .tutuor-modal-btm {
-//       position: absolute;
-//       bottom: 30px;
-//       left: 50%;
-//       text-align: center;
-//       transform: translateX(-50%);
-//       @include for-phone-only {
-//         width: 100%;
-//       }
-//       .default-btn {
-//         position: static;
-//         min-width: 330px;
-//         height: 50px;
-//         line-height: 50px;
-//         margin-top: 18px;
-//         font-size: 18px;
-//         @include for-phone-only {
-//           min-width: calc(100% - 40px);
-//         }
-//         &:hover {
-//           @include default-btn-hover;
-//         }
-//       }
+//     &.active-option {
+//       color: #000;
+//       background: rgba(10, 39, 206, 0.082);
 //     }
 //   }
-//   .tab-section {
-//     .edit-icon-modal {
-//       @include for-phone-only {
-//         top: 50% !important;
-//         margin-top: -12px;
-//       }
-//       @include for-tablet-portrait-up {
-//         top: 50% !important;
-//         margin-top: -25px;
-//       }
+// }
+
+// .search-options {
+//   padding-top: 8px;
+//   background: #fff;
+//   position: fixed;
+//   height: 40px;
+//   width: 208px;
+// }
+
+// input {
+//     width: calc(240px - 32px);
+//     height: 32px;
+//     font-size: 14px;
+//     line-height: 32px;
+//     padding: 0 10px;  
+//     margin-bottom: 8px;
+//     border-radius: 6px;
+//     position: fixed;
+//     border:1px solid rgb(243, 220, 220);
+//     &::placeholder {
+//       color:rgb(175, 161, 161);
 //     }
-//   }
-  
-//   .tutor-dashboard-container {
-//     padding: 30px;
-//     .edit-icon-modal {
-//       font-size: 14px;
-//       color: #9093ad;
-//       text-decoration: none;
-//       position: absolute;
-//       right: 30px;
-//       top: 5px;
-//       img {
-//         margin-right: 5px;
-//         position: relative;
-//         top: 2px;
-//       }
-//     }
-//     .default-btn {
-//       font-size: 14px;
-//       line-height: 24px;
-//       letter-spacing: 0.75px;
-//       border-radius: 8px;
-//       padding: 0 30px;
-//       width: auto;
-//       height: 40px;
-//       line-height: 40px;
-//       min-width: 130px;
-//       position: absolute;
-//       bottom: 30px;
-//       right: 30px;
-//     }
-//     .close-btn {
-//       position: absolute;
-//       top: 20px;
-//       right: 20px;
-//       img {
-//         width: 20px;
-//         height: 20px;
-//       }
-//     }
-  
-//     p {
-//       font-size: 18px;
-//       color: $color-blue;
-//       font-weight: 600;
-//     }
-//     .profile-graph {
-//       margin-top: 15px;
-//       position: relative;
-//       p {
-//         margin-left: 15px;
-//       }
-  
-//       @include flex-align-center;
-//       @include for-phone-only {
-//         flex-direction: column;
-//         margin-top: 21px;
-//       }
-//       .edit-icon-modal {
-//         top: 22px;
-//         right: 0;
-//       }
-//       @keyframes toggle {
-//         0% {
-//           opacity: 0;
-//         }
-//         100% {
-//           opacity: 1;
-//         }
-//       }
-//       .circle-progress {
-//         position: relative;
-//         height: 60px;
-//         width: 60px;
-//         margin: 0;
-//         div {
-//           position: absolute;
-//           height: 60px;
-//           width: 60px;
-//           border-radius: 50%;
-//           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;
-//           span {
-//             position: absolute;
-//             font-size: 16px;
-//             line-height: 50px;
-//             height: 50px;
-//             width: 50px;
-//             color: $color-blue !important;
-//             font-weight: 700;
-//             text-align: center;
-//             border-radius: 50%;
-//             background-color: #fff;
-//             top: 50%;
-//             left: 50%;
-//             transform: translate(-50%, -50%);
-//           }
-//         }
-//         > span {
-//           position: absolute;
-//           left: 50%;
-//           top: 100%;
-//           z-index: 1;
-//           width: 100%;
-//           text-align: center;
-//           margin-top: 10px;
-//           font-weight: 600;
-//           color: #fff;
-//           transform: translateX(-50%);
-//         }
-//         .rotate {
-//           clip: rect(0 30px 60px 0);
-//         }
-//         .left {
-//           clip: rect(0 30px 60px 0);
-//           opacity: 1;
-//         }
-//         .right {
-//           clip: rect(0 30px 60px 0);
-//           transform: rotate(180deg);
-//           opacity: 0;
-//         }
-//       }
-//     }
-  
-//     .tabbing-wrapper {
-//       .tab-section {
-//         h3 {
-//           // background: url(../images/tabbing-right-arrow.svg) no-repeat 100%
-//           //   center;
-//           border-bottom: 1px solid rgba(25, 54, 88, 0.04);
-//           font-size: 16px;
-//           font-weight: 600;
-//           color: $color-blue;
-//           position: relative;
-//           padding-left: 20px;
-//           padding-top: 10px;
-//           &:before {
-//             content: "";
-//             position: absolute;
-//             width: 8px;
-//             height: 8px;
-//             border-radius: 100%;
-//             background: $color-dark-grey;
-//             top: 50%;
-//             margin-top: 5px;
-//             left: 0;
-//             transform: translateY(-50%);
-//           }
-//         }
-//         .tab-content-col {
-//           padding: 15px 0;
-//           .document-upload-col {
-//             padding-top: 0;
-//             .background-document-wrapper {
-//               padding: 0;
-//               .backgroud-document-col {
-//                 width: 44%;
-//                 h6 {
-//                   font-size: 15px;
-//                   line-height: 22.5px;
-//                 }
-//               }
-//             }
-//           }
-//           .custom-input-field-wrapper {
-//             margin-bottom: 30px;
-//             &:last-child {
-//               margin-bottom: 0;
-//             }
-//           }
-//         }
-//       }
-//     }
-//     .button-wrapper {
-//       width: 100%;
-//       text-align: center;
-//       justify-content: center;
-//       display: flex;
-//       margin-bottom: 15px;
-//       .default-btn {
-//         position: relative;
-//         border: 0px;
-//         bottom: 0;
-//         right: 0;
-//         cursor: pointer;
-//         &.transparent-btn {
-//           color: rgb(25, 54, 88);
-//           margin-right: 10px;
-//           background: rgb(255, 255, 255);
-//           border: 2px solid rgb(25, 54, 88);
-//         }
-//         &:hover {
-//           @include default-btn-hover;
-//         }
-//       }
-//     }
-//   }
-//   .modal-container.timeslot-modal {
-//     max-width: 690px;
-  
-//     padding: 0 30px 200px;
-  
-//     .slick-slide {
-//       text-align: center;
-//     }
-  
-//     .session-tab {
-//       li {
-//         a {
-//           padding: 9px 10px;
-  
-//           line-height: 30px;
-//         }
-  
-//         &.tab-active {
-//           a {
-//             @include for-phone-only {
-//               font-size: 14px;
-//             }
-//           }
-//         }
-//       }
-//     }
-  
-//     .add-slot-wrap {
-//       span {
-//         @include for-phone-only {
-//           margin: 0 10px;
-//         }
-//       }
-//     }
-  
-//     .ut-date-picker img {
-//       @include for-phone-only {
-//         width: 10px;
-  
-//         height: 10px;
-  
-//         margin-right: 1px;
-  
-//         margin-left: 10px;
-//       }
-//     }
-//   }
-  
-//   .react-datepicker__day-name,
-//   .react-datepicker__day,
-//   .react-datepicker__time-name {
-//     line-height: 30px !important;
-  
-//     font-size: 12px !important;
-//   }
-  
-//   .react-datepicker__current-month,
-//   .react-datepicker-time__header,
-//   .react-datepicker-year-header {
-//     color: $color-red !important;
-  
-//     font-size: 16px !important;
-//   }
-  
-//   .react-datepicker__time-container
-//     .react-datepicker__time
-//     .react-datepicker__time-box
-//     ul.react-datepicker__time-list
-//     li.react-datepicker__time-list-item {
-//     height: 25px !important;
-  
-//     font-size: 12px !important;
-//   }
-  
-//   .ut-date-picker .react-datepicker__day--selected {
-//     background-color: $color-red !important;
-//   }
-  
+// }

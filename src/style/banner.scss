@@ -13,6 +13,22 @@
 .car-headings-icon{
   padding-right: 20px;
 }
+.partnermobslider{
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  border-radius: 15px;
+
+}
+
+.partnerslider{
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+}
 .about-links{
   width:20px;
   height: 20px;
@@ -74,7 +90,7 @@
         justify-content: space-around;
         flex-wrap: wrap;
         .card {
-          background-color: red;
+          background-color: white;
           margin: 30px auto;
           width: 350px;
           height: 250px;
@@ -124,7 +140,13 @@
           .title-black {
             color: black;
           }
-
+.slider-images{
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  background-size: cover;
+  background-position: center;
+}
         }
         
        
@@ -150,7 +172,7 @@
         justify-content: space-around;
         flex-wrap: wrap;
         .card2 {
-          background-color: red;
+          background-color: white;
           margin: 30px auto;
           width: 260px;
           height: 170px;
@@ -1176,7 +1198,7 @@ color: #FFFFFF !important;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
-.card {
+.card{
   margin: 10px;
   // background-color: #fff;
   // border-radius: 10px;
@@ -1184,7 +1206,34 @@ color: #FFFFFF !important;
   overflow: hidden;
   background: #FFFFFF;
 border-radius: 16px;
-  width: 300px;
+  width: 250px;
+}
+.mobilecards-partner{
+  margin: 10px;
+  // background-color: #fff;
+  // border-radius: 10px;
+  // box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  background: #FFFFFF;
+border-radius: 16px;
+  width: 310px !important;
+  
+}
+.cards-partner{
+  margin: 10px;
+  // background-color: #fff;
+  // border-radius: 10px;
+  // box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  background: #FFFFFF;
+border-radius: 16px;
+  width: 350px !important;
+  
+}
+.cardmain-container-custmerlist{
+  width:88%;
+
+  margin: 0 auto;
 }
 .card-header img {
   width: 100%;

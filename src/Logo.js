@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink} from "react-router-dom";
-import vector from '../src/images/Vector.png'
+import logoheaderfirst from '../src/images/header/logoheaderfirst.png'
 // import Link from "next/link";
 // import LogoIcon from "images/logo.svg";
 // import LogoRoutes from "./Logopath";
@@ -23,18 +23,18 @@ const Logo = () => {
   //   })
   // } , []);
   return (
-    <div className="logo-col" id="app-logo" style={{ cursor: "pointer" }}>
+    <div className="logo-col" id="app-logo" style={{ cursor: "pointer",width:'148.99px',height:'auto' }}>
       {/* <Link href="/" passHref={true}>
         <img src={LogoIcon} alt="logoicon-img"/>
       </Link> */}
       {/* {HeaderRoutes[role][0].link === role ?  console.log('roles4646464ss',HeaderRoutes[role][0]):'fjdsfjsdjf'} */}
-         
-          <NavLink activeclassname="active" style={{width:'13.32px',height:'14.45px',color:'#0A202F', display: 'flex',
+      {/* style={{width:'17.99px',height:'29.88px'}} */}
+          <NavLink activeclassname="active" style={{color:'#0A202F', display: 'flex',
 flexDirection: 'row',
 
 
 alignItems: 'center'}}   to='/'>
-           <img src={vector} alt="logoicon-img" style={{width:'17.99px',height:'29.88px'}}/>&nbsp;SAYARA
+           <img src={logoheaderfirst} alt="logoicon-img" style={{width:'100%',height:'100%'}}/>
            </NavLink>
 
            </div>
@@ -64,12 +64,12 @@ export const Whitelogo = () => {
       </Link> */}
       {/* {HeaderRoutes[role][0].link === role ?  console.log('roles4646464ss',HeaderRoutes[role][0]):'fjdsfjsdjf'} */}
          
-          <NavLink activeclassname="active" style={{width:'13.32px',height:'14.45px',color:'white', display: 'flex',
+          <NavLink activeclassname="active" style={{color:'white', display: 'flex',
 flexDirection: 'row',
 
 
 alignItems: 'center'}}   to='/'>
-           <img src={vector} alt="logoicon-img" style={{width:'17.99px',height:'29.88px'}}/>&nbsp;SAYARA
+           <img src={logoheaderfirst} alt="logoicon-img" style={{width:'100%',height:'100%'}}/>
            </NavLink>
 
            </div>

@@ -26,7 +26,7 @@ modallist.map((list,index)=>(
     <Grid item  xs={12} md={4} xl={4}>
         <div>
           <div className='car-img-div1'>
-              <img src={`https://sayaraagroup.com/${list.st_image}`} alt=''/>
+              <img src={`https://sayaraagroup.com/${list.st_image}`} alt='' style={{borderRadius:"15px"}}/>
           </div>
       </div>
     </Grid>
@@ -58,7 +58,7 @@ modallist.map((list,index)=>(
                   </div>
               </div>
              
-              <div className='cardwash-list1'>
+              {/* <div className='cardwash-list1'>
                   <div className='cardwash-listimgdiv1'>
                       <img src={Right} alt=''/>
                   </div>
@@ -81,7 +81,7 @@ modallist.map((list,index)=>(
                   <div className='carwash-contentlist1'>
                     <p>Complementary services</p>
                   </div>
-              </div>
+              </div> */}
           </div>
       </div>
      

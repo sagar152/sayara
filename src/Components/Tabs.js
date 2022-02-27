@@ -5,6 +5,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import productkey from '../images/icons/key-icon.png'
 import '../style/tabs.scss'
 import { makeStyles } from "@material-ui/core/styles";
 // import { styled } from '@mui/material/styles';
@@ -15,6 +16,7 @@ import CarWash from './Carwash'
 import Carservice from './Carservice';
 import products from '../images/products.png';
 import CellcarLists from './CellCar'
+import Rentcar from './Rentcar';
 // const Item = styled(Paper)(({ theme }) => ({
 //   ...theme.typography.body2,
 //   padding: theme.spacing(1),
@@ -82,8 +84,8 @@ export default function BasicTabs() {
         >
           <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg tabs' alt=''/>} className='tabs-border' {...a11yProps(0)} />
           <Tab label="Car services/products" iconPosition="start" icon={ <img src={products} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(1)} />
-          <Tab label="Buy/CellCar" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(2)} />
-          <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(3)} />
+          <Tab label="Buy/Cell Car" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(2)} />
+          <Tab label="rentcar list" iconPosition="start" icon={ <img src={productkey} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(3)} />
           <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(4)} />
           <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(5)} />
           <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(6)} />
@@ -127,7 +129,7 @@ export default function BasicTabs() {
       </Grid>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item One
+       <Rentcar/>
       </TabPanel>
       <TabPanel value={value} index={4}>
         Item Two
