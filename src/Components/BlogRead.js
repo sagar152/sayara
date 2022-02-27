@@ -118,7 +118,8 @@ console.log(thisProduct,'blockreadblockreadblockreadblockreadblockread')
 
     <div>
         <br /> <br />
-        <p className='read-para'>
+        <p ></p>
+        <p className='read-para' dangerouslySetInnerHTML={{ __html: thisProduct.description}}>
         {/* A do-it-all app for your car. Sounds too good to believe? When everything from food to clothes is available at your fingertips, why not car services? For the first time in Abu Dhabi, we are bringing together all car-related services on a mobile platform named Sayaraa. We have an impressive array of services including doorstep carwash, shopping center carwash, maintenance services, rent a car, car buy and sell and many more.  
 Sayaraa is a mobile app compatible with both Android and iOS devices. It currently serves Abu Dhabi with some of the capital’s top-rated service stations and service personnel. This A-listed category of car service providers is hosted on Sayaraa with assured deals and offers. Sayaraa can be rightly called the capital’s one-stop car fix app.
 <br /><br />
@@ -129,7 +130,7 @@ Our list of A-Class collaborators offers car wash at your doorstep to shopping m
 <br /><br />
 Using Sayaraa is a cakewalk. Download the app, search for your required service from your location and avail services from the list that pops up. You can request services as per your convenience from your home. If not, leave your car with a service provider, sit back, relax and save time with Sayaraa priority. The mobile app is user-friendly with search tools as easy as a cakewalk. Appointments can be made easily at your ease and comfort. The unique selling point of Sayaraa is its pricing and offers anytime-anywhere. All you need to do is just open the app, select your location, desired time frame, type of service, and voila!  
 We have a lot more to offer. Stay tuned to find more.   */}
-{thisProduct.description}
+{/* {} */}
         </p>
     </div>
 

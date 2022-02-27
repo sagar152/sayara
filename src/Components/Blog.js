@@ -32,9 +32,12 @@ import { FetchdataBlog } from "../Service";
      {/* Beyond Car Wash And More: An App For All That Your Car Needs */}
      {data.title}
          </h4>
-         <p className='card-para'>
+         {/* <p ></p> */}
+         
+         <p className='card-para' dangerouslySetInnerHTML={{ __html: data.description.substring(0, 230)}}>
          {/* A do-it-all app for your car. Sounds too good to believe? When everything from food to clothes is available at your fingertips, why not car services? For the first time in Abu Dhabi, we are bringing together all car-related... */}
-        {data.description.substring(0, 230)}
+        
+      
          </p>
          <div className="user">
           <div className='date'><p className='dates'>{data.added_date}</p></div>
