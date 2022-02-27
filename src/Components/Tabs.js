@@ -86,14 +86,14 @@ export default function BasicTabs() {
           <Tab label="Car services/products" iconPosition="start" icon={ <img src={products} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(1)} />
           <Tab label="Buy/Cell Car" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(2)} />
           <Tab label="rentcar list" iconPosition="start" icon={ <img src={productkey} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(3)} />
-          <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(4)} />
+          {/* <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(4)} />
           <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(5)} />
           <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(6)} />
           <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(7)} />
           <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(8)} />
           <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(9)} />
           <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(10)} />
-          <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(11)} />
+          <Tab label="Car wash" iconPosition="start" icon={ <img src={cartabs} className='tabimg' alt=''/>} className='tabs-border' {...a11yProps(11)} /> */}
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -131,7 +131,7 @@ export default function BasicTabs() {
       <TabPanel value={value} index={3}>
        <Rentcar/>
       </TabPanel>
-      <TabPanel value={value} index={4}>
+      {/* <TabPanel value={value} index={4}>
         Item Two
       </TabPanel>
       <TabPanel value={value} index={5}>
@@ -151,7 +151,7 @@ export default function BasicTabs() {
       </TabPanel>
       <TabPanel value={value} index={10}>
         Item Two
-      </TabPanel>
+      </TabPanel> */}
     </Box>
   );
 }
