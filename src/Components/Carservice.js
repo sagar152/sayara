@@ -78,15 +78,15 @@ const TabsList = styled(TabsListUnstyled)`
   align-content: space-between;
 `;
 
-export default function UnstyledTabsCustomized() {
+export default function UnstyledTabsCustomized({search}) {
   return (
     <TabsUnstyled defaultValue={0}>
       <TabsList>
         <Tab>Services</Tab>
         <Tab>Products</Tab>
       </TabsList>
-      <TabPanel value={0}><Servicetabs /></TabPanel>
-      <TabPanel value={1}><Producttab /></TabPanel>
+      <TabPanel value={0}><Servicetabs search={search}/></TabPanel>
+      <TabPanel value={1}><Producttab search={search}/></TabPanel>
     </TabsUnstyled>
   );
 }

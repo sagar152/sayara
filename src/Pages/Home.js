@@ -1,28 +1,27 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Footer from "../Footer";
-import {connect} from 'react-redux'
-import {Fetchdata} from '../Service'
-import Custmerlist from '../Components/Custmerlist'
+import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { Fetchdata } from "../Service";
+import Custmerlist from "../Components/Custmerlist";
 import car from "../../src/images/download.png";
-import Partnerslider  from '../Components/Partnerslider'
-import MobilePartnerslider from '../Components/Partnermobslider'
+import Partnerslider from "../Components/Partnerslider";
+import MobilePartnerslider from "../Components/Partnermobslider";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import { NavLink } from "react-router-dom";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
-import Branddropdown from '../Components/Branddropdown'
-import CustmerMobilelist from '../Components/Custmermobile'
-import SelectSearch from 'react-select-search';
+import CustmerMobilelist from "../Components/Custmermobile";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../style/banner.scss";
-import carwashicon from '../images/icons/Car wash.png';
-import producticon from '../images/icons/product-icon.png';
-import caricons from '../images/icons/car-icon.png';
-import drivingicon from '../images/icons/driving-icon.png'
-import keyicon from '../images/icons/key-icon.png';
-import frame from '../images/icons/fram-icon.png'
+import carwashicon from "../images/icons/Car wash.png";
+import producticon from "../images/icons/product-icon.png";
+import caricons from "../images/icons/car-icon.png";
+import drivingicon from "../images/icons/driving-icon.png";
+import keyicon from "../images/icons/key-icon.png";
+import frame from "../images/icons/fram-icon.png";
 import Slider from "react-slick";
 import Mobile from "../../src/images/mobile.png";
 import engine from "../../src/images/Frame 895.png";
@@ -37,7 +36,10 @@ import DblMobile from "../../src/images/dbl-mob.png";
 import appstore from "../../src/images/appstore.png";
 import googleplay from "../../src/images/googleplay.png";
 import Header from "../Header";
-import Searchinput from '../Components/Searchinput'
+// import Searchinput from "../Components/Searchinput";
+import { FetchdataBrandList } from "../Service";
+import {FetchdataModallist} from '../Service'
+import {FetchdataGetquotation} from '../Service'
 // const Item = styled(Paper)(({ theme }) => ({
 //   ...theme.typography.body2,
 //   padding: theme.spacing(1),
@@ -51,8 +53,8 @@ function Arrow(props) {
     props.type === "next" ? (
       <img src={btnIcon} style={{ width: "50px", height: "50px" }} alt="" />
     ) : (
-      // <img src={btnIcon} style={{ width: "50px", height: "50px" }} alt="" /> 
-      ''
+      // <img src={btnIcon} style={{ width: "50px", height: "50px" }} alt="" />
+      ""
     );
   return (
     <>
@@ -64,28 +66,62 @@ function Arrow(props) {
     </>
   );
 }
-const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
- const [imageslide,setSlide] = React.useState([]);
- const [age, setAge] = React.useState("");
- const [Brand, setBrand] = React.useState("");
-  React.useEffect(()=>{
-  Fetchdata();
-
-  },[])
-  
-  React.useEffect(()=>{
-    if(ImageSlider && ImageSlider.ImageSlider.ImageSlider.data ){
-      setSlide(ImageSlider.ImageSlider.ImageSlider.data)
+const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
+  const [imageslide, setSlide] = React.useState([]);
+  // const [brand, setBrand] = React.useState("");
+  const [inputValues, setInputValue] = useState({
+    contact_name: "",
+    contact_email: "",
+    brand_name: "",
+    model_name: "",
+  });
+  const [brandlist, setBrandlist] = React.useState([]);
+  const brandList = useSelector((state) => state);
+  console.log("brandList123", brandList);
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(FetchdataBrandList());
+  }, []);
+  React.useEffect(() => {
+    if (brandList && brandList.BrandList.BrandList.data) {
+      setBrandlist(brandList.BrandList.BrandList.data);
     }
-    
-  },[ImageSlider])
-  const handleChange1 = (event) => {
-    setBrand(event.target.value);
+  }, [brandList]);
+  // React.useEffect(()=>{
+  //   FetchdataModallist();
+  // },[])
+  const onSubmited = e => {
+    e.preventDefault();
+
+  // const newUser = {
+  // 	contact_name: contact_name,
+  // 	contactEmail: contactEmail,
+  // 	brand_name: brand_name,
+  // 	contactPhone: contactPhone,
+  //   model_name:model_name
+  // };
+    dispatch(FetchdataGetquotation(inputValues));
+    console.log(inputValues,'inputValues');
   };
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
-  
+ 
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setInputValue({ ...inputValues, [name]: value });
+  }
+  React.useEffect(() => {
+    Fetchdata();
+  }, []);
+
+  React.useEffect(() => {
+    if (ImageSlider && ImageSlider.ImageSlider.ImageSlider.data) {
+      setSlide(ImageSlider.ImageSlider.ImageSlider.data);
+    }
+  }, [ImageSlider]);
+  // const handleChanges = (event) => {
+  //   setBrand(event.target.value);
+  // };
+
+
   var settingsweb = {
     dots: true,
     arrows: true,
@@ -108,10 +144,13 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
   };
 
   const renderSlides = () =>
-  imageslide.map((num, i) => (
+    imageslide.map((num, i) => (
       <div className="cards-list" key={i}>
         <div className="card 1">
-          <img src={`https://sayaraagroup.com/${num.image}`} className='slider-images'/>
+          <img
+            src={`https://sayaraagroup.com/${num.image}`}
+            className="slider-images" alt=''
+          />
           <div className="card_heading heading-white">
             <p>{num.title}</p>
           </div>
@@ -125,15 +164,13 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
               </span>{" "}
               for the <br />
               <br />{" "}
-             
             </p>
             <div className="homeslider-main-div">
-            <p
+              <p
                 style={{
-                
                   fontSize: "18px",
                   color: "black",
-                  lineHeight:'27px'
+                  lineHeight: "27px",
                 }}
               >
                 {/* Express gold wash */}
@@ -145,85 +182,67 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
       </div>
     ));
 
-    const imagesicon = [
-      // {
-      //   image:carwashicon,
-      //   text:'Car Wash'
-      // },
-      {
-        image:producticon,
-        text:'Car Services or Products'
-      },
-      {
-        image:caricons,
-        text:'Buy or Sell Car'
-      },
-      {
-        image:keyicon,
-        text:'Rent a Car'
-      },
-      {
-        image:frame,
-        text:'Emergency Services'
-      },
-      {
-        image:drivingicon,
-        text:'Driving Instructor'
-      },
-  
-    ]
-    const homeiconcard = ()=>
-    imagesicon.map((data,index)=>(
+  const imagesicon = [
+    // {
+    //   image:carwashicon,
+    //   text:'Car Wash'
+    // },
+    {
+      image: producticon,
+      text: "Car Services or Products",
+    },
+    {
+      image: caricons,
+      text: "Buy or Sell Car",
+    },
+    {
+      image: keyicon,
+      text: "Rent a Car",
+    },
+    {
+      image: frame,
+      text: "Emergency Services",
+    },
+    {
+      image: drivingicon,
+      text: "Driving Instructor",
+    },
+  ];
+  const homeiconcard = () =>
+    imagesicon.map((data, index) => (
       <div className="car-setting" key={index}>
-      <div className='icon-maindiv-home'>
-      <div className='icon-div-homeicon'><img src={data.image} className='icon-images-home' /></div>
+        <div className="icon-maindiv-home">
+          <div className="icon-div-homeicon">
+            <img src={data.image} className="icon-images-home" alt=''/>
+          </div>
 
-      <div className='icon-maindiv-heading'><h1 className='car-headings-icon'>{data.text}</h1></div>
-    </div>
-    </div>
-    ))
+          <div className="icon-maindiv-heading">
+            <h1 className="car-headings-icon">{data.text}</h1>
+          </div>
+        </div>
+      </div>
+    ));
 
-    const [visibility, setVisibility] = React.useState(false);
-    const [selectedOption, setSelectedOption] = React.useState("");
-    const [search, setSearch] = React.useState("");
-    const options = [
-      "Andaman and Nicobar Islands",
-      "Andhra Pradesh",
-      "Arunachal Pradesh",
-      "Assam",
-      "Bihar",
-      "Chandigarh",
-      "Chhattisgarh",
-      "Dadra and Nagar Haveli",
-      "Daman and Diu",
-      "Delhi",
-      "Goa",
-      "Gujarat",
-      "Haryana",
-      "Himachal Pradesh",
-      "Jammu and Kashmir",
-      "Jharkhand",
-      "Karnataka",
-      "Kerala",
-      "Lakshadweep",
-      "Madhya Pradesh",
-      "Maharashtra",
-      "Manipur",
-      "Meghalaya",
-      "Mizoram",
-      "Nagaland",
-      "Orissa",
-      "Pondicherry",
-      "Punjab",
-      "Rajasthan",
-      "Sikkim",
-      "Tamil Nadu",
-      "Tripura",
-      "Uttaranchal",
-      "Uttar Pradesh",
-      "West Bengal"
-    ];
   
+ 
+
+
+  // console.log('sdfldsflsflsf',ModalList.ModalList.data)
+        const [modallist,setModallist] = React.useState([])
+    // const [age, setAge] = React.useState("");
+    React.useEffect(()=>{
+        dispatch(FetchdataModallist()) ;
+    },[])
+    React.useEffect(()=>{
+        if(brandList && brandList.ModalList.ModalList.data){
+            setModallist(brandList.ModalList.ModalList.data)
+        }
+    },[brandList])
+
+    console.log('modallist',modallist)
+    // const handleChange = (event) => {
+    //     setAge(event.target.value);
+    //   };
   return (
     <div style={{ maxWidth: "100%" }}>
       <Header />
@@ -232,22 +251,103 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
           <div className="container-home banner-container">
             <div className="banner-left-container">
               <h1>Explore The Best Car Services in Abu Dhabi</h1>
-              <p>
+              {/* <p>
                 Lorem Which Are car services are top rated in Abu dhabi. we'll
                 you get istant qutation in minute.
-              </p>
+              </p> */}
             </div>
+            <form onSubmit={onSubmited}>
             <div className="dropdown-group">
-             <Branddropdown />
-     
-  <Searchinput />
+             
+              <FormControl sx={{ m: 1, ml: 0, mt: 2, minWidth: 220 }}>
+                <Select
+                  style={{ height: "44px", display: "flex" }}
+                  name="brand_name" value={inputValues.brand_name}
+                  onChange={(e) => handleChange(e)}
+                  displayEmpty
+                  inputProps={{ "aria-label": "Without label" }}
+                 
+                >
+                  <MenuItem value="">
+                    <em>Select Brand Name</em>
+                  </MenuItem>
+                  <input />
+                  {brandlist.map((num, i) => (
+                    <MenuItem value={num.brand_name} key={i}>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-around",
+                        }}
+                      >
+                        <div style={{ widht: "40%" }}>
+                          <em>{num.brand_name}</em>
+                        </div>{" "}
+                        <div style={{ width: "40%" }}>
+                          <div style={{ width: "60px", height: "60px" }}>
+                            <img
+                              src={`https://sayaraagroup.com/${num.brand_image}`} alt=''
+                              style={{ width: "100%", height: "100%" }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </MenuItem>
+                  ))}
+
+                  {/* <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem> */}
+                </Select>
+              </FormControl>
+
+              {/* <Searchinput /> */}
+              <FormControl sx={{ m: 1, ml: 0, mt: 2, minWidth: 220 }}>
+                <Select
+                  style={{ height: "44px",display:'flex' }}
+                  value={inputValues.model_name}
+                  onChange={(e) => handleChange(e)}
+                  displayEmpty
+                  name="model_name"
+                  inputProps={{ "aria-label": "Without label" }}
+               
+                >
+                  <MenuItem value="">
+                    <em>Select Model Name</em>
+                  </MenuItem>
+                  <input />
+                  {modallist.map((num,i)=>(
+                    <MenuItem value={num.model_name} key={i}><div style={{display:'flex',justifyContent:'space-around'}}>
+                        <div style={{widht:'40%'}}><em>{num.model_name}</em></div>  <div style={{width:'40%'}}><div style={{width:'60px',height:'60px'}}><img src={`https://sayaraagroup.com/${num.model_image}`} alt='' style={{width:'100%',height:'100%'}} /></div></div>
+                        </div></MenuItem>
+                  ))}
+                  
+                  {/* <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem> */}
+                </Select>
+              </FormControl>
+              
             </div>
+            <div className="dropdown-group" mt={4}>
+              <input
+                type="text"
+                className="homeName"
+                name='contact_name' value={inputValues.contact_name}
+                onChange={(e) => handleChange(e)}
+              />
+              <input
+                type="text"
+                className="homeName email-home"
+                name="contact_email" value={inputValues.contact_email}
+                onChange={(e) => handleChange(e)}
+              />
+            </div>
+
             <div style={{ textAlign: "center", marginTop: "20px" }}>
-              <Button variant="contained" className="button-getfree" >
+              <Button variant="contained" type='submit' className="button-getfree">
                 Get Free Quotation
               </Button>
-          
             </div>
+            </form>
           </div>
         </div>
         <div className="flexdiv">
@@ -324,9 +424,10 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
                 when you leave, you get the best experience possible.
               </p>
             </div>
-            <div className="sayara-btngroup" style={{marginTop:'23px'}}>
+            <div className="sayara-btngroup" style={{ marginTop: "23px" }}>
               <a
-                href="http://toappsto.re/sayaraa" target="_blank"
+                href="http://toappsto.re/sayaraa"
+                target="_blank"
                 className="sayara-download-btn"
               >
                 Download the App
@@ -336,7 +437,7 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
                 sx={{ mt: 2, ml: 3 }}
                 className="sayara-download-btn1"
               >
-               <NavLink className="about-link" to="/offering">
+                <NavLink className="about-link" to="/offering">
                   Read More
                   <img src={RightArrow} className="about-links" alt="" />
                 </NavLink>
@@ -347,18 +448,22 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
           <div className="sayara-offering-card-flex">
             <div className="sayara-offering-pkg">
               <div className="car-setting">
-                <div className='icon-home-div'>
-                  <h1 className='icon-heading-home'>Packages available</h1>
+                <div className="icon-home-div">
+                  <h1 className="icon-heading-home">Packages available</h1>
+                </div>
+                <div className="icon-maindiv-home">
+                  <div className="icon-div-homeicon">
+                    <img src={carwashicon} className="icon-images-home" />
                   </div>
-                  <div className='icon-maindiv-home'>
-                    <div className='icon-div-homeicon'><img src={carwashicon} className='icon-images-home' /></div>
 
-                    <div className='icon-maindiv-heading'><h1 >Car Wash</h1></div>
+                  <div className="icon-maindiv-heading">
+                    <h1>Car Wash</h1>
                   </div>
-                  </div>
-             
-             {homeiconcard()}
-              
+                </div>
+              </div>
+
+              {homeiconcard()}
+
               {/* <div className="car-setting"></div>
               <div className="car-setting"></div>
               <div className="car-setting"></div>
@@ -471,15 +576,13 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
             </p>
           </div>
         </div>
-        <div >
-        <div className="ourbackbone-sliderweb">
-        <Custmerlist />
-        </div>
-        <div className="ourbackbone-sliderphone">
-        <CustmerMobilelist />
-        </div>
-       
-       
+        <div>
+          <div className="ourbackbone-sliderweb">
+            <Custmerlist />
+          </div>
+          <div className="ourbackbone-sliderphone">
+            <CustmerMobilelist />
+          </div>
         </div>
       </div>
 
@@ -518,10 +621,10 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
           </div>
         </div>
         <div className="ourbackbone-sliderweb">
-         <Partnerslider />
+          <Partnerslider />
         </div>
         <div className="ourbackbone-sliderphone">
-        <MobilePartnerslider />
+          <MobilePartnerslider />
         </div>
       </div>
       {/* sayara work */}
@@ -542,12 +645,23 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
             <div className="social-app-login">
               <div className="social-flex1">
                 <div>
-                <a  href='https://play.google.com/store/apps/details?id=com.sjainpune.sayaraa&hl=en' target="_blank"> <img src={googleplay} alt="" /></a>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.sjainpune.sayaraa&hl=en"
+                    target="_blank"
+                  >
+                    {" "}
+                    <img src={googleplay} alt="" />
+                  </a>
                 </div>
               </div>
               <div className="social-flex2">
                 <div>
-                <a  href='https://apps.apple.com/in/app/sayaraa/id1491527366' target="_blank"><img src={appstore} alt="" /></a>
+                  <a
+                    href="https://apps.apple.com/in/app/sayaraa/id1491527366"
+                    target="_blank"
+                  >
+                    <img src={appstore} alt="" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -562,19 +676,17 @@ const Home = ({Fetchdata, CustomerRevielist,...ImageSlider}) => {
   );
 };
 
-const mapstate = state=>{
-  return{
-    ImageSlider:state.HomeImgSlider,
-  }
-  
-}
-const mapDispatchprops = (dispatch)=>{
-  return{
-    Fetchdata:()=>{
-          dispatch(Fetchdata());
-      }
-  }
-}
+const mapstate = (state) => {
+  return {
+    ImageSlider: state.HomeImgSlider,
+  };
+};
+const mapDispatchprops = (dispatch) => {
+  return {
+    Fetchdata: () => {
+      dispatch(Fetchdata());
+    },
+  };
+};
 
-export default connect(mapstate,mapDispatchprops)(Home);
-
+export default connect(mapstate, mapDispatchprops)(Home);

@@ -6,7 +6,7 @@ import washcard from '../images/washcard.png';
 import Right from '../images/right.png'
 import '../style/Carservice.scss';
 import Star from '../images/Star 1.png'
-const Cellcartabs = ({FetchdataSellcarlist,SellcarList})=>{
+const Cellcartabs = ({FetchdataSellcarlist,SellcarList,search})=>{
 const [modallist,setModallist] = React.useState([]);
  React.useEffect(()=>{
     FetchdataSellcarlist();
@@ -21,7 +21,15 @@ const [modallist,setModallist] = React.useState([]);
 
  
 const CellcarLists = ()=>
-modallist.map((list,index)=>(
+modallist.filter((value) => {
+    if (search === "") {
+      return value;
+    } else if (
+      value.brand.toLowerCase().includes(search.toLowerCase())
+    ) {
+      return value;
+    }
+  }).map((list,index)=>(
     <Grid container spacing={2} mb={5} className='main1' key={index}>
     <Grid item  xs={12} md={4} xl={4}>
         <div>

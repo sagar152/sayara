@@ -18,7 +18,8 @@ import Iframe from 'react-iframe'
 //   color: theme.palette.text.secondary,
 // }));
 
-const CarWash = ({ FetchdataCarlists, Carwashlist }) => {
+const CarWash = ({ FetchdataCarlists, Carwashlist,search }) => {
+  console.log(search,'searchTitle')
   const [imageslides, setSlides] = React.useState([]);
   React.useEffect(() => {
     FetchdataCarlists();
@@ -35,7 +36,16 @@ const CarWash = ({ FetchdataCarlists, Carwashlist }) => {
   //     });
   //   };
   const Carwashlists = () =>
-    imageslides.map((carwashlist, i) => (
+    imageslides.filter((value) => {
+      if (search === "") {
+        return value;
+      } else if (
+        value.service_name.toLowerCase().includes(search.toLowerCase())
+      ) {
+        return value;
+      }
+    })
+    .map((carwashlist, i) => (
       <Grid container spacing={2} className="main" key={i}>
         <Grid item xs={12} md={4} xl={4}>
           <div>

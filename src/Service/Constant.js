@@ -41,6 +41,11 @@ export const Contactus_REQUEST = "Contactus_REQUEST";
 export const Contactus_SUCCESS = "Contactus_SUCCESS";
 export const Contactus_ERROR = "Contactus_ERROR";
 
+export const GET_QUOTATION_REQUEST = "GET_QUOTATION_REQUEST ";
+export const GET_QUOTATION_SUCCESS = "GET_QUOTATION_SUCCESS";
+export const GET_QUOTATION_ERROR = "GET_QUOTATION_ERROR";
+
+
 export const BLOG_REQUEST = "BLOG_REQUEST";
 export const BLOG_SUCCESS = "BLOG_SUCCESS";
 export const BLOG_ERROR = "BLOG_ERROR";

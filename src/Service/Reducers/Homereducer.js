@@ -11,6 +11,10 @@ import {
   CAR_WASH_SUCCESS,
   CAR_WASH_ERROR,
 
+  GET_QUOTATION_REQUEST,
+  GET_QUOTATION_SUCCESS,
+  GET_QUOTATION_ERROR,
+
   PARTNER_LIST_REQUEST,
   PARTNER_LIST_SUCCESS,
   PARTNER_LIST_EORROR,
@@ -126,6 +130,12 @@ const BlogReadState = {
 const CarRentState = {
   loading: false,
   Carrentlist: [],
+  error: "",
+} 
+
+const GetquotationState = {
+  loading: false,
+  Getquotation: [],
   error: "",
 } 
 const HomeImgSlider = (state = initialState, action) => {
@@ -438,6 +448,30 @@ export const BrandList = (state = BrandListState, action) => {
       return {
         loader: false,
         BrandList: [],
+        error: action.error,
+      };
+    default:
+      return state;
+  }
+};
+
+export const GetquotationList = (state = GetquotationState, action) => {
+  switch (action.type) {
+    case GET_QUOTATION_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case GET_QUOTATION_SUCCESS:
+      return {
+        loading: false,
+        Getquotation: action.payload,
+        error: "",
+      };
+    case GET_QUOTATION_ERROR:
+      return {
+        loader: false,
+        Getquotation: [],
         error: action.error,
       };
     default:

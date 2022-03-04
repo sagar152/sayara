@@ -1,5 +1,5 @@
 
-import * as React from 'react';
+import  React ,{useState} from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -73,9 +73,25 @@ export default function BasicTabs() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  const [searchTitle, setSearchTitle] = useState("");
   return (
     <Box sx={{ width: '100%' }}>
+        <Grid container spacing={2}>
+              <Grid item xs={12} md={8} xl={8}>
+                <div>
+                  <h1 className="explore-heading">Explore Our Offerings</h1>
+                </div>
+              </Grid>
+              <Grid item xs={12} md={4} xl={4}>
+                <div className="search-container">
+                <input
+   className="search-containers"
+        type="text"
+        placeholder="Search..."
+        onChange={(e) => setSearchTitle(e.target.value)}
+      />
+                </div>
+              </Grid></Grid>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" 
           selectionFollowsFocus
@@ -99,7 +115,7 @@ export default function BasicTabs() {
       <TabPanel value={value} index={0}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-       <CarWash />
+       <CarWash search={searchTitle}/>
         </Grid>
         {/* <Grid item xs={4}>
           <Item>xs=4</Item>
@@ -115,7 +131,7 @@ export default function BasicTabs() {
       <TabPanel value={value} index={1}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-       <Carservice />
+       <Carservice search={searchTitle}/>
         </Grid>
      
       </Grid>
@@ -123,13 +139,13 @@ export default function BasicTabs() {
       <TabPanel value={value} index={2}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-       <CellcarLists />
+       <CellcarLists search={searchTitle}/>
         </Grid>
      
       </Grid>
       </TabPanel>
       <TabPanel value={value} index={3}>
-       <Rentcar/>
+       <Rentcar search={searchTitle}/>
       </TabPanel>
       {/* <TabPanel value={value} index={4}>
         Item Two

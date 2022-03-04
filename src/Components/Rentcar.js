@@ -6,7 +6,7 @@ import washcard from '../images/washcard.png';
 import Right from '../images/right.png'
 import '../style/Carservice.scss';
 import Star from '../images/Star 1.png'
-const Carrentabs = ({FetchdataCarRentlist,Carrentlist})=>{
+const Carrentabs = ({FetchdataCarRentlist,Carrentlist,search})=>{
     console.log(Carrentlist,'Carrentlist')
 const [servicelist,setServicelist] = React.useState([]);
  React.useEffect(()=>{
@@ -22,7 +22,15 @@ const [servicelist,setServicelist] = React.useState([]);
 console.log(servicelist,'servicelistservicelistservicelist')
  
 const CarserviceLists = ()=>
-servicelist.map((list,index)=>(
+servicelist.filter((value) => {
+    if (search === "") {
+      return value;
+    } else if (
+      value.brand_name.toLowerCase().includes(search.toLowerCase())
+    ) {
+      return value;
+    }
+  }).map((list,index)=>(
     <Grid container spacing={2} mb={5} className='main1' key={index}>
     <Grid item  xs={12} md={4} xl={4}>
         <div>

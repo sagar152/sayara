@@ -9,6 +9,7 @@ import Select from "@mui/material/Select";
 // import Select from "react-select";
 
 const  Searchinput = ({FetchdataBrandList,BrandList})=> {
+  const [searchTitle, setSearchTitle] = useState("");
   const [formValues, setFormValues] = useState({
     subject: "",
     // tutoringLevel: [],
@@ -91,11 +92,26 @@ const  Searchinput = ({FetchdataBrandList,BrandList})=> {
                   inputProps={{ "aria-label": "Without label" }}
                   style={{display:'flex'}}
                 >
+                              <input
+      
+      type="text"
+      placeholder="Search..."
+      defaultValue={'fff'}
+      // onChange={(e) => setSearchTitle(e.target.value)}
+    />
                   <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
-                  <input />
-                  {modallist.map((num,i)=>(
+      
+                  {modallist.filter((value) => {
+            if (searchTitle === "") {
+              return value;
+            } else if (
+              value.brand_name.includes(searchTitle)
+            ) {
+              return value;
+            }
+          }).map((num,i)=>(
   <MenuItem value={num.brand_name} key={i} className='abc ' style={{display:'flex'}}><div style={{display:'flex',justifyContent:'space-around'}}>
       <div style={{widht:'40%'}}><em>{num.brand_name}</em></div>  <div style={{width:'40%'}}><div style={{width:'60px',height:'60px'}}><img src={`https://sayaraagroup.com/${num.brand_image}`} style={{width:'100%',height:'100%'}} /></div></div>
       </div></MenuItem>

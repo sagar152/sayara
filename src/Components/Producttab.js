@@ -16,7 +16,7 @@ import Star from '../images/Star 1.png'
 //   color: theme.palette.text.secondary,
 // }));
 
-const Producttab = ({FetchdataCarproductlist,CarproductList})=>{
+const Producttab = ({FetchdataCarproductlist,CarproductList,search})=>{
     const [productlist,setProductlist] = useState([])
     useEffect(()=>{
         FetchdataCarproductlist();
@@ -28,7 +28,15 @@ const Producttab = ({FetchdataCarproductlist,CarproductList})=>{
     })
 
     const Productlistshow = ()=>
-    productlist.map((list,index)=>(
+    productlist.filter((value) => {
+        if (search === "") {
+          return value;
+        } else if (
+          value.service_name.toLowerCase().includes(search.toLowerCase())
+        ) {
+          return value;
+        }
+      }).map((list,index)=>(
         <Grid container spacing={2} className='main1' key={index}>
         <Grid item  xs={12} md={4} xl={4}>
             <div>

@@ -27,7 +27,7 @@ export const FetchdataModallist = () => {
   return (dispatch) => {
     dispatch(ModallistRequest());
 
- axios.get("https://sayaraagroup.com/beta/WebsiteApi/brand_list")
+ axios.get("https://sayaraagroup.com/beta/WebsiteApi/model_list/?brand_id=20")
       .then((response) => {
         const ModalList = response.data;
 

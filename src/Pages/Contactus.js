@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from 'react';
-import {connect} from 'react-redux'
 import Footer from '../Footer'
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -25,7 +24,7 @@ const Contactus = ()=>{
   });
 
   useEffect(() => {
-    if (Contactus && Contactus.status == true) {
+    if (Contactus && Contactus.status === true) {
       setInputValue(Contactus);
     }
   }, []);
