@@ -271,7 +271,7 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
                   <MenuItem value="">
                     <em>Select Brand Name</em>
                   </MenuItem>
-                  <input />
+                  
                   {brandlist.map((num, i) => (
                     <MenuItem value={num.brand_name} key={i}>
                       <div
@@ -284,7 +284,7 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
                           <em>{num.brand_name}</em>
                         </div>{" "}
                         <div style={{ width: "40%" }}>
-                          <div style={{ width: "60px", height: "60px" }}>
+                          <div style={{ width: "40px", height: "auto" }}>
                             <img
                               src={`https://sayaraagroup.com/${num.brand_image}`} alt=''
                               style={{ width: "100%", height: "100%" }}
@@ -314,10 +314,10 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
                   <MenuItem value="">
                     <em>Select Model Name</em>
                   </MenuItem>
-                  <input />
+                 
                   {modallist.map((num,i)=>(
                     <MenuItem value={num.model_name} key={i}><div style={{display:'flex',justifyContent:'space-around'}}>
-                        <div style={{widht:'40%'}}><em>{num.model_name}</em></div>  <div style={{width:'40%'}}><div style={{width:'60px',height:'60px'}}><img src={`https://sayaraagroup.com/${num.model_image}`} alt='' style={{width:'100%',height:'100%'}} /></div></div>
+                        <div style={{widht:'40%'}}><em>{num.model_name}</em></div>  <div style={{width:'40%'}}><div style={{width:'40px',height:'auto'}}><img src={`https://sayaraagroup.com/${num.model_image}`} alt='' style={{width:'100%',height:'100%'}} /></div></div>
                         </div></MenuItem>
                   ))}
                   
@@ -331,11 +331,13 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
               <input
                 type="text"
                 className="homeName"
+                placeholder="Enter Your Name"
                 name='contact_name' value={inputValues.contact_name}
                 onChange={(e) => handleChange(e)}
               />
               <input
-                type="text"
+                type="email"
+                placeholder="Enter Your email"
                 className="homeName email-home"
                 name="contact_email" value={inputValues.contact_email}
                 onChange={(e) => handleChange(e)}

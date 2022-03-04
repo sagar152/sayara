@@ -247,6 +247,10 @@ border-radius: 4px;
 .email-home{
   margin-right: 8px;
 }
+.homeName::placeholder{
+  padding: 5px 12px;
+  font-size: 16px;
+}
 .partnerslider{
   width: 100%;
   height: 100%;
