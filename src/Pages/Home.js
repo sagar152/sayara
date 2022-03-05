@@ -7,6 +7,7 @@ import Custmerlist from "../Components/Custmerlist";
 import car from "../../src/images/download.png";
 import Partnerslider from "../Components/Partnerslider";
 import MobilePartnerslider from "../Components/Partnermobslider";
+import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import { NavLink } from "react-router-dom";
@@ -46,6 +47,49 @@ import {FetchdataGetquotation} from '../Service'
 //   textAlign: "center",
 //   color: theme.palette.text.secondary,
 // }));
+const useStyles = makeStyles(theme => ({
+  FORM: {
+    [theme.breakpoints.down("xs")]: {
+      minWidth:' 145px',
+      width: '145px'
+    },
+    [theme.breakpoints.between("sm", "md")]: {
+      minWidth:' 145px',
+      width: '145px'
+    },
+    "@media (min-width: 1280px)": {
+      minWidth:' 220px',
+    width: '220px'
+    },
+  // "& .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root":{
+  //   minWidth:' 220px',
+  //   width: '220px'
+  // },
+  
+  //    '& .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input':{
+  //      display: 'flex'
+  //    },
+ 
+   },
+  // button: {
+  //   color: "white",
+  //   [theme.breakpoints.down("xs")]: {
+  //     marginTop: theme.spacing(1),
+  //     backgroundColor: "purple"
+  //   },
+  //   [theme.breakpoints.between("sm", "md")]: {
+  //     marginTop: theme.spacing(3),
+  //     backgroundColor: "blue"
+  //   },
+  //   "@media (min-width: 1280px)": {
+  //     marginTop: theme.spacing(5),
+  //     backgroundColor: "red"
+  //   }
+  // }
+}));
+// const useStyles = makeStyles({
+
+// });
 function Arrow(props) {
   let className = props.type === "next" ? "nextArrow" : "prevArrow";
   className += " arrow";
@@ -67,6 +111,7 @@ function Arrow(props) {
   );
 }
 const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
+  const classes = useStyles();
   const [imageslide, setSlide] = React.useState([]);
   // const [brand, setBrand] = React.useState("");
   const [inputValues, setInputValue] = useState({
@@ -259,7 +304,7 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
             <form onSubmit={onSubmited}>
             <div className="dropdown-group">
              
-              <FormControl sx={{ m: 1, ml: 0, mt: 2 }}>
+              <FormControl sx={{ m: 1, ml: 0, mt: 2 }} className={classes.FORM}>
                 <Select
                   style={{ height: "44px", display: "flex" }}
                   name="brand_name" value={inputValues.brand_name}
@@ -301,7 +346,7 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
               </FormControl>
 
               {/* <Searchinput /> */}
-              <FormControl sx={{ m: 1, ml: 0, mt: 2 }}>
+              <FormControl sx={{ m: 1, ml: 0, mt: 2 }} className={classes.FORM}>
                 <Select
                   style={{ height: "44px",display:'flex' }}
                   value={inputValues.model_name}
