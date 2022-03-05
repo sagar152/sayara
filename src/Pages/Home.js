@@ -160,7 +160,7 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
   // };
     dispatch(FetchdataGetquotation(inputValues));
     if(inputValues){
-      toast.success("Thanks Your Quotation request received.", {
+      toast.success("Thanks Your Quotation request received", {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: false
       });

@@ -2,6 +2,11 @@ import React,{useState} from "react";
 // import { styled } from '@mui/material/styles';
 import Box from "@mui/material/Box";
 // import Paper from '@mui/material/Paper';
+import {FetchdataGetquotation} from '../Service'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Button from "@mui/material/Button";
+import { makeStyles } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
 import Grid from "@mui/material/Grid";
 import Star from "../images/star.png";
@@ -22,7 +27,73 @@ import Select from "@mui/material/Select";
 //   textAlign: 'center',
 //   color: theme.palette.text.secondary,
 // }));
-
+const useStyles = makeStyles(theme => ({
+  FORM: {
+    [theme.breakpoints.down("xs")]: {
+      minWidth:' 145px',
+      width: '145px',
+      height:"55px"
+    },
+    [theme.breakpoints.between("sm", "md")]: {
+      minWidth:' 145px',
+      width: '145px',
+      minWidth:' 145px',
+      width: '145px',
+    },
+    "@media (min-width: 1280px)": {
+      minWidth:' 220px',
+    width: '220px'
+    },
+  // "& .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root":{
+  //   minWidth:' 220px',
+  //   width: '220px'
+  // },
+  
+  //    '& .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input':{
+  //      display: 'flex'
+  //    },
+ 
+   },
+   select :{
+     "& .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input":{
+       display:'flex'
+     }
+   },
+  Formbtn: {
+    [theme.breakpoints.down("xs")]: {
+      marginTop:'20px',
+      backgroundColor:'#151c28'
+    },
+    [theme.breakpoints.between("sm", "md")]: {
+      marginTop:'20px',
+      backgroundColor:'#151c28'
+    },
+    "@media (min-width: 1280px)": {
+   marginTop:'20px',
+   backgroundColor:'#151c28'
+    },
+   },
+  //  select :{
+  //    "& .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input":{
+  //      display:'flex'
+  //    }
+  //  }
+  // button: {
+  //   color: "white",
+  //   [theme.breakpoints.down("xs")]: {
+  //     marginTop: theme.spacing(1),
+  //     backgroundColor: "purple"
+  //   },
+  //   [theme.breakpoints.between("sm", "md")]: {
+  //     marginTop: theme.spacing(3),
+  //     backgroundColor: "blue"
+  //   },
+  //   "@media (min-width: 1280px)": {
+  //     marginTop: theme.spacing(5),
+  //     backgroundColor: "red"
+  //   }
+  // }
+}));
 const SecondHead = () => {
   const [inputValues, setInputValue] = useState({
     brand_name: "",
@@ -90,6 +161,36 @@ const SecondHead = () => {
    // const handleChange = (event) => {
    //     setAge(event.target.value);
    //   };
+   const classes = useStyles();
+   const onSubmited = e => {
+    e.preventDefault();
+
+  // const newUser = {
+  // 	contact_name: contact_name,
+  // 	contactEmail: contactEmail,
+  // 	brand_name: brand_name,
+  // 	contactPhone: contactPhone,
+  //   model_name:model_name
+  // };
+    dispatch(FetchdataGetquotation(inputValues));
+    if(inputValues){
+      toast.success("Thanks Your Quotation request received", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: false
+      });
+    
+    console.log(inputValues,'inputValues');
+    // const notify =()=>{ 
+     
+    //   }
+    setInputValue({
+      contact_name: "",
+      contact_email: "",
+      brand_name: "",
+      model_name: "",
+    });
+  };
+  };
   return (
     <>
       <Box sx={{ flexGrow: 1 }} style={{background:"red"}}>
@@ -128,18 +229,20 @@ const SecondHead = () => {
             <div>
               <h4 className="left-heading">Get your free quotation...</h4>
             </div>
+            <form onSubmit={onSubmited}>
             <Grid container>
-              <Grid item xs={12}>
+              <Grid item xs={6} md={12} xl={12}>
                 <div>
-                <FormControl sx={{ m: 1, ml: 0, mt: 2, minWidth: 220 }}>
+                <FormControl sx={{ m: 1, ml: 0, mt: 2 }} className={classes.FORM}>
                 <Select
                   style={{ height: "44px",display: "flex" }}
                   name="brand_name" 
                   value={inputValues.brand_name}
                   onChange={(e) => handleChange(e)}
                   displayEmpty
+                  required
                   inputProps={{ "aria-label": "Without label" }}
-                 
+                  className={classes.select}
                 >
                   <MenuItem value="">
                     <em>Select Brand Name</em>
@@ -174,17 +277,18 @@ const SecondHead = () => {
               </FormControl>
                 </div>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={6} md={12} xl={12}>
                 <div>
-                <FormControl sx={{ m: 1, ml: 0, mt: 2, minWidth: 220 }}>
+                <FormControl sx={{ m: 1, ml: 0, mt: 2 }} className={classes.FORM}>
                 <Select
                   style={{ height: "44px",display:'flex' }}
                   value={inputValues.model_name}
                   onChange={(e) => handleChange(e)}
                   displayEmpty
+                  required
                   name="model_name" 
                   inputProps={{ "aria-label": "Without label" }}
-            
+                  className={classes.select}
                 >
                   <MenuItem value="">
                     <em>Select Modal Name</em>
@@ -203,8 +307,37 @@ const SecondHead = () => {
                 </Select>
               </FormControl>
                 </div>
+              
+            {/* <div style={{ textAlign: "center", marginTop: "20px" }}>
+           
+            </div> */}
+              </Grid>
+              <Grid xs={12}>
+              <div className="dropdowns">
+              <input
+                type="text"
+                className="homeNames"
+                placeholder="Enter Name"
+                name='contact_name' value={inputValues.contact_name}
+                onChange={(e) => handleChange(e)}
+                required
+              />
+              <input
+                type="email"
+                placeholder="Enter email"
+                className="homeNames  nameoffering"
+                name="contact_email" value={inputValues.contact_email}
+                onChange={(e) => handleChange(e)}
+                required
+              />
+
+<Button variant="contained" type='submit' className={classes.Formbtn}>
+                Get Free Quotation
+              </Button>
+            </div>
               </Grid>
             </Grid>
+            </form>
           </Grid>
           <Grid item mt={0} xs={12} md={9} xl={9}>
             <Grid container spacing={2}>
