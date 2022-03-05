@@ -259,7 +259,7 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
             <form onSubmit={onSubmited}>
             <div className="dropdown-group">
              
-              <FormControl sx={{ m: 1, ml: 0, mt: 2, minWidth: 220 }}>
+              <FormControl sx={{ m: 1, ml: 0, mt: 2 }}>
                 <Select
                   style={{ height: "44px", display: "flex" }}
                   name="brand_name" value={inputValues.brand_name}
@@ -274,12 +274,12 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
                   
                   {brandlist.map((num, i) => (
                     <MenuItem value={num.brand_name} key={i}>
-                      <div
+                      {/* <div
                         style={{
                           display: "flex",
                           justifyContent: "space-around",
                         }}
-                      >
+                      > */}
                         <div style={{ widht: "40%" }}>
                           <em>{num.brand_name}</em>
                         </div>{" "}
@@ -291,7 +291,7 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
                             />
                           </div>
                         </div>
-                      </div>
+                      {/* </div> */}
                     </MenuItem>
                   ))}
 
@@ -301,7 +301,7 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
               </FormControl>
 
               {/* <Searchinput /> */}
-              <FormControl sx={{ m: 1, ml: 0, mt: 2, minWidth: 220 }}>
+              <FormControl sx={{ m: 1, ml: 0, mt: 2 }}>
                 <Select
                   style={{ height: "44px",display:'flex' }}
                   value={inputValues.model_name}
@@ -316,9 +316,11 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
                   </MenuItem>
                  
                   {modallist.map((num,i)=>(
-                    <MenuItem value={num.model_name} key={i}><div style={{display:'flex',justifyContent:'space-around'}}>
+                    <MenuItem value={num.model_name} key={i}>
+                      {/* <div style={{display:'flex',justifyContent:'space-around'}}> */}
                         <div style={{widht:'40%'}}><em>{num.model_name}</em></div>  <div style={{width:'40%'}}><div style={{width:'40px',height:'auto'}}><img src={`https://sayaraagroup.com/${num.model_image}`} alt='' style={{width:'100%',height:'100%'}} /></div></div>
-                        </div></MenuItem>
+                        {/* </div> */}
+                        </MenuItem>
                   ))}
                   
                   {/* <MenuItem value={20}>Twenty</MenuItem>
@@ -331,16 +333,18 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
               <input
                 type="text"
                 className="homeName"
-                placeholder="Enter Your Name"
+                placeholder="Enter Name"
                 name='contact_name' value={inputValues.contact_name}
                 onChange={(e) => handleChange(e)}
+                required
               />
               <input
                 type="email"
-                placeholder="Enter Your email"
+                placeholder="Enter email"
                 className="homeName email-home"
                 name="contact_email" value={inputValues.contact_email}
                 onChange={(e) => handleChange(e)}
+                required
               />
             </div>
 

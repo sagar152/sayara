@@ -1409,6 +1409,14 @@ color: #FFFFFF !important;
 	}
 	
 }
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root{
+display: flex !important;
+justify-content: space-between !important;
+}
+.css-1k5i4hk-MuiFormControl-root{
+  min-width: 220px !important;
+  width: 220px !important;
+}
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   box-sizing: border-box;
@@ -1548,6 +1556,35 @@ border-radius: 16px;
   .email-home{
     margin-right: 8px;
     margin-top: 10px;
+  }
+  .main .flexdiv{
+    padding: 12px 3px;
+  }
+//   .main .flexdiv{
+// width: 151px;
+//   }
+.css-1k5i4hk-MuiFormControl-root{
+  min-width: 145px !important;
+  width: 145px !important;
+}
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{
+  display: flex !important;
+}
+.homeName{
+  height: 50px;
+  width: 145px;
+  outline: none;
+  font-size: 8px;
+  font-family: 'Poppins';
+  padding: 5px 5px;
+  background: #FFFFFF;
+border: 1px solid rgba(88, 85, 98, 0.2);
+box-sizing: border-box;
+border-radius: 4px;
+margin-top: 0px;
+}
+  .banner-container{
+    padding: 0px;
   }
   .custmer-card-main{
     display: flex;
@@ -2078,7 +2115,8 @@ border-radius: 16px;
     padding:12px 16px 16px 0;
   }
   .dropdown-group{
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
     
   }
 
