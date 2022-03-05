@@ -247,7 +247,7 @@ const SecondHead = () => {
                   displayEmpty
                   required
                   inputProps={{ "aria-label": "Without label" }}
-                  className={classes.select}
+                  className={`${classes.select} ${classes.selectinput}`}
                 >
                   <MenuItem value="">
                     <em>Select Brand Name</em>
@@ -293,7 +293,7 @@ const SecondHead = () => {
                   required
                   name="model_name" 
                   inputProps={{ "aria-label": "Without label" }}
-                  className={classes.select}
+                  className={`${classes.select} ${classes.selectinput}`}
                 >
                   <MenuItem value="">
                     <em>Select Modal Name</em>

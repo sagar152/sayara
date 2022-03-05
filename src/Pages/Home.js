@@ -348,14 +348,14 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
                   displayEmpty
                   required
                   inputProps={{ "aria-label": "Without label" }}
-                 className={classes.select}
+                 className={`${classes.select} ${classes.selectinput}`}
                 >
                   <MenuItem value="">
                     <em>Select Brand Name</em>
                   </MenuItem>
                   
                   {brandlist.map((num, i) => (
-                    <MenuItem value={num.brand_name} key={i} className={classes.selectinput}>
+                    <MenuItem value={num.brand_name} key={i} >
                       {/* <div
                         style={{
                           display: "flex",
@@ -392,7 +392,7 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
                   required
                   name="model_name"
                   inputProps={{ "aria-label": "Without label" }}
-                  className={classes.select}
+                  className={`${classes.select} ${classes.selectinput}`}
                
                 >
                   <MenuItem value="">
@@ -400,7 +400,7 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
                   </MenuItem>
                  
                   {modallist.map((num,i)=>(
-                    <MenuItem value={num.model_name} key={i} className={classes.selectinput}>
+                    <MenuItem value={num.model_name} key={i} >
                       {/* <div style={{display:'flex',justifyContent:'space-around'}}> */}
                         <div style={{widht:'40%'}}><em>{num.model_name}</em></div>  <div style={{width:'20%'}}><div style={{width:'40px',height:'auto'}}><img src={`https://sayaraagroup.com/${num.model_image}`} alt='' style={{width:'100%',height:'100%'}} /></div></div>
                         {/* </div> */}
