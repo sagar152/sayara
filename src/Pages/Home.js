@@ -318,10 +318,7 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
     //     setAge(event.target.value);
     //   };
 
-    const [show, setShow] = useState(true);
-    const showhandle = ()=>{
-      setShow(false)
-    }
+    
   return (
     <div style={{ maxWidth: "100%" }}>
       <Header />
@@ -349,11 +346,11 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
                  className={classes.select}
                 >
                   <MenuItem value="">
-                    <em>Brand Name</em>
+                    <em>Select Brand Name</em>
                   </MenuItem>
                   
                   {brandlist.map((num, i) => (
-                    <MenuItem value={num.brand_name} key={i} onClick={showhandle}>
+                    <MenuItem value={num.brand_name} key={i}>
                       {/* <div
                         style={{
                           display: "flex",
@@ -365,10 +362,10 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
                         </div>{" "}
                         <div style={{ width: "20%" }}>
                           <div style={{ width: "40px", height: "auto" }}>
-                          {show ? <img
+                            <img
                               src={`https://sayaraagroup.com/${num.brand_image}`} alt=''
                               style={{ width: "100%", height: "100%" }}
-                            />:''}
+                            />
                           </div>
                         </div>
                       {/* </div> */}
@@ -394,13 +391,13 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
                
                 >
                   <MenuItem value="">
-                    <em>Model Name</em>
+                    <em>Select Model Name</em>
                   </MenuItem>
                  
                   {modallist.map((num,i)=>(
-                    <MenuItem value={num.model_name} key={i} onClick={showhandle}>
+                    <MenuItem value={num.model_name} key={i}>
                       {/* <div style={{display:'flex',justifyContent:'space-around'}}> */}
-                        <div style={{widht:'40%'}}><em>{num.model_name}</em></div>  <div style={{width:'20%'}}><div style={{width:'40px',height:'auto'}}>{show ?<img src={`https://sayaraagroup.com/${num.model_image}`} alt='' style={{width:'100%',height:'100%'}} />:''}</div></div>
+                        <div style={{widht:'40%'}}><em>{num.model_name}</em></div>  <div style={{width:'20%'}}><div style={{width:'40px',height:'auto'}}><img src={`https://sayaraagroup.com/${num.model_image}`} alt='' style={{width:'100%',height:'100%'}} /></div></div>
                         {/* </div> */}
                         </MenuItem>
                   ))}
