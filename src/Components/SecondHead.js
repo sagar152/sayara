@@ -28,6 +28,11 @@ import Select from "@mui/material/Select";
 //   color: theme.palette.text.secondary,
 // }));
 const useStyles = makeStyles(theme => ({
+  selectinput:{
+    "& .css-1km1ehz":{
+      justifyContent:'space-between'
+    }
+  },
   FORM: {
     [theme.breakpoints.down("xs")]: {
       minWidth:' 145px',
@@ -249,7 +254,7 @@ const SecondHead = () => {
                   </MenuItem>
                  
                   {brandlist.map((num, i) => (
-                    <MenuItem value={num.brand_name} key={i}>
+                    <MenuItem value={num.brand_name} key={i} className={classes.selectinput}>
                       {/* <div
                         style={{
                           display: "flex",
@@ -295,7 +300,7 @@ const SecondHead = () => {
                   </MenuItem>
                 
                   {modallist.map((num,i)=>(
-                    <MenuItem value={num.model_name} key={i}>
+                    <MenuItem value={num.model_name} key={i} className={classes.selectinput}>
                       {/* <div style={{display:'flex',justifyContent:'space-around'}}> */}
                         <div style={{widht:'40%'}}><em>{num.model_name}</em></div>  <div style={{width:'20%'}}><div style={{width:'40px',height:'auto'}}><img src={`https://sayaraagroup.com/${num.model_image}`} alt='' style={{width:'100%',height:'100%'}} /></div></div>
                         {/* </div> */}
