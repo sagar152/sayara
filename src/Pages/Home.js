@@ -5,12 +5,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { Fetchdata } from "../Service";
 import Custmerlist from "../Components/Custmerlist";
 import car from "../../src/images/download.png";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Partnerslider from "../Components/Partnerslider";
 import MobilePartnerslider from "../Components/Partnermobslider";
 import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import { NavLink } from "react-router-dom";
+import { NavLink,useHistory  } from "react-router-dom";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
 import CustmerMobilelist from "../Components/Custmermobile";
@@ -51,11 +53,14 @@ const useStyles = makeStyles(theme => ({
   FORM: {
     [theme.breakpoints.down("xs")]: {
       minWidth:' 145px',
-      width: '145px'
+      width: '145px',
+      height:"55px"
     },
     [theme.breakpoints.between("sm", "md")]: {
       minWidth:' 145px',
-      width: '145px'
+      width: '145px',
+      minWidth:' 145px',
+      width: '145px',
     },
     "@media (min-width: 1280px)": {
       minWidth:' 220px',
@@ -71,6 +76,11 @@ const useStyles = makeStyles(theme => ({
   //    },
  
    },
+   select :{
+     "& .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input":{
+       display:'flex'
+     }
+   }
   // button: {
   //   color: "white",
   //   [theme.breakpoints.down("xs")]: {
@@ -110,7 +120,9 @@ function Arrow(props) {
     </>
   );
 }
+toast.configure();
 const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
+ 
   const classes = useStyles();
   const [imageslide, setSlide] = React.useState([]);
   // const [brand, setBrand] = React.useState("");
@@ -120,6 +132,7 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
     brand_name: "",
     model_name: "",
   });
+  const history = useHistory();
   const [brandlist, setBrandlist] = React.useState([]);
   const brandList = useSelector((state) => state);
   console.log("brandList123", brandList);
@@ -146,7 +159,23 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
   //   model_name:model_name
   // };
     dispatch(FetchdataGetquotation(inputValues));
+    if(inputValues){
+      toast.success("Thanks Your Quotation request received.", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: false
+      });
+    
     console.log(inputValues,'inputValues');
+    // const notify =()=>{ 
+     
+    //   }
+    setInputValue({
+      contact_name: "",
+      contact_email: "",
+      brand_name: "",
+      model_name: "",
+    });
+  };
   };
  
   function handleChange(event) {
@@ -310,8 +339,9 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
                   name="brand_name" value={inputValues.brand_name}
                   onChange={(e) => handleChange(e)}
                   displayEmpty
+                  required
                   inputProps={{ "aria-label": "Without label" }}
-                 
+                 className={classes.select}
                 >
                   <MenuItem value="">
                     <em>Select Brand Name</em>
@@ -328,7 +358,7 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
                         <div style={{ widht: "40%" }}>
                           <em>{num.brand_name}</em>
                         </div>{" "}
-                        <div style={{ width: "40%" }}>
+                        <div style={{ width: "20%" }}>
                           <div style={{ width: "40px", height: "auto" }}>
                             <img
                               src={`https://sayaraagroup.com/${num.brand_image}`} alt=''
@@ -352,8 +382,10 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
                   value={inputValues.model_name}
                   onChange={(e) => handleChange(e)}
                   displayEmpty
+                  required
                   name="model_name"
                   inputProps={{ "aria-label": "Without label" }}
+                  className={classes.select}
                
                 >
                   <MenuItem value="">
@@ -363,7 +395,7 @@ const Home = ({ Fetchdata, CustomerRevielist, ...ImageSlider }) => {
                   {modallist.map((num,i)=>(
                     <MenuItem value={num.model_name} key={i}>
                       {/* <div style={{display:'flex',justifyContent:'space-around'}}> */}
-                        <div style={{widht:'40%'}}><em>{num.model_name}</em></div>  <div style={{width:'40%'}}><div style={{width:'40px',height:'auto'}}><img src={`https://sayaraagroup.com/${num.model_image}`} alt='' style={{width:'100%',height:'100%'}} /></div></div>
+                        <div style={{widht:'40%'}}><em>{num.model_name}</em></div>  <div style={{width:'20%'}}><div style={{width:'40px',height:'auto'}}><img src={`https://sayaraagroup.com/${num.model_image}`} alt='' style={{width:'100%',height:'100%'}} /></div></div>
                         {/* </div> */}
                         </MenuItem>
                   ))}
