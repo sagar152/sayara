@@ -191,6 +191,10 @@ const SecondHead = () => {
     });
   };
   };
+  const [show, setShow] = useState(true);
+  const showhandle = ()=>{
+    setShow(false)
+  }
   return (
     <>
       <Box sx={{ flexGrow: 1 }} style={{background:"red"}}>
@@ -245,11 +249,11 @@ const SecondHead = () => {
                   className={classes.select}
                 >
                   <MenuItem value="">
-                    <em>Select Brand Name</em>
+                    <em>Brand Name</em>
                   </MenuItem>
                  
                   {brandlist.map((num, i) => (
-                    <MenuItem value={num.brand_name} key={i}>
+                    <MenuItem value={num.brand_name} key={i} onClick={showhandle}>
                       {/* <div
                         style={{
                           display: "flex",
@@ -259,12 +263,12 @@ const SecondHead = () => {
                         <div style={{ widht: "40%" }}>
                           <em>{num.brand_name}</em>
                         </div>{" "}
-                        <div style={{ width: "20%" }}>
+                      <div style={{ width: "20%" }}>
                           <div style={{ width: "40px", height: "auto" }}>
-                            <img
+                            {show ? <img
                               src={`https://sayaraagroup.com/${num.brand_image}`}
                               style={{ width: "100%", height: "100%" }} alt=''
-                            />
+                            />:''}
                           </div>
                         </div>
                       {/* </div> */}
@@ -291,13 +295,13 @@ const SecondHead = () => {
                   className={classes.select}
                 >
                   <MenuItem value="">
-                    <em>Select Modal Name</em>
+                    <em> Modal Name</em>
                   </MenuItem>
                 
                   {modallist.map((num,i)=>(
-                    <MenuItem value={num.model_name} key={i}>
+                    <MenuItem value={num.model_name} key={i} onClick={showhandle}>
                       {/* <div style={{display:'flex',justifyContent:'space-around'}}> */}
-                        <div style={{widht:'40%'}}><em>{num.model_name}</em></div>  <div style={{width:'20%'}}><div style={{width:'40px',height:'auto'}}><img src={`https://sayaraagroup.com/${num.model_image}`} alt='' style={{width:'100%',height:'100%'}} /></div></div>
+                        <div style={{widht:'40%'}}><em>{num.model_name}</em></div>  <div style={{width:'20%'}}><div style={{width:'40px',height:'auto'}}> {show ?<img src={`https://sayaraagroup.com/${num.model_image}`} alt='' style={{width:'100%',height:'100%'}} />:''}</div></div>
                         {/* </div> */}
                         </MenuItem>
                   ))}
